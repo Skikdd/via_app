@@ -7,6 +7,7 @@ import {
   setLayer,
 } from 'src/store/keymapSlice';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const Container = styled.div`
   position: absolute;
@@ -45,6 +46,7 @@ export const LayerControl = () => {
   const dispatch = useDispatch();
   const numberOfLayers = useAppSelector(getNumberOfLayers);
   const selectedLayerIndex = useAppSelector(getSelectedLayerIndex);
+  const {t} = useTranslation();
 
   const Layers = useMemo(
     () =>
@@ -65,7 +67,7 @@ export const LayerControl = () => {
 
   return (
     <Container>
-      <Label>Layer</Label>
+      <Label>{t('layer')}</Label>
       {Layers}
     </Container>
   );

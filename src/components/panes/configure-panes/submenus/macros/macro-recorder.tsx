@@ -31,6 +31,7 @@ import {
   setMacroEditorSettings,
 } from 'src/store/settingsSlice';
 import {useDispatch} from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 declare global {
   interface Navigator {
@@ -327,7 +328,7 @@ export const MacroRecorder: React.FC<{
       document.exitFullscreen();
     }
   }, [recordingToggleChange]);
-
+  const {t} = useTranslation();
   return (
     <>
       <MacroSequenceContainer
@@ -337,7 +338,7 @@ export const MacroRecorder: React.FC<{
         {sequence.length ? (
           sequence
         ) : (
-          <NoMacroRecorded>No macro recorded yet...</NoMacroRecorded>
+          <NoMacroRecorded>{t('noMacroRecordedYet')}</NoMacroRecorded>
         )}
       </MacroSequenceContainer>
       <div

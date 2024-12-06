@@ -1,14 +1,14 @@
-import {FC, useState} from 'react';
+import { FC, useState } from 'react';
 import styled from 'styled-components';
 import stringify from 'json-stringify-pretty-compact';
-import {ErrorMessage, SuccessMessage} from '../../styled';
-import {AccentUploadButton} from '../../inputs/accent-upload-button';
-import {AccentButton} from '../../inputs/accent-button';
-import {getByteForCode, getCodeForByte} from '../../../utils/key';
+import { ErrorMessage, SuccessMessage } from '../../styled';
+import { AccentUploadButton } from '../../inputs/accent-upload-button';
+import { AccentButton } from '../../inputs/accent-button';
+import { getByteForCode, getCodeForByte } from '../../../utils/key';
 import deprecatedKeycodes from '../../../utils/key-to-byte/deprecated-keycodes';
-import {title, component} from '../../icons/save';
-import {CenterPane} from '../pane';
-import {Detail, Label, ControlRow, SpanOverflowCell} from '../grid';
+import { title, component } from '../../icons/save';
+import { CenterPane } from '../pane';
+import { Detail, Label, ControlRow, SpanOverflowCell } from '../grid';
 import {
   getBasicKeyToByte,
   getSelectedDefinition,
@@ -17,12 +17,13 @@ import {
   getSelectedRawLayers,
   saveRawKeymapToDevice,
 } from 'src/store/keymapSlice';
-import {useAppDispatch, useAppSelector} from 'src/store/hooks';
+import { useAppDispatch, useAppSelector } from 'src/store/hooks';
 import {
   getSelectedConnectedDevice,
   getSelectedKeyboardAPI,
 } from 'src/store/devicesSlice';
-import {getExpressions, saveMacros} from 'src/store/macrosSlice';
+import { getExpressions, saveMacros } from 'src/store/macrosSlice';
+import { useTranslation } from 'react-i18next';
 
 type ViaSaveFile = {
   name: string;
@@ -55,7 +56,7 @@ export const Pane: FC = () => {
   const rawLayers = useAppSelector(getSelectedRawLayers);
   const macros = useAppSelector((state) => state.macros);
   const expressions = useAppSelector(getExpressions);
-  const {basicKeyToByte, byteToKey} = useAppSelector(getBasicKeyToByte);
+  const { basicKeyToByte, byteToKey } = useAppSelector(getBasicKeyToByte);
 
   // TODO: improve typing so we can remove this
   if (!selectedDefinition || !selectedDevice || !api) {
@@ -66,8 +67,8 @@ export const Pane: FC = () => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const getEncoderValues = async () => {
-    const {layouts} = selectedDefinition;
-    const {keys, optionKeys} = layouts;
+    const { layouts } = selectedDefinition;
+    const { keys, optionKeys } = layouts;
     const encoders = [
       ...keys,
       ...Object.values(optionKeys)
@@ -109,7 +110,7 @@ export const Pane: FC = () => {
   };
 
   const saveLayout = async () => {
-    const {name, vendorProductId} = selectedDefinition;
+    const { name, vendorProductId } = selectedDefinition;
     const suggestedName =
       name.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase() + '.layout.json';
     try {
@@ -122,7 +123,7 @@ export const Pane: FC = () => {
         vendorProductId,
         macros: [...expressions],
         layers: rawLayers.map(
-          (layer: {keymap: number[]}) =>
+          (layer: { keymap: number[] }) =>
             layer.keymap.map(
               (keyByte: number) =>
                 getCodeForByte(keyByte, basicKeyToByte, byteToKey) || '',
@@ -132,7 +133,7 @@ export const Pane: FC = () => {
       };
 
       const content = stringify(saveFile);
-      const blob = new Blob([content], {type: 'application/json'});
+      const blob = new Blob([content], { type: 'application/json' });
       const writable = await handle.createWritable();
       await writable.write(blob);
       await writable.close();
@@ -240,22 +241,23 @@ export const Pane: FC = () => {
     };
 
     reader.readAsBinaryString(file);
-  };
 
+  };
+  const { t } = useTranslation();
   return (
     <SpanOverflowCell>
       <SaveLoadPane>
         <Container>
           <ControlRow>
-            <Label>Save Current Layout</Label>
+            <Label>{t('saveCurrentLayout')}</Label>
             <Detail>
-              <AccentButton onClick={saveLayout}>Save</AccentButton>
+              <AccentButton onClick={saveLayout}>{t('save')}</AccentButton>
             </Detail>
           </ControlRow>
           <ControlRow>
-            <Label>Load Saved Layout</Label>
+            <Label>{t('loadSavedLayout')}</Label>
             <Detail>
-              <AccentUploadButton onLoad={loadLayout}>Load</AccentUploadButton>
+              <AccentUploadButton onLoad={loadLayout}>{t('load')}</AccentUploadButton>
             </Detail>
           </ControlRow>
           {errorMessage ? <ErrorMessage>{errorMessage}</ErrorMessage> : null}

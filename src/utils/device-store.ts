@@ -8,6 +8,7 @@ import {
 } from '@the-via/reader';
 import {TestKeyboardSoundsMode} from 'src/components/void/test-keyboard-sounds';
 import {THEMES} from 'src/utils/themes';
+import {LANGS} from 'src/utils/language';
 import {Store} from '../shims/via-app-store';
 import type {
   DefinitionIndex,
@@ -29,12 +30,13 @@ const defaultStoreData = {
   },
   definitions: {},
   settings: {
-    showDesignTab: false,
+    showDesignTab: true,
     disableFastRemap: false,
-    renderMode: '2D' as const,
+    renderMode: '3D' as const,
     themeMode: 'dark' as const,
     designDefinitionVersion: 'v3' as const,
-    themeName: 'OLIVIA_DARK',
+    themeName: 'CARBON BLACK A',
+    langName: navigator.language,
     macroEditor: {
       smartOptimizeEnabled: true,
       recordDelaysEnabled: false,
@@ -164,12 +166,19 @@ export const getThemeModeFromStore = (): 'dark' | 'light' => {
   return deviceStore.get('settings')?.themeMode;
 };
 
+export const getLanguageFromStore = (): string => 
+  LANGS[getLanguageNameFormStroe() as keyof typeof LANGS] || 'en';
+
 export const getRenderModeFromStore = (): '3D' | '2D' => {
   return deviceStore.get('settings')?.renderMode;
 };
 
 export const getThemeNameFromStore = () => {
   return deviceStore.get('settings')?.themeName;
+};
+
+export const getLanguageNameFormStroe = () => {
+  return deviceStore.get('settings')?.langName;
 };
 
 export const getSettings = (): Settings => deviceStore.get('settings');

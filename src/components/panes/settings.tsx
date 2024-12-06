@@ -25,16 +25,20 @@ import {
   updateThemeName,
   getRenderMode,
   updateRenderMode,
+  getLangName,
+  updateLangName,
 } from 'src/store/settingsSlice';
-import {AccentSelect} from '../inputs/accent-select';
-import {THEMES} from 'src/utils/themes';
-import {MenuContainer} from './configure-panes/custom/menu-generator';
-import {MenuTooltip} from '../inputs/tooltip';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faToolbox} from '@fortawesome/free-solid-svg-icons';
-import {getSelectedConnectedDevice} from 'src/store/devicesSlice';
-import {ErrorMessage} from '../styled';
-import {webGLIsAvailable} from 'src/utils/test-webgl';
+import { AccentSelect } from '../inputs/accent-select';
+import { THEMES } from 'src/utils/themes';
+import { MenuContainer } from './configure-panes/custom/menu-generator';
+import { MenuTooltip } from '../inputs/tooltip';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faToolbox } from '@fortawesome/free-solid-svg-icons';
+import { getSelectedConnectedDevice } from 'src/store/devicesSlice';
+import { ErrorMessage } from '../styled';
+import { webGLIsAvailable } from 'src/utils/test-webgl';
+import { LANGS } from 'src/utils/language';
+import { useTranslation } from 'react-i18next';
 
 const Container = styled.div`
   display: flex;
@@ -59,6 +63,7 @@ export const Settings = () => {
   const disableFastRemap = useAppSelector(getDisableFastRemap);
   const themeMode = useAppSelector(getThemeMode);
   const themeName = useAppSelector(getThemeName);
+  const langName = useAppSelector(getLangName)
   const renderMode = useAppSelector(getRenderMode);
   const selectedDevice = useAppSelector(getSelectedConnectedDevice);
 
@@ -72,6 +77,14 @@ export const Settings = () => {
     (opt) => opt.value === themeName,
   );
 
+  const langSelectOptions = Object.keys(LANGS).map((k) => ({
+    label: LANGS[k],
+    value: k,
+  }));
+  const langDefaultValue = langSelectOptions.find(
+    (opt) => opt.value === langName,
+  );
+
   const renderModeOptions = webGLIsAvailable
     ? [
         {
@@ -83,27 +96,29 @@ export const Settings = () => {
           value: '3D',
         },
       ]
-    : [{label: '2D', value: '2D'}];
+    : [{ label: '2D', value: '2D' }];
   const renderModeDefaultValue = renderModeOptions.find(
     (opt) => opt.value === renderMode,
   );
+
+  const {t} = useTranslation();
   return (
     <Pane>
-      <Grid style={{overflow: 'hidden'}}>
-        <MenuCell style={{pointerEvents: 'all', borderTop: 'none'}}>
+      <Grid style={{ overflow: 'hidden' }}>
+        <MenuCell style={{ pointerEvents: 'all', borderTop: 'none' }}>
           <MenuContainer>
             <Row $selected={true}>
               <IconContainer>
                 <FontAwesomeIcon icon={faToolbox} />
-                <MenuTooltip>General</MenuTooltip>
+                <MenuTooltip>{t('settingGeneral')}</MenuTooltip>
               </IconContainer>
             </Row>
           </MenuContainer>
         </MenuCell>
-        <SpanOverflowCell style={{flex: 1, borderWidth: 0}}>
+        <SpanOverflowCell style={{ flex: 1, borderWidth: 0 }}>
           <Container>
             <ControlRow>
-              <Label>Show Design tab</Label>
+              <Label>{t('showDesignTab')}</Label>
               <Detail>
                 <AccentSlider
                   onChange={() => dispatch(toggleCreatorMode())}
@@ -112,7 +127,7 @@ export const Settings = () => {
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Fast Key Mapping</Label>
+              <Label>{t('fastKeyMapping')}</Label>
               <Detail>
                 <AccentSlider
                   onChange={() => dispatch(toggleFastRemap())}
@@ -121,7 +136,7 @@ export const Settings = () => {
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Light Mode</Label>
+              <Label>{t('lightMode')}</Label>
               <Detail>
                 <AccentSlider
                   onChange={() => dispatch(toggleThemeMode())}
@@ -130,7 +145,7 @@ export const Settings = () => {
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Keycap Theme</Label>
+              <Label>{t('keycapTheme')}</Label>
               <Detail>
                 <AccentSelect
                   defaultValue={themeDefaultValue}
@@ -142,7 +157,7 @@ export const Settings = () => {
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Render Mode</Label>
+              <Label>{t('renderMode')}</Label>
               <Detail>
                 <AccentSelect
                   defaultValue={renderModeDefaultValue}
@@ -154,7 +169,19 @@ export const Settings = () => {
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Show Diagnostic Information</Label>
+              <Label>{t('language')}</Label>
+              <Detail>
+                <AccentSelect
+                  defaultValue={langDefaultValue}
+                  options={langSelectOptions}
+                  onChange={(option: any) => {
+                    option && dispatch(updateLangName(option.value));
+                  }}
+                />
+              </Detail>
+            </ControlRow>
+            <ControlRow>
+              <Label>{t('showDiagnosticInfomation')}</Label>
 
               <Detail>
                 {selectedDevice ? (
@@ -164,7 +191,7 @@ export const Settings = () => {
                   />
                 ) : (
                   <SettingsErrorMessage>
-                    Requires connected device
+                    {t('requiresConnectedDevice')}
                   </SettingsErrorMessage>
                 )}
               </Detail>
@@ -173,7 +200,7 @@ export const Settings = () => {
           {showDiagnostics && selectedDevice ? (
             <DiagnosticContainer>
               <ControlRow>
-                <Label>VIA Firmware Protocol</Label>
+                <Label>{t('VIAFirmwareProtocol')}</Label>
                 <Detail>{selectedDevice.protocol}</Detail>
               </ControlRow>
             </DiagnosticContainer>

@@ -10,6 +10,7 @@ import type {LightingData} from '../../../../types/types';
 import {ArrayColorPicker} from '../../../inputs/color-picker';
 import {ConnectedColorPalettePicker} from 'src/components/inputs/color-palette-picker';
 import {shiftFrom16Bit, shiftTo16Bit} from 'src/utils/keyboard-api';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   lightingData: LightingData;
@@ -28,9 +29,12 @@ type ControlMeta = [
 type AdvancedControlProps = Props & {meta: ControlMeta};
 
 export const VIACustomItem = React.memo(
-  (props: VIACustomControlProps & {_id: string}) => (
+  (props: VIACustomControlProps & {_id: string}) => {
+    const { t, i18n } = useTranslation();
+
+    return (
     <ControlRow id={props._id}>
-      <Label>{props.label}</Label>
+        <Label>{i18n.exists(`ilabel${props.label}`) ? t(`ilabel${props.label}`) : props.label}</Label>
       <Detail>
         {'type' in props ? (
           <VIACustomControl
@@ -42,7 +46,8 @@ export const VIACustomItem = React.memo(
         )}
       </Detail>
     </ControlRow>
-  ),
+    );
+  }
 );
 
 type ControlGetSet = {

@@ -16,6 +16,7 @@ import {
 } from 'src/store/devicesSlice';
 import {selectConnectedDeviceByPath} from 'src/store/devicesThunks';
 import {isElectron} from 'src/utils/running-context';
+import { useTranslation } from 'react-i18next';
 
 const Container = styled.div`
   position: absolute;
@@ -121,6 +122,7 @@ const KeyboardSelectors: React.FC<{
       props.selectKeyboard((device as any).__path);
     }
   };
+  const {t} = useTranslation();
   return (
     <>
       {props.show && <ClickCover onClick={props.onClickOut} />}
@@ -138,7 +140,7 @@ const KeyboardSelectors: React.FC<{
         })}
         {!isElectron && (
           <KeyboardButton onClick={requestAndChangeDevice}>
-            Authorize New
+            {t('authorizeNew')}
             <FontAwesomeIcon icon={faPlus} style={{marginLeft: '10px'}} />
           </KeyboardButton>
         )}

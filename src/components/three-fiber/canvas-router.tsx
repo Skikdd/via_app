@@ -39,6 +39,7 @@ import {reloadConnectedDevices} from 'src/store/devicesThunks';
 import {faSpinner, faUnlock} from '@fortawesome/free-solid-svg-icons';
 import {LoaderCubey} from './loader-cubey';
 import {OVERRIDE_HID_CHECK} from 'src/utils/override';
+import { useTranslation } from 'react-i18next';
 useGLTF.preload(cubeySrc);
 useGLTF.preload(glbSrc);
 
@@ -102,6 +103,7 @@ export const CanvasRouter = () => {
   const configureKeyboardIsSelectable = useAppSelector(
     getConfigureKeyboardIsSelectable,
   );
+  const {t} = useTranslation();
 
   const hideTerrainBG = showLoader;
   useEffect(() => {
@@ -159,7 +161,7 @@ export const CanvasRouter = () => {
                   onClick={() => dispatch(reloadConnectedDevices())}
                   style={{width: 'max-content'}}
                 >
-                  Authorize device
+                  {t('authorizeDevice')}
                   <FontAwesomeIcon
                     style={{marginLeft: '10px'}}
                     icon={faUnlock}

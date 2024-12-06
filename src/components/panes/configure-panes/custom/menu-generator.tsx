@@ -25,6 +25,7 @@ import {
   getSelectedCustomMenuData,
   updateCustomMenuValue,
 } from 'src/store/menusSlice';
+import { useTranslation } from 'react-i18next';
 
 type Category = {
   label: string;
@@ -113,8 +114,9 @@ function submenuGenerator(
     return [];
   }
   if ('label' in elem) {
+    const {t, i18n} = useTranslation();
     return {
-      label: elem.label,
+      label: i18n.exists(`label${elem.label}`) ? t(`label${elem.label}`) : elem.label,
       Menu: MenuBuilder(elem),
     };
   } else {

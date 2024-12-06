@@ -59,6 +59,7 @@ import {
   getDesignDefinitionVersion,
   updateDesignDefinitionVersion,
 } from 'src/store/settingsSlice';
+import { useTranslation } from 'react-i18next';
 
 let designWarningSeen = Number(localStorage.getItem('designWarningSeen') || 0);
 let hideDesignWarning =
@@ -250,6 +251,7 @@ export const DesignTab: FC = () => {
     versionDefinitions[selectedDefinitionIndex] &&
     versionDefinitions[selectedDefinitionIndex][definitionVersion];
   const uploadButton = useRef<HTMLInputElement>();
+  const {t} = useTranslation();
   return (
     <DesignPane
       onDragOver={(evt: DragEvent) => {
@@ -268,9 +270,7 @@ export const DesignTab: FC = () => {
           localStorage.setItem('designWarningSeen', `${designWarningSeen}`);
         }}
       >
-        This feature is intended for development purposes. If your keyboard is
-        not recognized automatically by VIA, please contact your keyboard's
-        manufacturer or vendor.
+        {t('designWarning')}
       </MessageDialog>
       <SinglePaneFlexCell ref={flexRef}>
         {!definition && (
@@ -298,7 +298,7 @@ export const DesignTab: FC = () => {
             <Row $selected={true}>
               <IconContainer>
                 <FontAwesomeIcon icon={faBook} />
-                <MenuTooltip>Add Definition</MenuTooltip>
+                <MenuTooltip>{t('designAddDefinition')}</MenuTooltip>
               </IconContainer>
             </Row>
           </MenuContainer>
@@ -306,7 +306,7 @@ export const DesignTab: FC = () => {
         <SpanOverflowCell>
           <Container>
             <ControlRow>
-              <Label>Load Draft Definition</Label>
+              <Label>{t('loadDraftDefinition')}</Label>
               <Detail>
                 <AccentUploadButton
                   multiple
@@ -320,12 +320,12 @@ export const DesignTab: FC = () => {
                     );
                   }}
                 >
-                  Load
+                  {t('load')}
                 </AccentUploadButton>
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Use V2 definitions (deprecated)</Label>
+              <Label>{t('useV2Definitions')}</Label>
               <Detail>
                 <AccentSlider
                   isChecked={definitionVersion === 'v2'}
@@ -338,7 +338,7 @@ export const DesignTab: FC = () => {
             {definition && (
               <>
                 <ControlRow>
-                  <Label>Shown Keyboard Definition</Label>
+                  <Label>{t('shownKeyboardDefinition')}</Label>
                   <Detail>
                     <AccentSelect
                       onChange={(option: any) => {
@@ -369,7 +369,7 @@ export const DesignTab: FC = () => {
             )}
             {definition && (
               <ControlRow>
-                <Label>Show Matrix</Label>
+                <Label>{t('showMatrix')}</Label>
                 <Detail>
                   <AccentSlider
                     isChecked={showMatrix}
@@ -386,9 +386,9 @@ export const DesignTab: FC = () => {
               </IndentedControlRow>
             ))}
             <ControlRow>
-              <Label>Draft Definitions</Label>
+              <Label>{t('draftDefinitions')}</Label>
               <Detail>
-                {Object.values(versionDefinitions).length} Definitions
+                {Object.values(versionDefinitions).length} {t('definitions')}
               </Detail>
             </ControlRow>
             {versionDefinitions.map((definition) => {

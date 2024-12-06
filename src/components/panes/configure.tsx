@@ -41,6 +41,7 @@ import {isElectron} from 'src/utils/running-context';
 import {useAppDispatch} from 'src/store/hooks';
 import {MenuTooltip} from '../inputs/tooltip';
 import {getRenderMode, getSelectedTheme} from 'src/store/settingsSlice';
+import { useTranslation } from 'react-i18next';
 
 const MenuContainer = styled.div`
   padding: 15px 10px 20px 10px;
@@ -55,6 +56,19 @@ const Rows = [
   RotaryEncoder,
   ...makeCustomMenus([]),
 ];
+
+const ICPContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 70px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+`;
+
+
 function getCustomPanes(customFeatures: CustomFeaturesV2[]) {
   if (
     customFeatures.find((feature) => feature === CustomFeaturesV2.RotaryEncoder)
@@ -148,6 +162,7 @@ const Loader: React.FC<{
   const {loadProgress, selectedDefinition} = props;
   const dispatch = useAppDispatch();
   const theme = useAppSelector(getSelectedTheme);
+  const {t} = useTranslation();
 
   const connectedDevices = useAppSelector(getConnectedDevices);
   const supportedIds = useAppSelector(getSupportedIds);
@@ -169,15 +184,23 @@ const Loader: React.FC<{
       {<ChippyLoader theme={theme} progress={loadProgress || null} />}
       {(showButton || noConnectedDevices) && !noSupportedIds && !isElectron ? (
         <AccentButtonLarge onClick={() => dispatch(reloadConnectedDevices())}>
-          Authorize device
+          {t('authorizeDevice')}
           <FontAwesomeIcon style={{marginLeft: '10px'}} icon={faPlus} />
         </AccentButtonLarge>
       ) : (
         <LoadingText isSearching={!selectedDefinition} />
       )}
+       <ICPContainer>
+        <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2024110005号</a>
+        <img width="18" height="18" src=""/>
+        <a href="">&nbsp;&nbsp;蜀ICP备2024110005号</a>
+      </ICPContainer>
     </LoaderPane>
+    
+
   );
 };
+
 
 const LoaderPane = styled(CenterPane)`
   display: flex;
@@ -214,6 +237,7 @@ export const ConfigurePane = () => {
 
 const ConfigureGrid = () => {
   const dispatch = useDispatch();
+  const {t, i18n} = useTranslation();
 
   const [selectedRow, setRow] = useState(0);
   const KeyboardRows = getRowsForKeyboard();
@@ -259,8 +283,7 @@ const ConfigureGrid = () => {
                   $selected={selectedRow === idx}
                 >
                   <IconContainer>
-                    <Icon />
-                    <MenuTooltip>{Title}</MenuTooltip>
+                    {i18n.exists(`title${Title}`) ? t(`title${Title}`) : Title}
                   </IconContainer>
                 </Row>
               ),

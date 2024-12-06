@@ -83,8 +83,9 @@ export const CategoryIconContainer = styled.span<{$selected?: boolean}>`
 
 export const IconContainer = styled.span`
   display: inline-block;
-  text-align: center;
-  width: 35px;
+  text-align: left;
+  font-weight: normal;
+  width: 90px;
   position: relative;
   &:hover > span > div {
     background-color: red;

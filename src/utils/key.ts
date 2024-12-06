@@ -9,6 +9,7 @@ import {
   getLightingDefinition,
   KeycodeType,
 } from '@the-via/reader';
+import i18next from 'i18next';
 
 export interface IKeycode {
   name: string;
@@ -349,7 +350,7 @@ export function getOtherMenu(
 
   return {
     id: 'other',
-    label: 'Other',
+    label: i18next.t('keycodeOther'),
     keycodes,
   };
 }
@@ -390,7 +391,7 @@ function buildLayerMenu(): IKeycodeMenu {
 
   const menu: IKeycodeMenu = {
     id: 'layers',
-    label: 'Layers',
+    label: i18next.t('keycodeLayers'),
     width: 'label',
     keycodes: [
       {
@@ -483,7 +484,7 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
   return [
     {
       id: 'basic',
-      label: 'Basic',
+      label: i18next.t('keycodesBasic'),
       keycodes: [
         {name: '', code: 'KC_NO', title: 'Nothing'},
         {name: '▽', code: 'KC_TRNS', title: 'Pass-through'},
@@ -638,7 +639,7 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
     },
     {
       id: 'wt_lighting',
-      label: 'Lighting',
+      label: i18next.t('keycodesLight'),
       width: 'label',
       keycodes: [
         {
@@ -729,7 +730,7 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
     },
     {
       id: 'media',
-      label: 'Media',
+      label: i18next.t('keycodesMedia'),
       width: 'label',
       keycodes: [
         {name: 'Vol -', code: 'KC_VOLD', title: 'Volume Down'},
@@ -747,14 +748,14 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
     },
     {
       id: 'macro',
-      label: 'Macro',
+      label: i18next.t('keycodeMacro'),
       width: 'label',
       keycodes: generateMacros(numMacros)
     },
     buildLayerMenu(),
     {
       id: 'special',
-      label: 'Special',
+      label: i18next.t('keycodeSpecial'),
       width: 'label',
       keycodes: [
         {name: '~', code: 'S(KC_GRV)', keys: '`', title: 'Shift + `'},
@@ -925,12 +926,18 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
         {name: 'Music Off', code: 'MU_OFF'},
         {name: 'Music Toggle', code: 'MU_TOG'},
         {name: 'Music Mode', code: 'MU_MOD'},
+        {
+          name: 'GUI Toggle',
+          code: 'GU_TOGG', 
+          title: 'Toggle Gui lock',
+          shortName: 'LKGUI'
+        },
       ],
     },
     /* These are for controlling the original backlighting and bottom RGB. */
     {
       id: 'qmk_lighting',
-      label: 'Lighting',
+      label: i18next.t('keycodesLight'),
       width: 'label',
       keycodes: [
         {name: 'BL Toggle', code: 'BL_TOGG'},
@@ -967,7 +974,7 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
     */
     {
       id: 'custom',
-      label: 'Custom',
+      label: i18next.t('keycodeCustom'),
       width: 'label',
       keycodes: [
         {name: 'CUSTOM(0)', code: 'CUSTOM(0)', title: 'Custom Keycode 0'},

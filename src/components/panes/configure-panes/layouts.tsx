@@ -1,25 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-import {title, component} from '../../icons/layouts';
-import {ControlRow, SpanOverflowCell, Label, Detail} from '../grid';
-import {AccentSlider} from '../../inputs/accent-slider';
-import {AccentSelect} from '../../inputs/accent-select';
-import {CenterPane} from '../pane';
+import { title, component } from '../../icons/layouts';
+import { ControlRow, SpanOverflowCell, Label, Detail } from '../grid';
+import { AccentSlider } from '../../inputs/accent-slider';
+import { AccentSelect } from '../../inputs/accent-select';
+import { CenterPane } from '../pane';
 import {
   getSelectedDefinition,
   getSelectedLayoutOptions,
   updateLayoutOption,
 } from 'src/store/definitionsSlice';
-import {useAppDispatch, useAppSelector} from 'src/store/hooks';
-import type {LayoutLabel} from '@the-via/reader';
-import type {FC} from 'react';
+import { useAppDispatch, useAppSelector } from 'src/store/hooks';
+import type { LayoutLabel } from '@the-via/reader';
+import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const LayoutControl: React.FC<{
   onChange: (val: any) => void;
-  meta: {labels: LayoutLabel; selectedOption: number};
+  meta: { labels: LayoutLabel; selectedOption: number };
 }> = (props) => {
-  const {onChange, meta} = props;
-  const {labels, selectedOption} = meta;
+  const { onChange, meta } = props;
+  const { labels, selectedOption } = meta;
+  const { t, i18n } = useTranslation();
   if (Array.isArray(labels)) {
     const [label, ...optionLabels] = labels;
     const options = optionLabels.map((label, idx) => ({
@@ -28,7 +30,7 @@ const LayoutControl: React.FC<{
     }));
     return (
       <ControlRow>
-        <Label>{label}</Label>
+        <Label>{i18n.exists(`llabel${label}`) ? t(`llabel${label}`) : label}</Label>
         <Detail>
           <AccentSelect
             /*width={150}*/
@@ -46,7 +48,7 @@ const LayoutControl: React.FC<{
   } else {
     return (
       <ControlRow>
-        <Label>{labels}</Label>
+        <Label>{i18n.exists(`llabel${labels}`) ? t(`llabel${labels}`) : labels}</Label>
         <Detail>
           <AccentSlider
             isChecked={!!selectedOption}
@@ -80,7 +82,7 @@ export const Pane: FC = () => {
     return null;
   }
 
-  const {layouts} = selectedDefinition;
+  const { layouts } = selectedDefinition;
 
   const labels = layouts.labels || [];
   return (

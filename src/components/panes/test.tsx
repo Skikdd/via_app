@@ -36,6 +36,7 @@ import {useProgress} from '@react-three/drei';
 import {AccentSelect} from '../inputs/accent-select';
 import {AccentRange} from '../inputs/accent-range';
 import {TestKeyboardSoundsMode} from '../void/test-keyboard-sounds';
+import { useTranslation } from 'react-i18next';
 
 const Container = styled.div`
   display: flex;
@@ -122,6 +123,7 @@ export const Test: FC = () => {
     (opt) => opt.value === testKeyboardSoundsSettings.mode,
   );
 
+  const {t} = useTranslation();
   return progress !== 100 ? null : (
     <TestPane>
       <Grid>
@@ -130,7 +132,7 @@ export const Test: FC = () => {
             <Row $selected={true}>
               <IconContainer>
                 <FontAwesomeIcon icon={faCircleQuestion} />
-                <MenuTooltip>Check Key</MenuTooltip>
+                <MenuTooltip>{t('testCheckKey')}</MenuTooltip>
               </IconContainer>
             </Row>
           </MenuContainer>
@@ -138,16 +140,16 @@ export const Test: FC = () => {
         <SpanOverflowCell>
           <Container>
             <ControlRow>
-              <Label>Reset Keyboard</Label>
+              <Label>{t('resetKeyboard')}</Label>
               <Detail>
                 <AccentButton onClick={testContextObj.clearTestKeys}>
-                  Reset
+                  {t('reset')}
                 </AccentButton>
               </Detail>
             </ControlRow>
             {canUseMatrixState && selectedDefinition ? (
               <ControlRow>
-                <Label>Test Matrix</Label>
+                <Label>{t('testMatrix')}</Label>
                 <Detail>
                   <AccentSlider
                     isChecked={isTestMatrixEnabled}
@@ -160,7 +162,7 @@ export const Test: FC = () => {
               </ControlRow>
             ) : null}
             <ControlRow>
-              <Label>Key Sounds</Label>
+              <Label>{t('keySounds')}</Label>
               <Detail>
                 <AccentSlider
                   isChecked={testKeyboardSoundsSettings.isEnabled}
@@ -175,7 +177,7 @@ export const Test: FC = () => {
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Volume</Label>
+              <Label>{t('volume')}</Label>
               <Detail>
                 <AccentRange
                   max={100}
@@ -192,7 +194,7 @@ export const Test: FC = () => {
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Transpose</Label>
+              <Label>{t('transpose')}</Label>
               <Detail>
                 <AccentRange
                   max={24}
@@ -209,7 +211,7 @@ export const Test: FC = () => {
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Waveform</Label>
+              <Label>{t('waveform')}</Label>
               <Detail>
                 <AccentSelect
                   isSearchable={false}
@@ -227,7 +229,7 @@ export const Test: FC = () => {
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Mode</Label>
+              <Label>{t('mode')}</Label>
               <Detail>
                 <AccentSelect
                   isSearchable={false}
