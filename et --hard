@@ -1,0 +1,2366 @@
+[33mcommit 0123771a5fa8db7bc18d44767cce0204f7e414d1[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Skikdd <skikdd@protonmail.com>
+Date:   Fri Dec 6 14:46:53 2024 +0800
+
+    更新中文
+
+[33mcommit 18552777c0045f7be487f5deb1757dfe6c8615a0[m
+Author: Skikdd <skikdd@protonmail.com>
+Date:   Sun Nov 10 19:08:13 2024 +0800
+
+    edit remote branch
+
+[33mcommit 88d4b9ce2d3b826464513edab1aaaf79a79045e7[m
+Merge: 13b9df9 5f6e9f7
+Author: Cipulot <40441626+Cipulot@users.noreply.github.com>
+Date:   Wed Oct 9 00:39:13 2024 +0200
+
+    Merge pull request #273 from Cipulot/remove_stuff
+    
+    Remove tracking tools
+
+[33mcommit 5f6e9f7c64a89d4fa4edbb7a40c9ed562c073cf5[m
+Author: Cipulot <40441626+Cipulot@users.noreply.github.com>
+Date:   Tue Oct 8 23:08:57 2024 +0200
+
+    missed from last commit
+
+[33mcommit 99db6f2efd277a8d864fd0ff0f9051906bc1f3df[m
+Author: Cipulot <40441626+Cipulot@users.noreply.github.com>
+Date:   Tue Oct 8 14:11:22 2024 +0200
+
+    stuff
+
+[33mcommit 13b9df96d25220af7366fb07066faf76e3c63be7[m
+Merge: d76f990 7af3ab9
+Author: Cipulot <40441626+Cipulot@users.noreply.github.com>
+Date:   Tue Oct 8 00:17:31 2024 +0200
+
+    Merge pull request #272 from Cipulot/update_reader
+    
+    Update the-via/reader dependency to 1.9.0
+
+[33mcommit 7af3ab9d643af262439e08c2e6a02b50c37f3f95[m
+Author: Cipulot <40441626+Cipulot@users.noreply.github.com>
+Date:   Mon Oct 7 23:42:49 2024 +0200
+
+    Update the-via/reader dependency to 1.9.0
+
+[33mcommit d76f990104124c97e290e584a56622f5134b3c8f[m
+Author: Xelus22 <17491233+Xelus22@users.noreply.github.com>
+Date:   Wed Nov 22 12:42:20 2023 +1100
+
+    Add proper number of dynamic macros (#207)
+    
+    * digusting bodge to get dynamic number of macros showing in keycode list
+    
+    * fix
+    
+    * fix 2
+
+[33mcommit ee4443bbdcad79a9568d43488e5097a9c6d96bbe[m
+Author: Xelus22 <17491233+Xelus22@users.noreply.github.com>
+Date:   Sat Sep 30 14:57:14 2023 +1000
+
+    update the-via/reader to 1.8.0 (#194)
+
+[33mcommit 78d670b2229e96e1fe959d80e80966a2a61a0a9f[m
+Author: Xelus22 <17491233+Xelus22@users.noreply.github.com>
+Date:   Fri Sep 29 10:31:05 2023 +1000
+
+    add 'button' support in custom menus (#193)
+
+[33mcommit bae0a0f302af525842e209f5af490959b955bb73[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Tue Jul 11 23:23:58 2023 -0400
+
+    Update staticwebapp.config.json
+
+[33mcommit 6614ff9ef5cc63d71e0911ebf746fd22052c132a[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Tue Jul 11 23:23:43 2023 -0400
+
+    Update package.json
+
+[33mcommit 3b60dba0072ee4ec3095b06b428be5b1f46d3e73[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Tue Jul 11 23:23:31 2023 -0400
+
+    Update azure.yml
+
+[33mcommit 7108bbdde80726eae29d364288c8ecaf949d6d58[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Tue Jul 11 23:20:24 2023 -0400
+
+    Update package.json
+
+[33mcommit dcefe1b2e811e18d5b4408a5ce375e83a8d74931[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Tue Jul 11 23:20:08 2023 -0400
+
+    Update staticwebapp.config.json
+
+[33mcommit ca9163151845d5e2e4562126e6e6a38c436dee1b[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Tue Jul 11 23:19:45 2023 -0400
+
+    Delete .nvmrc
+
+[33mcommit 283ad04ff1ccacf33827acf73110543729c8c7de[m
+Author: miccou <30512204+miccou@users.noreply.github.com>
+Date:   Sat Jul 1 16:08:45 2023 +1000
+
+    use node v20 (#173)
+
+[33mcommit dc120cb0347edd0e3c296bfe035e39214919fd1c[m
+Author: miccou <30512204+miccou@users.noreply.github.com>
+Date:   Thu Jun 29 02:43:49 2023 +1000
+
+    Add RGB Hexadecimal text input to colour picker  (#170)
+
+[33mcommit f2b50b34d4536d20ad658aa0a78591b59a7ac74f[m
+Author: regs01 <megaone@yandex.ru>
+Date:   Fri Jun 9 02:17:58 2023 +0300
+
+    Add more themes (#153)
+    
+    * Add Keychron Carbon Black A theme
+    
+    * Added more themes
+    
+    Added more Keychron themes and popular custom keycaps on Ali - Keychron Carbon Black B, Keychron Silver Grey A, Keychron Silver Grey B, Keychron Navy Blue A, Keychron Navy Blue B, Fendai, Honey Milk, Matcha, Black Grey, White Green, White, Black, Black and White, Classic Grey
+
+[33mcommit 3467ca79f07ca7f98513e7e9992112c79ee83bbe[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Wed Mar 29 11:41:52 2023 +1100
+
+    Fix issue #150 (#151)
+    
+    * Fix issue #150
+    
+    * add event handlers to use-matrix-test.ts
+
+[33mcommit 21e753a39ee301a94432219c58631864e52b2d99[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Mar 16 01:50:56 2023 -0400
+
+    Revert "KeycodeDict (#140)"
+    
+    This reverts commit 8251fc3bab6b09f49925cbe60b611b5afe696fef.
+
+[33mcommit 8251fc3bab6b09f49925cbe60b611b5afe696fef[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Thu Mar 16 13:25:07 2023 +1100
+
+    KeycodeDict (#140)
+    
+    * KeycodeDict
+    
+    * Fix deprecated keycodes
+    
+    * revert changes to old key-to-byte maps
+    
+    * Delete key-to-byte, archive the data in scripts
+    
+    * review changes
+    
+    ---------
+    
+    Co-authored-by: Olivia <ofbriggs@gmail.com>
+
+[33mcommit ffe05e496d2640393580ac7f0bdfc3e8754b02db[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Wed Mar 15 20:55:39 2023 -0400
+
+    Delete 108.json
+
+[33mcommit c73b7607775ccefea3cf851c7e205313e176dd3b[m
+Author: AndSDev <andsdev@gmail.com>
+Date:   Thu Mar 16 03:17:35 2023 +0300
+
+    Simplify window.showSaveFilePicker call (#145)
+
+[33mcommit 619ebe1cea124da3fd704c60f5f0596dc92784d7[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Mar 11 17:47:27 2023 +1100
+
+    Added env and protocol to sentry payload
+
+[33mcommit b9186a214a7216843ba961e390ff3fa47c051a97[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Mar 11 17:08:09 2023 +1100
+
+    Error tweaks (#141)
+    
+    * Add concept of authorized but not a connected device
+    
+    * Forget devices that have missing defintions, update errors to avoid dispatch Error directly because of serialization
+    
+    * disabled download/clear if no errors
+    
+    * made appErrors serializable
+    
+    * fix build
+    
+    * Remove legacy node-hid interface validation
+    
+    * Make error page generic
+    
+    * Stop chucking spreadies so that redux can serialize
+    
+    * catch flushQueue errors with stack, remove hid write retry
+    
+    * Consolidated app errors into one collection
+    
+    * Reverse drongo manoeuvre
+    
+    * Capturing errors with sentry
+    
+    * Comment out github stuff
+    
+    ---------
+    
+    Co-authored-by: Olivia Briggs <ofbriggs@gmail.com>
+
+[33mcommit 1bb37268d7d56d7fb6a9d87794db84e249a7a495[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Mar 10 19:31:11 2023 -0500
+
+    Allow labels to render even if fonts fail to load
+
+[33mcommit 021a6bce12da509b2b476fbaf4de980e4f84afb3[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Fri Mar 10 16:43:17 2023 +1100
+
+    Handle definition with encoder when firmware doesn't handle it (#143)
+
+[33mcommit 6ecd1b893c098754da9106de645c4a7b4cb1c5ab[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Mar 9 23:08:59 2023 -0500
+
+    Change default design definition version to v3
+
+[33mcommit e6e6a9602cfc00c6d86811233eea7aafe13f4e46[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Mar 9 23:02:42 2023 -0500
+
+    Improve design tab ergonomics
+
+[33mcommit 4e67d9d79493b2f434296e56e8ff57ffc386150d[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Thu Mar 9 21:19:20 2023 -0500
+
+    Definition fetching refactor (#142)
+    
+    * Add concept of authorized but not a connected device
+    
+    * Forget devices that have missing defintions, update errors to avoid dispatch Error directly because of serialization
+
+[33mcommit 753414c366d7bd897cdf80d135605a3ba856f246[m
+Author: Wolf Van Herreweghe <wolfvanh@gmail.com>
+Date:   Fri Mar 10 01:18:38 2023 +0100
+
+    Add Greg theme (#132)
+
+[33mcommit 182975d60975a60434e5adb46e1392ca2c5351c5[m
+Author: AndSDev <andsdev@gmail.com>
+Date:   Fri Mar 10 02:56:39 2023 +0300
+
+    Fix window.showSaveFilePicker call (#139)
+
+[33mcommit 8dea0ae7882168edaf135d7572aedf733389518f[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Mar 9 00:35:55 2023 -0500
+
+    Revert "Add more rigorous checks around valid connected devices by checking definitions before selection"
+    
+    This reverts commit 03bf23d79bf6d5831a8db388f3e602c9036adea0.
+
+[33mcommit 03bf23d79bf6d5831a8db388f3e602c9036adea0[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Mar 9 00:33:47 2023 -0500
+
+    Add more rigorous checks around valid connected devices by checking definitions before selection
+
+[33mcommit bef618e616efd76d7a5ff6ef6ae9ce84a78b2f8e[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Wed Mar 8 23:08:03 2023 -0500
+
+    Improve authorize popup logic
+
+[33mcommit 791eb854652d0e8888518c216b9b44515a940a67[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Wed Mar 8 22:37:56 2023 -0500
+
+    Add app errors and started logging connection-related errors
+
+[33mcommit ddea2e92572cbf749521e133a60d4bf47ea2a4ca[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Wed Mar 8 20:09:42 2023 -0500
+
+    Hopefully fix v2 & v3 coexisting definitions
+
+[33mcommit 991b9549b08accb11f3731a09f7f65cef334af29[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Wed Mar 8 13:52:27 2023 +1100
+
+    Minor keycodes refactor that should have gone in with VIA Protocol 12 but didn't because I'm a drongo (#133)
+    
+    * WT keycodes refactor
+    
+    * review changes
+
+[33mcommit f4704182a0d66e4a56f3ebc1df4925d7d046020b[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Tue Mar 7 01:18:32 2023 -0500
+
+    Initial pass at new keyboard rendering logic w decal keys (#137)
+
+[33mcommit eab0863db63809252f83dbb4bf686f46f984becf[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Tue Mar 7 17:08:56 2023 +1100
+
+    Missing lighting fix (#138)
+
+[33mcommit 9bc3409ee98c8e9f2b086f809811bee6304d597f[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Mar 6 20:12:14 2023 -0500
+
+    Add border separating error controls and error log
+
+[33mcommit 2cbe7f152ed34362107b93b8ecdb1cd2a2a3226c[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Mar 6 20:01:35 2023 -0500
+
+    Replace buttons in error page with Icon buttons
+
+[33mcommit be675ae092b81c26c759ebe8c1a2444cdd8f9212[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Mar 6 19:53:31 2023 -0500
+
+    Cleanup GlobalMenu
+
+[33mcommit 94d90253890862d752ceb27345d3c18666508845[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Mon Mar 6 19:18:42 2023 -0500
+
+    Update staticwebapp.config.json
+
+[33mcommit e91e264690e5e391291d5902610bfe38d109d2d1[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Tue Mar 7 11:10:08 2023 +1100
+
+    Show keyboard API errors in UI to make troubleshooting easier (#135)
+    
+    * Show keyboard API errors in UI to make troubleshooting easier
+    
+    * Incorporated suggestions
+    
+    * Download errors as csv, other error display tweaks
+    
+    * add timestamp to errors
+    
+    * Fixed global buffer read bug
+
+[33mcommit 3a66ec834bd23255d0b8b81c722449d013e2eefa[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Tue Mar 7 01:07:18 2023 +1100
+
+    Fixed global buffer read bug
+    
+     Wibbly wobbly timey wimey
+
+[33mcommit b1c6c3f42fcbb7c7734e593c6cee274e4c8613c3[m
+Author: wilba <wilba@wilba.tech>
+Date:   Mon Mar 6 13:13:04 2023 +1100
+
+    Fix bug when custom keycode is beyond range of labels in the definition
+
+[33mcommit b8d4b6d436eebee268e7cac2dd26e4df6e3e8425[m
+Author: wilba <wilba@wilba.tech>
+Date:   Sun Mar 5 21:41:08 2023 +1100
+
+    Disable toggleLights
+
+[33mcommit 1011b4dd5ef535452b164602a632314a55999bc9[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Mar 5 21:23:27 2023 +1100
+
+    Remove console logs
+
+[33mcommit bf909ff41b58dd8efcb4a7cad9bc730f3db340b1[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun Mar 5 01:09:31 2023 -0500
+
+    Make components more height adjustable friendly
+
+[33mcommit 13f8b079b692db987b85eb911828db2608b5e307[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sat Mar 4 00:12:51 2023 -0500
+
+    Use generated key as key for Keys
+
+[33mcommit af3a18361fba395fa57d8fa72730b760cb0c29b1[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sat Mar 4 00:04:58 2023 -0500
+
+    Clear canvas on rotary encoders
+
+[33mcommit d66fbd56619d61ade14d907b9e3e510846adf2bd[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Mar 4 15:55:46 2023 +1100
+
+    Reverse drongo behaviour and restored await of dispatch of async thunks
+
+[33mcommit e2a701d5b7b29a82210b208522b7aaf1d5ba5ddc[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Mar 3 22:09:08 2023 -0500
+
+    Rearrange order of hooks to be consistent regardless of early exit
+
+[33mcommit aa6b534226787d83e7c79baa674546f72dbec5c2[m
+Author: wilba <wilba@wilba.tech>
+Date:   Fri Mar 3 23:48:09 2023 +1100
+
+    Fix advanced keycodes yet again
+
+[33mcommit a8b49262ead82c47aef42f96ec41532b10a2d1ea[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Fri Mar 3 19:44:23 2023 +1100
+
+    Fix issue preventing encoder key mapping in 2D mode
+
+[33mcommit 8b076335d9e3ff3661d3ca3890182d55f60fe87e[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Thu Mar 2 22:11:39 2023 -0500
+
+    Update README.md
+
+[33mcommit 2bdaa04e5d25ef75b995efbb33186a01fd591538[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Thu Mar 2 22:11:24 2023 -0500
+
+    Update README.md
+
+[33mcommit 7d673e0cba3c27c1e76eb48aa8e7cfdbf67b27d6[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Thu Mar 2 22:10:46 2023 -0500
+
+    Update README.md
+
+[33mcommit bf8f14f279fc92e246fedab3eb0d64b7997cd526[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Thu Mar 2 21:36:35 2023 -0500
+
+    Update device-store.ts
+
+[33mcommit cbb32d7b90e46c42879554e751b88024ea95ba2c[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Thu Mar 2 21:12:34 2023 -0500
+
+    Fiber 🚧🚧🚧🚧🚧 (#71)
+    
+    * Make visual tweaks in configure
+    
+    * Update global nav bar
+    
+    * Add Menu pane for all Categories
+    
+    * Add guard
+    
+    * Memoize slow components, especially KeyboardCanvas
+    
+    * Clean up helpers
+    
+    * Add keycap painting into configure pane
+    
+    * Turn off RGB painter in debug
+    
+    * Checkpoint progress for new case
+    
+    * Move heart
+    
+    * Cleanup case code and add memoizing to shape generation, improve heart placement
+    
+    * Add support for static custom text
+    
+    * Fix keycap rendering (#94)
+    
+    * label nudging
+    
+    * Change per-key RGB protocol
+    
+    * Render arrow keys at a higher font size
+    
+    * Remove unused packages
+    
+    * Adjust lighting
+    
+    * Remove unused imports
+    
+    * Swap Source Sans Pro to Fira Sans
+    
+    * Fixed disconnected arrow in menu tooltip
+    
+    * Clobber changes with key-to-byte json5 files
+    
+    * Add WIP of macro recording
+    
+    * Add additional methods to test out creating AST for macro expressions
+    
+    * Add tag for implicit streams
+    
+    * Merge successive key streams
+    
+    * Add new types to express different stages of sequencing
+    
+    * Fix GroupedKeycodeSequenceItem
+    
+    * Fix bad type
+    
+    * Convert macro recorder functions to use new types
+    
+    * Add control to add different types of macros
+    
+    * Swap arrow key symbol for compatibility with OSX
+    
+    * Support key down/up syntax in macro expressions (#95)
+    
+    * Support key down/up syntax in macro expressions
+    
+    * Refactor macro api to use sequences
+    
+    * prettier
+    
+    * Update button group to connect to recording
+    
+    * Restyle macro creation controls and convert expressions to use selectors
+    
+    * Refactor sequence components
+    
+    * Add new loader
+    
+    * Add instructions for Keydown/Keyup in macro view
+    
+    * Headbang
+    
+    * Fallback to Arial for KeyboardCanvas if Arial Rounded is not avail
+    
+    * Add prettier to recommended extensions
+    
+    * Clean up Macros to separate out configuration settings and read/write
+    
+    * Clean up canvas-router and extract loader
+    
+    * Improve macro sequence manipulation
+    
+    * update @the-via/reader ref to latest
+    
+    * Make cubey even more fun to play with, minor css fix for macro submenu
+    
+    * Making cubey even more fun if such a thing were even possible
+    
+    * remove console.logs
+    
+    * Switch Wait Sequence Items to display as input and improve UI for Macro display
+    
+    * Merge branch 'main' into fiber
+    
+    * cleanup merge
+    
+    * Remove duplicate function
+    
+    * resolve changes request by wilba, remove unused method parameter
+    
+    * Revert numpad keys
+    
+    * update package-lock, include dummy props for macro in debug pane
+    
+    * Refactor Record buttons and add Save and Undo changes
+    
+    * Fix css bug with macro edit bar
+    
+    * Persist macros from simple menu
+    
+    * Remove unused buttons
+    
+    * Add deletion of macro and fix some edge cases
+    
+    * Add fullscreen button
+    
+    * Refactor displayedSequence
+    
+    * Refactor macro editor
+    
+    * Hide undo and save when macro is recording
+    
+    * Fix undo bug
+    
+    * Clean up undo behavior in macro recorder
+    
+    * Show status of modified macro
+    
+    * Add rough pass at edit and delete behavior
+    
+    * Cleanup components
+    
+    * Remove redundant code and cleanup macro editing functions
+    
+    * Continue refactor for macro editing
+    
+    * Fix bug when modifying a macro sequence causing keypress unfolding
+    
+    * Prevent changing settings when editing macro sequences
+    
+    * Fix bug in smartTransform
+    
+    * Fix rawSequenceToOptimizedSequence
+    
+    * Fix cubey
+    
+    * more cubey playground tweaks
+    
+    * more cubey tweaks
+    
+    * Add in progress version of macro memory size
+    
+    * Add proper reporting of macro buffer size used
+    
+    * add macro conversion to character streams
+    
+    * Cleanup merge from main
+    
+    * macro conversion to character streams
+    
+    * Add query param override to force showing UI in non webhid context
+    
+    * Switch to auto to improve rendering on safari
+    
+    * Add alternative lighting mode for perf
+    
+    * Add husky to dev dependency
+    
+    * theme cubey
+    
+    * Add z-index which shouldn't do anything but w/e
+    
+    * Use full lighting since it doesn't make a considerable difference on non-hardware acceleration
+    
+    * Add rough pass at canvas powered keys in 2D
+    
+    * Improve 2D
+    
+    * Update styling
+    
+    * Add back rotation
+    
+    * Putting it away
+    
+    * Guard against missing webgl and add initial encoder
+    
+    * Remove background draw color and instead use div to draw background
+    
+    * Update package-lock.json
+    
+    * Commit label hackery
+    
+    * Fix positioning and sizing of keycaps
+    
+    * Doubly fix positioning as rotation was broken after previous "fix"
+    
+    * Fix positioning of case in 2D and remove repeated warning due to react-spring frameloop
+    
+    * Bring back tooltip
+    
+    * paint keycap changes
+    
+    * Add hacky implementation to bring back key tester, bugs abound
+    
+    * Add back missing code
+    
+    * Improve tester
+    
+    * Remove react-spring/web dependency
+    
+    * Show correct cursor if a keycap is interactable
+    
+    * Update package-lock.json
+    
+    * Update pointer to via-keyboards
+    
+    * more paintLabel changes
+    
+    * Update font and inner case color
+    
+    * Update keycap animations to look better
+    
+    * Fix missing arrows from Fira Sans
+    
+    * Add font blocking to rendering route
+    
+    * Fix font loading on 3d
+    
+    * Relocate font loading in 2D rendering to be consistent with 3D rendering
+    
+    * Update loader for 2D
+    
+    * Remove loader on test pane
+    
+    * Improve Squarey and choose different values for themed cubey and squarey
+    
+    * Patch roughness to temporarily remove the sheen from Cubey's face
+    
+    * Fix slider from grabbing focus and toggling back when hitting spacebar & update font-weight for row labels
+    
+    * optimize macro on recording stop
+    
+    * Improve display of ISO, BAE, JIS, etc.
+    
+    * Remove debug condition breaker
+    
+    * Refactor modal to use new dialog
+    
+    * fix optimize after macro recording stopped
+    
+    * fix design dialog displaying after clicking ok
+    
+    * Persist custom definitions in IDB
+    
+    * Add breaking actions
+    
+    * Triad Programming of Design importing
+    
+    Co-authored-by: Valdis Thomann <ValdisThomann@users.noreply.github.com>
+    Co-authored-by: Jason.S.Williams@gmail.com <Jason.S.Williams@gmail.com>
+    
+    * Store and load custom definitions in IDB
+    
+    * Add delete button to custom definitions
+    
+    * Delete unused modules from two-string
+    
+    * Attach click handler to delete button in Design
+    
+    * YOLO fix for custom definitions breaking old firmware
+    
+    * Remove unnecessary spread
+    
+    * Update package-lock.json
+    
+    * Update package-lock.json
+    
+    * Update Design message
+    
+    * Wrap selectConnectedDevice in a try-catch
+    
+    * Add retry mechanism for better durability
+    
+    * Set progress fill color to not be identical to any part of squareby
+    
+    * Add hard clear when connecting fails over the retry limit
+    
+    * Fix styled components console errors with chippy loader
+    
+    * Removed unused code
+    
+    * Programmatically control sliding keyboard canvas
+    
+    * Cleaned up console logs
+    
+    * Console log and ref cleanup
+    
+    * Change keyboard api logging to debug level
+    
+    * Remove unused refs and locals
+    
+    * Remove unnecessary react imports
+    
+    * Fix forwardProp and key iterator errors
+    
+    * Remove KeyboardAPI from redux state
+    
+    * Remove unserialisable HIDDevice from redux state
+    
+    * Fixed typing and serialisation of responses from hidCommand
+    
+    * Return instances of keyboard api from selector
+    
+    * Implement requested changes
+    
+    -rename to getSelectedKeyboardAPI
+    -listen to api change for lighting reload
+    -convert from Uint8Array to number[] in _hidCommand
+    
+    * Cleanup more console errors
+    
+    * Use transient props in styled components where appropriate
+    
+    * Make cubey less shiny
+    
+    * beep boop (#122)
+    
+    * Macro wip (#123)
+    
+    * macro wip
+    
+    * remove debug
+    
+    * Fix broken build
+    
+    * Tweak buttons for macro controls
+    
+    * Add pipeline command and remove unused line
+    
+    * Remove separate settings view for macros
+    
+    * Update debug view to show different states for macro-recorder
+    
+    * Fix display of 2d keycap on hidpi screens
+    
+    * Rearrange config settings for macro recording
+    
+    * Fix font rendering
+    
+    * Extract out common types and components
+    
+    * Reorganize components
+    
+    * Hande more/less than 16 macros in macro submenu (#125)
+    
+    * hande more/less than 16 macros in macro submenu
+    
+    * review changes
+    
+    * more beep boop (#124)
+    
+    * more beep boop
+    
+    * swap volume and waveform controls
+    
+    * use partial in settingsSlice
+    
+    * change enabled to isEnabled
+    
+    * Add new favicon
+    
+    * Update character display in character stream component
+    
+    * Add code to merge waits together
+    
+    * Swap to using splice to avoid mutating the original sequence items
+    
+    * Rely on event repeat to prevent key event spam
+    
+    * Add function to convert consecutive down->up to taps
+    
+    * Move around order of optimizations to fold in consecutives lastly
+    
+    * Removing tagging
+    
+    * Persist macro & keyboard settings properly by utilizing current function to get rid of proxy objects in redux store state
+    
+    * refactor convertToCharacterStreams
+    
+    * disable delete buttons during macro recording
+    
+    * fix setting volume before AudioContext can be created (#126)
+    
+    * fix setting volume before AudioContext can be created
+    
+    * review changes
+    
+    * refactor convertToCharacterStreams
+    
+    * Revert "refactor convertToCharacterStreams"
+    
+    This reverts commit 872d5705d9ddc8883d23807777ce39c44d2905ae.
+    
+    * fix build
+    
+    * Remove "Tap Enter at end of macro"
+    
+    * Add device indication (#120)
+    
+    * add device indication
+    
+    * add awaits
+    
+    * Add links to github, discord and caniusevia
+    
+    * Update refs
+    
+    * Fix render console error
+    
+    * fix change to drei useGTLF() interface
+    
+    * Replace VIA svg with new one
+    
+    * Disable macro delays if not supported by protocol
+    
+    * Display absolute macro usage on hover
+    
+    * Scale decimal places for macro bufferSize in hover
+    
+    * Disable key events on keys when keyboard is not selectable in 2D
+    
+    * Add rotation animation to encoder
+    
+    * Update SVG and tooltip
+    
+    * Added descriptive text to tooltip
+    
+    * Update proper namespace for logs
+    
+    * Swap to using library to deep merge stored settings
+    
+    * Restrict toggling lights when number of devices connected are more than 1
+    
+    * Fix per-key rgb for 2D and remove paintEncoder from 2D
+    
+    * add fiber to workflow
+    
+    * Consolidate and clarify typing
+    
+    * Move isDelaySupported to store selector
+    
+    * Default renderMode to 3D
+    
+    * Replace deprecated VFC with FC
+    
+    * Add tilt to keyboard on mouseover
+    
+    * beep boop overkill (#127)
+    
+    * fix bug in useMatrixTest when holding keys in the same switch matrix column
+    
+    * update ref
+    
+    * Migrate downshift v6 -> v7
+    
+    * Update use-resize-observer v8 -> v9
+    
+    * Upgrade json-stringify-pretty-compact v3 -> v4
+    
+    * Upgrade vite v3 -> v4
+    
+    * Remove unused web-test-runner
+    
+    * Remove unused snowpack config
+    
+    * Update node target in staticwebapp config
+    
+    * VFC -> FC conversion that got away
+    
+    * Fix console error (no key in iterator)
+    
+    * Remove redundant awaits
+    
+    * Add missing mod/accent colors to test keyboard
+    
+    * Removed some unused code and exports (#129)
+    
+    * Removed some unused code and exports
+    
+    * Remove unused soundfont files
+    
+    * Incorporate protocol 12 changes
+    
+    ---------
+    
+    Co-authored-by: Wilba <wilba@wilba.tech>
+    Co-authored-by: Valdis Thomann <valdis.thomann@gmail.com>
+    Co-authored-by: Valdis Thomann <ValdisThomann@users.noreply.github.com>
+    Co-authored-by: Jason.S.Williams@gmail.com <Jason.S.Williams@gmail.com>
+
+[33mcommit 594c1fa2c5c49496ab901895e3955c7f3f2f9435[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Tue Feb 28 22:47:01 2023 +1100
+
+    VIA Protocol 12 changes (#104)
+    
+    * VIA Protocol 12 changes
+    
+    * Refactor keycodes that are aliases, handle on load
+    
+    * Better deprecated keycode handling in load layout
+    
+    * Fix QK_MACRO range
+    
+    * Fix missing _QK_MACRO in advanced keycodes
+    
+    * change QK_USER to QK_KB
+    
+    * Fix incorrect KC_POWER byte value
+    
+    * Change WT lighting keycodes to custom keycode range QK_KB_x
+    
+    * fix bug in useMatrixTest
+
+[33mcommit 10d499748aeeb08566edd72aff868ac90b26acb0[m
+Merge: 06a2428 da5fe16
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Tue Feb 21 01:41:17 2023 +1100
+
+    Merge pull request #121 from the-via/browserstack
+    
+    Add Browserstack to README
+
+[33mcommit da5fe1654759ddde49d2201fdbe48e5f1f85f71b[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Tue Feb 21 01:35:59 2023 +1100
+
+    Update README.md
+
+[33mcommit 06a242831c1dd3981611b83fb718f35f59bdcced[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Tue Feb 21 01:33:08 2023 +1100
+
+    Update .gitignore
+
+[33mcommit a13f13d3fdaf0cc57c28212cf4da03668ca3148b[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Feb 19 16:56:35 2023 +1100
+
+    Replace common-menus.json with commonMenus from reader (#117)
+    
+    * Replace common-menus.json with commonMenus from reader
+    
+    * Update package-lock.json
+    
+    * Update menusSlice.ts
+
+[33mcommit 047e3a97a4dfad36992c1e8243cc19f8f2567684[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Feb 11 16:49:58 2023 +1100
+
+    Update refs
+
+[33mcommit 3d8928d2dd24c7bd2f710749bb2cbf7f89d8358a[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Feb 6 02:25:00 2023 +1100
+
+    Add diag info to settings (protocol version)
+
+[33mcommit 1fdaed7daa16363012d1d955b05216f5930b593d[m
+Merge: f76e1f8 43b694b
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Feb 4 14:44:38 2023 +1100
+
+    Merge pull request #112 from the-via/pr-builds-2-electric-boogaloo
+    
+    Allow PRs to build independently of the build and deploy process
+
+[33mcommit 43b694b55627fde29e623b92b6192e565551131e[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Feb 4 14:39:17 2023 +1100
+
+    rename pr-build
+
+[33mcommit 2dbb34f1648714530396b3d938ff709ebc4c2c1f[m
+Merge: 8c9c304 f76e1f8
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Feb 4 14:32:48 2023 +1100
+
+    Merge branch 'main' into pr-builds-2-electric-boogaloo
+
+[33mcommit f76e1f8588356efe353004067a1b71931ad28e59[m
+Merge: 9326254 293d0b1
+Author: Wilba <wilba@wilba.tech>
+Date:   Fri Feb 3 20:38:22 2023 -0500
+
+    Merge pull request #108 from the-via/fix_advanced_keycodes_3
+    
+    More advanced keycodes
+
+[33mcommit 8c9c304a3067832fa98a34d17000fae81c149342[m
+Merge: 68fff0d 9326254
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Feb 4 00:53:26 2023 +1100
+
+    Merge branch 'main' into pr-builds-2-electric-boogaloo
+
+[33mcommit 293d0b1e6be88d0da59b97ab02562919b3284604[m
+Merge: 232e56e 9326254
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Feb 4 00:52:09 2023 +1100
+
+    Merge branch 'main' into fix_advanced_keycodes_3
+
+[33mcommit 9326254f4948ba2519266d9946998d1af4a14594[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Feb 4 00:51:54 2023 +1100
+
+    fix(build): Fixed typing
+
+[33mcommit 232e56eeb00c5c9eb42079baf5f0820d59d34df6[m
+Merge: 1ef0824 21e63b7
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Feb 4 00:27:51 2023 +1100
+
+    Merge branch 'main' into fix_advanced_keycodes_3
+
+[33mcommit 68fff0d5cc0e20f1567f93f5e6300a3db3dfc846[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Feb 4 00:20:30 2023 +1100
+
+    Removed unused refs
+
+[33mcommit 2df8a5ed5ed1ad839161fcc593c2a18fa221e17d[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Feb 4 00:15:41 2023 +1100
+
+    Create yml for prs
+
+[33mcommit 21e63b7a5f3bcbbb5c5d8c4238f92099aeee7bf8[m
+Author: wilba <wilba@wilba.tech>
+Date:   Sat Jan 28 22:18:09 2023 +1100
+
+    Fix incorrect KC_POWER byte value
+
+[33mcommit 96083007213daf0491b25514d962ea0c1d6c0029[m
+Merge: 950417d bcb301b
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Jan 28 16:56:09 2023 +1100
+
+    Merge pull request #109 from the-via/user_to_custom
+    
+    Handle custom keycodes better
+
+[33mcommit bcb301ba4fef32fe229967e168e74c5a59e9e6b6[m
+Author: wilba <wilba@wilba.tech>
+Date:   Sat Jan 28 16:46:09 2023 +1100
+
+    fix returning keycodes starting with "_QK"
+
+[33mcommit a0bac941f4a8757a83dc1349020a587967caa7de[m
+Author: wilba <wilba@wilba.tech>
+Date:   Sat Jan 28 16:20:18 2023 +1100
+
+    fix a thing
+
+[33mcommit 574e873fdd54cdc89826214b36c62289ee8cd578[m
+Author: wilba <wilba@wilba.tech>
+Date:   Sat Jan 28 16:10:51 2023 +1100
+
+    whoops
+
+[33mcommit ece380a8f50b5b48679826ab78a792b4d2e079a1[m
+Author: wilba <wilba@wilba.tech>
+Date:   Sat Jan 28 15:55:51 2023 +1100
+
+    Handle deprecated keycodes in layout loading
+
+[33mcommit cd0e22bb08fcf014eb4c11fe3576b3e7652bbeb6[m
+Author: wilba <wilba@wilba.tech>
+Date:   Sat Jan 28 15:50:25 2023 +1100
+
+    change USER to CUSTOM
+
+[33mcommit 950417db9e869bebac98b6af31f82a15c6987449[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Wed Jan 25 00:33:33 2023 -0500
+
+    Fix keycode/range custom controls to use 16-bit values (#103)
+    
+    * Fix keycode custom control
+    
+    * Review changes
+    
+    * Make range control use 16-bit when needed
+    
+    * requested changes
+
+[33mcommit 1ef0824b1094c0b8bae97838077f689bb8b6c49e[m
+Author: wilba <wilba@wilba.tech>
+Date:   Tue Jan 24 17:45:10 2023 +1100
+
+    Refactored keycode string generation again
+
+[33mcommit 0fc81abbf5b9d7db9bd21111be6985c90289e175[m
+Author: wilba <wilba@wilba.tech>
+Date:   Tue Jan 24 16:57:49 2023 +1100
+
+    Add more advanced keycode shortcuts
+
+[33mcommit c4ab174df8105071c96655c8ad1f711f88baef7f[m
+Author: wilba <wilba@wilba.tech>
+Date:   Tue Jan 24 09:11:18 2023 +1100
+
+    Fix Other keycodes
+
+[33mcommit 8be7dd7499447a60d63fc432617c6d8aa3d0c6fc[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Wed Jan 18 19:13:38 2023 -0500
+
+    Handle more than 16 user keycodes (#101)
+
+[33mcommit 35088daf25b767f636840563cad23144965b07ce[m
+Author: wilba <wilba@wilba.tech>
+Date:   Wed Jan 11 23:32:07 2023 +1100
+
+    smh
+
+[33mcommit 47325767bab0ae4f896ab075b182064b86ae31cc[m
+Author: wilba <wilba@wilba.tech>
+Date:   Wed Jan 11 23:20:18 2023 +1100
+
+    Seriously, fix advanced keycodes already
+
+[33mcommit fa33853cdb8d2347bc2f758ad28f0c138ad97e1f[m
+Author: wilba <wilba@wilba.tech>
+Date:   Wed Jan 11 15:18:10 2023 +1100
+
+    Fix advanced keycodes
+
+[33mcommit 88cbd53453c7665d2bdaec7c33d8f6782ae62aad[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Tue Jan 10 11:16:43 2023 -0500
+
+    Fix advanced keycodes (#97)
+
+[33mcommit 1c3b5407ceff05df5e70344dbfa8411ff03f9dcb[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Sun Jan 8 05:11:52 2023 -0500
+
+    Fix advanced keycode on first key (#96)
+
+[33mcommit 3dd273832dfcee10eaa35a57654081fbcdaa9034[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Sun Dec 25 03:32:00 2022 -0500
+
+    Fix keycodes (#88)
+
+[33mcommit 253b1cadeae58bfe828f667fd32ba177fc56041f[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Tue Dec 20 05:44:40 2022 -0500
+
+    Fix LM(layer,mod) keycode (#85)
+
+[33mcommit 0c8d1234e53385d7a1ba03a5b492939c599f98d3[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Wed Dec 14 22:01:12 2022 -0500
+
+    Update design tab, deprecate v2 definitions (#77)
+
+[33mcommit 4165d29a03ead562390ab45cc8785cbc3a57cfdb[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Wed Dec 14 22:00:37 2022 -0500
+
+    Fix keycodes with digits, add versioning (#84)
+
+[33mcommit 4768b9587c287e02c2417fcd1a0f227d25f22359[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Sun Dec 11 17:28:07 2022 -0500
+
+    Add missing operator to bind pseudoselector to proper class
+    
+    CSS was generated as `.classBla :hover` rather than `.classBla:hover`
+
+[33mcommit 5f16e18c2a7bb33d38f298299309d3a173785fc2[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Sun Dec 11 00:27:49 2022 -0500
+
+    Version layer keycodes in advanced keycode dialog (#78)
+
+[33mcommit 1f29493a39b00828496d8d92f71e50c7f5de5a17[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Fri Dec 9 00:20:02 2022 -0500
+
+    Increase caching
+
+[33mcommit 719d123f334f1bcd872361358ce360c8a8aebe14[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Fri Dec 9 00:05:57 2022 -0500
+
+    Update designSlice.ts
+
+[33mcommit 4bac5c0c182a2bfe1211f6864bd1cdce6a8f98d1[m
+Author: Wilba <wilba@wilba.tech>
+Date:   Thu Dec 8 23:36:44 2022 -0500
+
+    Layer keycodes refactor (#75)
+    
+    * Versioning of layer keycodes like MO(1) etc.
+    
+    * make pretty
+    
+    * make prettier
+
+[33mcommit cff28264d5f39861223404e76eeebedf3e625a45[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Fri Nov 25 18:07:48 2022 -0500
+
+    Update dependencies to reflect npm modules (#69)
+    
+    * Update dependencies to reflect npm modules
+    
+    * Try switching to yarn
+    
+    * Update package.json
+    
+    * Force package install
+    
+    * Update azure.yml
+    
+    * Update package.json
+    
+    * Update lockfile to v1
+    
+    * Update package.json
+    
+    * Update package.json
+    
+    * Separate out command and force install
+    
+    * Swap out old libraries, attempt to have project work with node 16
+    
+    * Fix type errors
+    
+    * Update package-lock
+    
+    * Update engines
+    
+    * Update workflow to attempt cleaning cache
+    
+    * Revert removal of width in AccentSelect
+    
+    * Change caching directory
+    
+    * Update checkout action to use v3
+    
+    * Use setup node action
+    
+    * Manually install dependencies
+    
+    * Comment out props that need to be updated to work with React-Select V5
+
+[33mcommit 12d42235d61d8e81f1c6b7c1ef55e306d7056727[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Nov 7 23:12:29 2022 -0500
+
+    Add description for new keycodes
+
+[33mcommit 3b003b1b536f2cb71cad81ff30ac4c11210f4c0c[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Nov 7 23:11:36 2022 -0500
+
+    Bye CSS modules 🔥🔥🔥
+
+[33mcommit 78447656a65ba1848b6683cbe7fe32da89fe80a5[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Nov 7 21:32:21 2022 -0500
+
+    Update v11
+
+[33mcommit dbf592b7f962caa48959262eef7853346ea97983[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Sun Nov 6 21:17:41 2022 -0500
+
+    Add support for encoder saving (#67)
+
+[33mcommit aa1b4e23dd24ca8c7ab96bf0f175274973943721[m
+Author: João Fonseca <joaofvfonseca@gmail.com>
+Date:   Sun Nov 6 22:15:14 2022 +0000
+
+    Added KC_PMNS to the list of autocomplete keycodes (#59)
+
+[33mcommit d5d92c69d10bd14591ba19ecdc269114d87eb1b7[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Fri Nov 4 23:46:44 2022 -0400
+
+    Delete rc-slider (#64)
+    
+    * We had joy, we had fun, we had seasons in the sun. Bye rc-slider.
+    
+    * Update workflow file
+    
+    * Can't touch this
+    
+    * Instead of this, do that git.
+    
+    * Restore old yarn file and fix types for accent-range
+    
+    * Delete attempt at fixing workflow by changing git config
+
+[33mcommit 14686f348ca29995d312d672fe1645f81af0c8bf[m
+Author: Olivia <olivia@github.com>
+Date:   Tue Nov 1 21:36:36 2022 -0400
+
+    Update definitionsSlice.ts
+
+[33mcommit 7d55f3cdafd47988d71bccfd212d3f2cddbe4f90[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sat Oct 22 00:21:02 2022 -0400
+
+    Fix encoder keys to be circular
+
+[33mcommit 5a14c6469f2050ea1f69b73d3969860ec03735db[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Oct 20 00:41:41 2022 -0400
+
+    Add support for version keycodes
+
+[33mcommit 85acfa0fd0ca70cc0f0542e5d1606a5c71faf1a7[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Wed Oct 19 21:17:25 2022 -0400
+
+    Restore macro-api to use correct imports
+
+[33mcommit b7a718fe1f6c33ae675b2f5768c50ed951fbb781[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Wed Oct 19 21:07:43 2022 -0400
+
+    Start showing Other menu & start work for versioning key-to-byte
+
+[33mcommit d03a4ca1addb73791b7c7e9e92e85460c99248d9[m
+Merge: 7fcdcd3 41bbe00
+Author: Wilba <wilba@wilba.tech>
+Date:   Wed Aug 31 05:14:05 2022 +1000
+
+    Merge pull request #49 from the-via/macro-delays
+    
+    Macro delays
+
+[33mcommit 7fcdcd36ecd8e053d1147c9981a125f8751f587f[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Aug 29 18:35:56 2022 -0400
+
+    Add hash check to reduce bandwidth requests
+
+[33mcommit 41bbe00f076de36b5b862105bc99d10e7f8bbb53[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Tue Aug 30 00:18:15 2022 +1000
+
+    Encapsulated macro api resolution, made save actually work properly
+
+[33mcommit 510c33f25cd3fe6ffd7941b636df400ef7e89bdd[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Aug 29 23:49:16 2022 +1000
+
+    Update basic keycodes url, add instructions for delays
+
+[33mcommit 5beff54dc60785d62ac9eb30d80bb27c9cdfef97[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Aug 29 23:11:43 2022 +1000
+
+    call different macro apis depending on protocol version
+
+[33mcommit 8b9089beca6f043acea70bdd254bf54c28ce0dae[m
+Merge: b22efa1 f9eb8bc
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Aug 29 21:50:17 2022 +1000
+
+    Merge branch 'main' into macro-delays
+
+[33mcommit f9eb8bc97f20bb9c64db3bb88bbc7fc7238c4ea3[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Aug 29 08:55:36 2022 +0000
+
+    Revert yarn file
+
+[33mcommit 7131c34c04e2ad0d6f26c6a10ce5965a4b1cf5b7[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Aug 29 08:50:40 2022 +0000
+
+    Add app insights
+
+[33mcommit 2cceb2db1d487a8f463b224bb952992b98cc54ac[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Mon Aug 29 01:21:54 2022 -0400
+
+    Update staticwebapp.config.json
+
+[33mcommit f31dda2886bb7d7fc98f7c1281523d4c6979f773[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Tue Aug 2 18:44:23 2022 -0400
+
+    Guarded accessor
+
+[33mcommit b22efa1e7f9cc27370e774c98a725476d91e8b51[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Tue Aug 2 23:23:22 2022 +1000
+
+    Fixes to make delay actually work
+
+[33mcommit 7156fa146d3784fd8cb0f9f5f28f05a387332a8c[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Aug 1 23:32:08 2022 +1000
+
+    Added delay logic and action prefixes to macros
+
+[33mcommit cc1a4a731e4073b0cd8da0cb000987e6c84a6643[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 29 22:56:00 2022 -0400
+
+    Show Custom Keycodes with V3 Definitions
+
+[33mcommit 98236799e355559a7706ca60bfb3581722569994[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 29 20:53:01 2022 -0400
+
+    Empty commit
+
+[33mcommit 5096e902120ad4870989b439214621559d729a83[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 29 20:17:19 2022 -0400
+
+    Reset Test Matrix control on unmount
+
+[33mcommit c1fe07244b0a3015fcffa8c4edce352c2694484c[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 29 19:47:55 2022 -0400
+
+    Guarded selector
+
+[33mcommit 01522fb3751bf705799133b52565241b5cefc6b3[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Jul 28 23:41:45 2022 -0400
+
+    Remove unused code
+
+[33mcommit 07cb6a22645b324f513b0be85461bdf08a65e838[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Jul 28 23:41:18 2022 -0400
+
+    Icon detector
+
+[33mcommit 17aefc57e956d0284aa75e9ced644b3b577b434b[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Jul 28 22:43:56 2022 -0400
+
+    Add basic label-based icon detection
+
+[33mcommit bb0fbdd6acedfcd4580641967a6508176e2745bd[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Jul 28 22:05:48 2022 -0400
+
+    Support options that are of the type string in addition to [string, number]
+
+[33mcommit f951e5b8ed72e9525dec07528207f5c21a59d9df[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Thu Jul 28 21:38:07 2022 -0400
+
+    Update README.md
+
+[33mcommit eb930a1b7050371cd2a77a362f2ebf73b4a7311f[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Jul 28 21:35:24 2022 -0400
+
+    Get default menus working for both keycodes and menus
+
+[33mcommit d79a0b3de91f3a6ad74237bb1ad677f61445dd6f[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Tue Jul 26 03:17:11 2022 -0400
+
+    Added inferred ways to disable menus
+
+[33mcommit 4866b3798a0896d86cccc01ae98a9c242cd15e74[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 22 19:48:22 2022 -0400
+
+    Update getCustomCommands to get correct menus
+
+[33mcommit 8c79ada592182e2d5c0fc75eaa5c8731d982be0c[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 22 19:37:08 2022 -0400
+
+    Move explicit typing at selector end
+
+[33mcommit e49b3c3e762e28b790408db47f87cdaa70247577[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 22 19:34:22 2022 -0400
+
+    Explicitly type selector
+
+[33mcommit 03677cefe57735434f66ee4c68cd9df8cb279575[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 22 19:29:24 2022 -0400
+
+    Add additional components for configure
+
+[33mcommit 57a54437b900a819415a33f9f0e1117b779a4d35[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 22 18:52:15 2022 -0400
+
+    Add component creation and core menu resolving of custom menu into selector for avoiding recomputing
+
+[33mcommit 9947c899248cf3eab97eec55bfc1f5ad1c74a809[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 22 01:27:00 2022 -0400
+
+    Resolve and fetch common menus
+
+[33mcommit d8a8a23230a7d65ad13cc9a91c087785a7b6f0f1[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Fri Jul 22 00:33:23 2022 -0400
+
+    Update package.json
+
+[33mcommit fef4b643f0830243a2523bbccb501fc406210689[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Fri Jul 22 00:03:56 2022 -0400
+
+    Temporarily add layouts enum back in
+
+[33mcommit 587621f8077325a5a0bc4d603bc3279fbf9db5e1[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Jul 21 23:55:09 2022 -0400
+
+    Conditionally render builtin keycode and configure menus
+
+[33mcommit 49e95af7f49fcd7a350493472f19b7e689ee2bcd[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Jul 21 21:07:23 2022 -0400
+
+    Fix swapping versions for sideloaded json
+
+[33mcommit ac90e6ba678c2baf2da4868446cf2bacd73c9c8b[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Wed Jul 20 17:57:49 2022 -0400
+
+    QMK Encoder support (#35)
+    
+    * Update package.json dependencies
+    
+    * Initial progress with encoders
+    
+    * Save progress
+    
+    * Style the encoder
+    
+    * Calculate ideal border width for encoder based on size
+    
+    * Render the correct menu and position for encoders
+    
+    * Add mapping functionality to encoders
+    
+    * Fix some encoder bugs
+    
+    * Fix protocol check for v3
+    
+    * Dynamically size keyboard frame based off current layout
+    
+    * Remove labels from Encoder keys for now and render correctly in test tab
+    
+    * Fix type errors
+    
+    * Remove yarn lock to swap over to using npm
+    
+    * Update package-lock and specify required npm versions
+    
+    * Delete unused workflow file and add perm fix
+    
+    * Remove broken cache perm fix
+    
+    * Specify specific platform to run code
+    
+    * Remove explicit build command in action as oryx automatically runs build:azure
+    
+    * Update required engines
+    
+    * Update engines again?
+    
+    * Change supported npm engine to hopefully force cache invalidation
+    
+    * Constrain npm version to 7
+    
+    * Downgrade node engine
+    
+    * Revert
+    
+    * Switch package.json to original - reader update
+    
+    * Switch back to using yarn :(
+    
+    * Upgrade dependencies
+    
+    * Change name of build command
+    
+    * Fix matrix rendering with encoders
+
+[33mcommit adebd47d9d7649e9c29fbdc71c20adac70282bc9[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun Jul 17 18:23:38 2022 -0400
+
+    Only update via-reader package
+
+[33mcommit 916bff2e6056d29ecb1356494b255bd8f099edc5[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Jul 17 15:00:51 2022 -0400
+
+    Bump immer from 9.0.5 to 9.0.15 (#31)
+    
+    Bumps [immer](https://github.com/immerjs/immer) from 9.0.5 to 9.0.15.
+    - [Release notes](https://github.com/immerjs/immer/releases)
+    - [Commits](https://github.com/immerjs/immer/compare/v9.0.5...v9.0.15)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: immer
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+    
+    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+
+[33mcommit e2295df17bf69fc7f35ef1dde110665cde84f53c[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Jul 17 15:00:43 2022 -0400
+
+    Bump nth-check from 2.0.0 to 2.1.1 (#32)
+    
+    Bumps [nth-check](https://github.com/fb55/nth-check) from 2.0.0 to 2.1.1.
+    - [Release notes](https://github.com/fb55/nth-check/releases)
+    - [Commits](https://github.com/fb55/nth-check/compare/v2.0.0...v2.1.1)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: nth-check
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+    
+    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+
+[33mcommit 91d483309d9defa26bbb940071c1e42584a8772f[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Jul 17 15:00:37 2022 -0400
+
+    Bump tar from 6.1.0 to 6.1.11 (#33)
+    
+    Bumps [tar](https://github.com/npm/node-tar) from 6.1.0 to 6.1.11.
+    - [Release notes](https://github.com/npm/node-tar/releases)
+    - [Changelog](https://github.com/npm/node-tar/blob/main/CHANGELOG.md)
+    - [Commits](https://github.com/npm/node-tar/compare/v6.1.0...v6.1.11)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: tar
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+    
+    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+
+[33mcommit 0af53aa9b829197448a15c761c6c4dd6310ac27a[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Jul 17 15:00:29 2022 -0400
+
+    Bump vm2 from 3.9.3 to 3.9.10 (#29)
+    
+    Bumps [vm2](https://github.com/patriksimek/vm2) from 3.9.3 to 3.9.10.
+    - [Release notes](https://github.com/patriksimek/vm2/releases)
+    - [Changelog](https://github.com/patriksimek/vm2/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/patriksimek/vm2/compare/3.9.3...3.9.10)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: vm2
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+    
+    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+
+[33mcommit 523ff331a1fbb6c63251843411270400ce7df63f[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Jul 17 15:00:23 2022 -0400
+
+    Bump node-fetch from 2.6.1 to 2.6.7 (#30)
+    
+    Bumps [node-fetch](https://github.com/node-fetch/node-fetch) from 2.6.1 to 2.6.7.
+    - [Release notes](https://github.com/node-fetch/node-fetch/releases)
+    - [Commits](https://github.com/node-fetch/node-fetch/compare/v2.6.1...v2.6.7)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: node-fetch
+      dependency-type: direct:development
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+    
+    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+
+[33mcommit 5b2eacbe96516350a53cd1506267b5345cae43e9[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Jul 17 14:59:58 2022 -0400
+
+    Bump async from 2.6.3 to 2.6.4 (#34)
+    
+    Bumps [async](https://github.com/caolan/async) from 2.6.3 to 2.6.4.
+    - [Release notes](https://github.com/caolan/async/releases)
+    - [Changelog](https://github.com/caolan/async/blob/v2.6.4/CHANGELOG.md)
+    - [Commits](https://github.com/caolan/async/compare/v2.6.3...v2.6.4)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: async
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+    
+    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+
+[33mcommit c4ecd1464fa9e99bc834278af65c129f256083ec[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Jul 17 14:54:12 2022 -0400
+
+    Bump minimist from 1.2.5 to 1.2.6 (#28)
+    
+    Bumps [minimist](https://github.com/substack/minimist) from 1.2.5 to 1.2.6.
+    - [Release notes](https://github.com/substack/minimist/releases)
+    - [Commits](https://github.com/substack/minimist/compare/1.2.5...1.2.6)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: minimist
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+    
+    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+
+[33mcommit ad2b7b22d91247d16fcd47cd60123407ec8e8cf4[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun Jul 17 13:54:18 2022 -0400
+
+    Pass KeyboardAPI through props to SatisfactionMenu as it relies on it coming from this.props
+
+[33mcommit 3ed0141e63e785882eb6c53a97e574833c0def3a[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun Jul 17 01:20:47 2022 -0400
+
+    YOLO Electron support
+
+[33mcommit 201b6812eaa3779be6345e8100bb60c364641937[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Mon Jul 11 19:51:05 2022 -0400
+
+    Create LICENSE
+
+[33mcommit 190f6cf1fb8d301678a5a4ea5414adc3fbd264e3[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun Jul 10 19:18:58 2022 -0400
+
+    Remove remapping via key events to fix after refactor
+
+[33mcommit 9bfab4268fbd07e977f15601a9ebb29307f5269d[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun Jul 10 19:00:45 2022 -0400
+
+    Fix boolean state for fast remap
+
+[33mcommit ac9321b71388bebb75e47f80402d1026c82a2076[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Sun Jul 10 12:19:26 2022 -0400
+
+    Update index.html
+
+[33mcommit 8fde6fef7e21db121a355c58b3be1daad373322c[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Sun Jul 10 12:15:30 2022 -0400
+
+    Update README.md
+
+[33mcommit 59030af79f733ed6df5745a43a3287f1b8dbbfa3[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun Jul 10 11:43:08 2022 -0400
+
+    Set loading V2 drafts by default
+
+[33mcommit 6c3c908a751f13d135608d267ac1e6300c663b01[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sat Jun 25 23:19:11 2022 -0400
+
+    Fix issue loading V2 definitions and also using the correct source of truth for the BlankPositionedKeyboard component
+
+[33mcommit a26a218c4750dda544a4501bfb06cdd0460ed2dd[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun May 8 21:45:34 2022 -0400
+
+    Remove unused settings
+
+[33mcommit 1e120ce0d0bbde5861df2541993590ec65586475[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun May 8 20:07:17 2022 -0400
+
+    Avoid showing the authorize button when there are no supported keyboards either connected or existing
+
+[33mcommit 16407c3cf7cd8674989aef80b6846805586cdcb4[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun May 8 19:27:05 2022 -0400
+
+    Add concurrently to run azure function and snowpack at the same time
+
+[33mcommit b1cd0f75ebac255a81352a1cdbf6bb6ea0d776cf[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun May 8 12:54:06 2022 -0400
+
+    Upgrade react to v18 & update styled components & fix keyboard tester from not appearing when a device is not plugged in
+
+[33mcommit 6e567785ae5bd07bef97f956aab6f4210373acbe[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun May 8 01:20:18 2022 -0400
+
+    Only prompt for login if user request fails
+
+[33mcommit ebc8a5e0613a627fc60d5bc56b37be29f28f11f1[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun May 8 00:47:08 2022 -0400
+
+    Refactor and fetch avatar image
+
+[33mcommit 64ddf246c08a00b50f38f6bc826f4e609ee869c1[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sat May 7 23:42:27 2022 -0400
+
+    Test to see if api is being hit
+
+[33mcommit 4af0b2c1d5a1da13986d14f8c8a28dc28326b156[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sat May 7 23:35:53 2022 -0400
+
+    Add new config file for explicitly stating the api route
+
+[33mcommit d4e9b7e8a9dd1f0e772150b5c3c8c26461470f64[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Sat May 7 22:49:27 2022 -0400
+
+    GitHub Integration (#24)
+    
+    * Add auth popup page
+    
+    * Add github utility file for authing and getting KLE files
+
+[33mcommit 3565705591233a1c6a3a881aa1aeee9cdf59715e[m
+Merge: 312d179 be75172
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Sat Apr 30 20:53:35 2022 -0700
+
+    Merge pull request #20 from the-via/build-definitions-for-dev
+    
+    Add script to build definitions if not found
+
+[33mcommit be75172e6224edf21c830e75fc1957152d930c62[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Sun Mar 13 17:57:12 2022 -0700
+
+    Add script to build definitions if not found
+
+[33mcommit 312d1791b8f129a1c8226369dcdde54fd7ccaf1c[m
+Merge: 799b746 c185ce1
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Sat Apr 30 20:24:08 2022 -0700
+
+    Merge pull request #23 from the-via/eval-negative-lookbehind
+    
+    Eval negative lookbehind regex to prevent erroring in browsers
+
+[33mcommit c185ce118a85393682c1bd3e20cf9e2b8b2af37d[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Sat Apr 30 13:46:17 2022 -0700
+
+    Better variable name
+
+[33mcommit d77a288abf2661542df575d5acb23f9045d696da[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Sat Apr 30 13:42:43 2022 -0700
+
+    Better USB support detection, hide global menu when not supported
+
+[33mcommit 7a0e499304d33a9769d14e537a1d3e0ddd7a692d[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Sat Apr 30 13:17:04 2022 -0700
+
+    Use try/catch to prevent the ScriptError when evaluated
+
+[33mcommit c18a73bde9744f1c4b1f984b09d83daabcc8db33[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Sat Apr 30 13:15:42 2022 -0700
+
+    Add comment
+
+[33mcommit 4392b349732267212eb122aba42beff7ea79dd07[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Sat Apr 30 13:11:54 2022 -0700
+
+    Eval negative lookbehind regex to prevent erroring in browsers
+    
+    Closes #4
+
+[33mcommit 799b74698804e5d1399afee44b9404f47f128a90[m
+Merge: 48aeae5 4afce79
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Thu Mar 31 22:50:17 2022 -0700
+
+    Merge pull request #22 from the-via/default-for-multiparmeter-macro
+
+[33mcommit 4afce79bfc04e1ef0145c7d53ee4f80a6aa2e388[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Thu Mar 31 22:44:59 2022 -0700
+
+    Fix for LM(), use nullish coalescing
+
+[33mcommit 7588094e0dd01c1b83d926014824a3f75176862e[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Thu Mar 31 22:39:24 2022 -0700
+
+    Default to empty string if no parameters are passed in to LM or MT
+
+[33mcommit 48aeae5c27240a33969a7c382a3c6fc0e78e3118[m
+Merge: f45c5da 6ec4788
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Mon Mar 28 19:03:37 2022 -0700
+
+    Merge pull request #21 from the-via/clone-options-array-for-layout-switching
+    
+    Fix layout switching
+
+[33mcommit 6ec4788482970a6fe5286e8bdf50f62f938f13cc[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Mon Mar 28 18:56:42 2022 -0700
+
+    Idk man
+
+[33mcommit c9bd678507eda037b208434c314524db350403a3[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Mon Mar 28 18:53:52 2022 -0700
+
+    Update protocol for pelpi package
+
+[33mcommit 847046d0a71398052c07316c88b0cb816c39dc8f[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Mon Mar 28 18:51:13 2022 -0700
+
+    Update protocol for via-reader package
+
+[33mcommit 3cdfd3b001781c0dc708ed975d1193e3cf7333e4[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Mon Mar 28 16:36:03 2022 -0700
+
+    Clone options array into modifiable one so it's not read-only
+    
+    Fixes an issue preventing layout switching.
+
+[33mcommit f45c5da32ab414692b25f35bc8df90550324bd19[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun Mar 6 16:29:36 2022 -0500
+
+    Actually use identifier function for identifying
+
+[33mcommit 0993d4c768325799115766887835ec1fc26b04ad[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun Mar 6 16:22:36 2022 -0500
+
+    Update types for try-catch block
+
+[33mcommit de542b9af7f45c2c4d113eeb455887663cf942ef[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Sun Mar 6 16:14:23 2022 -0500
+
+    Update package.json
+
+[33mcommit a32d6902ae9723cdd23c41b29a421c2d8b033cff[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Sun Mar 6 16:11:00 2022 -0500
+
+    Use a v4 UUID browser to generate identifiers if available
+
+[33mcommit f3ae06bb5df7673c5917e4273273770ecf024f4a[m
+Author: Matt Sacks <github@mattsacks.email>
+Date:   Fri Feb 11 09:50:26 2022 -0800
+
+    Fix loading key tester page (#19)
+    
+    * Move early return below hooks
+    
+    * Add use-resize-observer package and resize keyboard after initial render
+    
+    * Remove @react-hook/resize-observer
+    
+    * Add types file for raf-schd package
+
+[33mcommit 95833eb8e922434c9c3353a803e008766ebc4841[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Tue Feb 8 23:40:03 2022 -0500
+
+    Remove repeater for new definitions, fix edge cases around connecting and disconnecting
+
+[33mcommit 420b4ee3775edfb99d6b5b58e7ab17b90becbcf8[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Tue Feb 8 19:58:01 2022 -0500
+
+    Clear storage
+
+[33mcommit 8e476648aa013368b30a155c8dd9bac2d7bda917[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Tue Feb 8 18:31:12 2022 -0500
+
+    Clear localStorage if running out of space
+
+[33mcommit ff87832c490a5b54397965ef524d5f4aaf8d63df[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Thu Feb 3 09:31:54 2022 -0500
+
+    Add build command to pull a fresh copy of the keyboards repo
+
+[33mcommit 1245a96249ee96dcfd508d9b96d9f7a69ed99fab[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Wed Feb 2 01:24:30 2022 -0500
+
+    Update and rename azure-static-web-apps-delightful-pebble-09d5b2410.yml to azure.yml
+
+[33mcommit 5f9f46e4e5a8dcad8864b7baa9e5ca0f1402541c[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Tue Feb 1 18:29:31 2022 -0500
+
+    Move up eloadDefinitions prior to selecting a connected device in case there is a definition that needs to be downloaded first
+
+[33mcommit ef12bc49684868cc3aa096f8dd1951d4affe0a3c[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Jan 24 19:37:29 2022 -0500
+
+    Fix path
+
+[33mcommit 1b23135addcf9f86c3f59bf06f55663d4f5e4124[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Jan 24 19:32:23 2022 -0500
+
+    Add ts-node temporarily for asset generation
+
+[33mcommit 41b14e94dc8695d39af2222c2725690056674b14[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Mon Jan 24 19:28:02 2022 -0500
+
+    Add generation of definitions on build
+
+[33mcommit bcf857c36013b47aeeb437229a0af5d68383fc45[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Mon Jan 24 14:50:35 2022 -0500
+
+    Update azure-static-web-apps-delightful-pebble-09d5b2410.yml
+
+[33mcommit b0273ce69635893b5f732f495461d110816c2841[m
+Author: Olivia <ofbriggs@gmail.com>
+Date:   Mon Jan 24 14:29:06 2022 -0500
+
+    Update azure-static-web-apps-delightful-pebble-09d5b2410.yml
+
+[33mcommit 017d29f6164713d053b2850ac653018453676c6a[m
+Author: Olivia <olivia@github.com>
+Date:   Mon Jan 24 12:15:17 2022 -0500
+
+    ci: add Azure Static Web Apps workflow file
+    on-behalf-of: @Azure opensource@microsoft.com
+
+[33mcommit d188c705c37c48b8f17df8e006c17369c073bf0a[m
+Author: Olivia Briggs <ofbriggs@gmail.com>
+Date:   Sun Nov 21 03:40:53 2021 -0500
+
+    Switch to generating blob link to save layouts in the browser
+
+[33mcommit 4f7c166b42ced789f33820d26c731c731822fa50[m
+Merge: 8e2ec9c 4ef6189
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Nov 7 22:33:30 2021 +1100
+
+    Merge pull request #9 from the-via/redux-overhaul
+    
+    Redux overhaul. Replaced typesafe-actions with redux-toolkit, separated reducers into more functional slices, improved typing for state/actions.
+
+[33mcommit 4ef618961148e2efa7e0e61bcb68cde5754dff65[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Nov 7 22:08:46 2021 +1100
+
+    added design slice, wired selected design version to slice
+
+[33mcommit fc950a7554be3484952b0093ec21edf6c0e1b33d[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Nov 7 12:49:29 2021 +1100
+
+    Got the design tab working
+    
+    validateDevices() was not required to get this to work, so the commented reference to it has been removed
+
+[33mcommit 7e1839535b2212fd77984ca3d3c31299fea65120[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Thu Nov 4 00:20:01 2021 +1100
+
+    Resolved string | string[] typing
+
+[33mcommit 6db678e14c0736a4ed4c2ca29d9030d5993eb904[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Thu Nov 4 00:11:18 2021 +1100
+
+    More changes with @olivia
+
+[33mcommit 11a82ea161b4a92ba8f6602f7225be2da8781df5[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Oct 10 12:16:57 2021 +1100
+
+    PR review changes with @olivia
+
+[33mcommit 5df0eae0c6ff74576ab3a685155bbf22151e443a[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Oct 4 12:36:53 2021 +1100
+
+    Memoized macro menu
+    
+    https://github.com/the-via/app/pull/9#discussion_r699616607
+
+[33mcommit 03e3bebd97738d19bfbc2b648fc2d23b1f4ad752[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Oct 4 12:33:18 2021 +1100
+
+    removed redundant await
+    
+    https://github.com/the-via/app/pull/9#discussion_r699616401
+
+[33mcommit 4de407c323f6515746e3a33498ee2d2acd4a3138[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Oct 4 12:30:54 2021 +1100
+
+    added memoisation
+    
+    https://github.com/the-via/app/pull/9#discussion_r699615409
+
+[33mcommit 1ab89949ab6680fc4c56975bc644bd12a8bfe365[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Oct 4 11:48:26 2021 +1100
+
+    typed childless components as VFC
+
+[33mcommit faec687b24c7f3bed534536d52fd464ce42d9413[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Aug 30 18:42:57 2021 +1000
+
+    cleanup TODOs
+
+[33mcommit 2f46b002cfef6109aa292090ea3103819d6e0520[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Aug 30 18:36:40 2021 +1000
+
+    Improved typing in test-keyboard
+
+[33mcommit a508315ab56ed6a8453cfad72b69caeaee5b8380[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Aug 30 18:17:24 2021 +1000
+
+    Fixed typing on Home component
+
+[33mcommit 6aa87329e28e6fe03267dfd9343c58bf618d2286[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Aug 30 14:27:53 2021 +1000
+
+    Moved a couple of types to reader
+
+[33mcommit 7ff789a602e0011f3de7b4e75dab2793b6a2fc0c[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Mon Aug 30 01:05:27 2021 +1000
+
+    Removed unused file
+
+[33mcommit c0e237f5d5573352a2a58885ba8c05c0eb2b33ca[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 22:26:19 2021 +1000
+
+    Added typing, fixed broken useEffect
+
+[33mcommit 91617c3ea208e378c7c9aab9b9accf0a61d5f9ec[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 21:37:46 2021 +1000
+
+    Fixed some typing
+
+[33mcommit 1348dfdf7ac4a4c92392d875dbb90632d46ba78b[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 21:20:44 2021 +1000
+
+    Fixed reconnect device logic I broke during refactor
+
+[33mcommit d2531ebc6e78a5c91a2de6b602e89325ab4f1788[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 21:20:20 2021 +1000
+
+    fixed extension, removed empty file
+
+[33mcommit 0bd62196b36dc06a3a50993cc7cfe2d5e77312c6[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 21:19:56 2021 +1000
+
+    Added missing React imports
+
+[33mcommit e11c1fc8250e9b4b34214a2d5aafd1a6ae753c21[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 20:42:11 2021 +1000
+
+    cleanup (adjusting to types, removing unused code)
+
+[33mcommit 8acfa90c03c26f716a70bffb9eac525e7ecb8a32[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 20:41:06 2021 +1000
+
+    Removed unused container components
+
+[33mcommit e2d134d7fd388e1525f5e70f9991b1fa2d5e98cc[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 20:40:37 2021 +1000
+
+    Standardise React imports, naming and type of components, prettify
+    
+    v17 lied to me, I thought we didn't need to import React anymore
+
+[33mcommit bf78fe80448aebb82dd1035b4db31ae91cf56c91[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 16:04:58 2021 +1000
+
+    omg it actually compiles
+
+[33mcommit b41d186b4a2e3faef52a445c22ebc8a85f20ba60[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 02:14:00 2021 +1000
+
+    added snowpack alias, fixed imports
+
+[33mcommit aeaf1b5f55a7839799296f6ca3b547d5bc737b0c[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 02:07:01 2021 +1000
+
+    Converted save-load.tsx to new redux store and hooks
+
+[33mcommit 83290599bfc499b827c9304e8c6cee48455fbf73[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 01:35:25 2021 +1000
+
+    cleaned up silly method calls
+
+[33mcommit 5de66479b8e263b461bff8002504d5ca6702920f[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sun Aug 29 00:56:40 2021 +1000
+
+    Converted keycode.tsx to new redux store and hooks
+
+[33mcommit f78a33b1fbe33af5ec63f855154f391a1409c8da[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Aug 28 22:52:26 2021 +1000
+
+    Converted test.tsx to new redux store with hooks
+
+[33mcommit 0e92832a765db78959ee547ffe514aee6362c842[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Aug 28 22:37:59 2021 +1000
+
+    Converted design.tsx to use new redux store via hooks
+
+[33mcommit f2dc3e1514a1ce16f2de214ade1244bc09e11c98[m
+Author: Valdis Thomann <valdis.thomann@gmail.com>
+Date:   Sat Aug 28 20:20:59 2021 +1000
+
+    Converted debug.tsx to use redux hooks

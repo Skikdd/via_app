@@ -6,30 +6,24 @@ import {CategoryMenuTooltip} from '../inputs/tooltip';
 import {CategoryIconContainer} from '../panes/grid';
 
 const ExternalLinkContainer = styled.span`
-  position: absolute;
-  right: 1em;
+  position: relative;
+  right: 0em;
   display: flex;
   gap: 1em;
 `;
 
 export const ExternalLinks = () => (
   <ExternalLinkContainer>
-    <a href="https://caniusevia.com/" target="_blank">
+    {/* <a href="https://caniusevia.com/" target="_blank">
       <CategoryIconContainer>
         <VIALogo height="25px" fill="currentColor" />
         <CategoryMenuTooltip>Firmware + Docs</CategoryMenuTooltip>
       </CategoryIconContainer>
-    </a>
-    <a href="https://discord.gg/NStTR5YaPB" target="_blank">
+    </a> */}
+    <a href="https://kdocs.cn/l/come3pcJsNi1" target="_blank">
       <CategoryIconContainer>
         <FontAwesomeIcon size={'xl'} icon={faDiscord} />
-        <CategoryMenuTooltip>Discord</CategoryMenuTooltip>
-      </CategoryIconContainer>
-    </a>
-    <a href="https://github.com/the-via/app" target="_blank">
-      <CategoryIconContainer>
-        <FontAwesomeIcon size={'xl'} icon={faGithub} />
-        <CategoryMenuTooltip>Github</CategoryMenuTooltip>
+        <CategoryMenuTooltip>第三方键盘支持查询</CategoryMenuTooltip>
       </CategoryIconContainer>
     </a>
   </ExternalLinkContainer>
