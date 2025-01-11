@@ -31,7 +31,6 @@ import {
 import {OVERRIDE_HID_CHECK} from 'src/utils/override';
 import {KeyboardValue} from 'src/utils/keyboard-api';
 import {useTranslation} from 'react-i18next';
-import { loadTabkbConfigs } from 'src/store/tabkbConfigSlice';
 
 const ErrorHome = styled.div`
   background: var(--bg_gradient);

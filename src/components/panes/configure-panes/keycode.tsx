@@ -42,8 +42,9 @@ import {
   disableGlobalHotKeys,
   enableGlobalHotKeys,
   getDisableFastRemap,
-} from 'src/store/settingsSlice';
+} from 'src/store/settingsSlice'; 
 import {getNextKey} from 'src/utils/keyboard-rendering';
+import {useTranslation} from 'react-i18next';
 const KeycodeList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 64px);
@@ -141,6 +142,7 @@ export const Pane: FC = () => {
 };
 
 export const KeycodePane: FC = () => {
+  const {t} = useTranslation();
   const dispatch = useAppDispatch();
   const macros = useAppSelector((state: any) => state.macros);
   const selectedDefinition = useAppSelector(getSelectedDefinition);
@@ -206,13 +208,15 @@ export const KeycodePane: FC = () => {
   const renderMacroError = () => {
     return (
       <ErrorMessage>
-        Your current firmware does not support macros. Install the latest
-        firmware for your device.
+        {t(
+          'Your current firmware does not support macros. Install the latest firmware for your device.',
+        )}
       </ErrorMessage>
     );
   };
 
   const renderCategories = () => {
+    const {t} = useTranslation();
     return (
       <MenuContainer>
         {getEnabledMenus().map(({id, label}) => (
@@ -221,7 +225,7 @@ export const KeycodePane: FC = () => {
             onClick={() => setSelectedCategory(id)}
             key={id}
           >
-            {label}
+            {t(label)}
           </SubmenuRow>
         ))}
       </MenuContainer>

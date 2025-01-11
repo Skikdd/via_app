@@ -25,6 +25,7 @@ import {
   getSelectedCustomMenuData,
   updateCustomMenuValue,
 } from 'src/store/menusSlice';
+import {useTranslation} from 'react-i18next';
 
 type Category = {
   label: string;
@@ -125,6 +126,7 @@ function submenuGenerator(
 }
 
 export const Pane: React.FC<Props> = (props: any) => {
+  const {t} = useTranslation();
   const dispatch = useAppDispatch();
   const menus = categoryGenerator(props);
   const [selectedCategory, setSelectedCategory] = useState(
@@ -157,7 +159,7 @@ export const Pane: React.FC<Props> = (props: any) => {
               onClick={() => setSelectedCategory(menu)}
               key={menu.label}
             >
-              {menu.label}
+              {t(menu.label)}
             </SubmenuRow>
           ))}
         </MenuContainer>
