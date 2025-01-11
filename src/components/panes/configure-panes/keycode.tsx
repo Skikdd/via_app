@@ -35,9 +35,7 @@ import {
   updateKey as updateKeyAction,
   updateSelectedKey,
 } from 'src/store/keymapSlice';
-import {
-  getMacroCount,
-} from 'src/store/macrosSlice';
+import {getMacroCount} from 'src/store/macrosSlice';
 import {
   disableGlobalHotKeys,
   enableGlobalHotKeys,

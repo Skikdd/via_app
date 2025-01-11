@@ -10,6 +10,7 @@ import type {LightingData} from '../../../../types/types';
 import {ArrayColorPicker} from '../../../inputs/color-picker';
 import {ConnectedColorPalettePicker} from 'src/components/inputs/color-palette-picker';
 import {shiftFrom16Bit, shiftTo16Bit} from 'src/utils/keyboard-api';
+import {useTranslation} from 'react-i18next';
 
 type Props = {
   lightingData: LightingData;
@@ -76,6 +77,7 @@ const getRangeBytes = (value: number, max: number) => {
 };
 
 const VIACustomControl = (props: VIACustomControlProps) => {
+  const {t} = useTranslation();
   const {content, type, options, value} = props as any;
   const [name, ...command] = content;
   switch (type) {
@@ -86,7 +88,7 @@ const VIACustomControl = (props: VIACustomControlProps) => {
           onClick={() => 
             props.updateValue(name, ...command, buttonOption[0])
           }
-        >Click</AccentButton>
+        >{t('Click')}</AccentButton>
       );
     }
     case 'range': {

@@ -10,12 +10,14 @@ import {
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {useTranslation} from 'react-i18next';
 import {
   IconButtonContainer,
   IconToggleContainer,
 } from 'src/components/inputs/icon-button';
 import {IconButtonTooltip} from 'src/components/inputs/tooltip';
 import styled from 'styled-components';
+
 
 const MacroEditControlsContainer = styled.div`
   background: var(--bg_menu);
@@ -70,6 +72,7 @@ export const MacroEditControls: React.FC<{
   toggleFullscreen,
   isDelaySupported,
 }) => {
+  const {t} = useTranslation();
   const recordComponent = (
     <IconButtonContainer
       onClick={() => {
@@ -85,9 +88,9 @@ export const MacroEditControls: React.FC<{
       <IconButtonTooltip>
         {isFullscreen
           ? isRecording
-            ? 'Stop Recording'
-            : 'Record Keystrokes'
-          : 'Can only record when fullscreen'}
+          ? t('Stop Recording')
+          : t('Record Keystrokes')
+        : t('Can only record when fullscreen')}
       </IconButtonTooltip>
     </IconButtonContainer>
   );
@@ -107,7 +110,7 @@ export const MacroEditControls: React.FC<{
                     color="var(--color_label)"
                     icon={faUndo}
                   />
-                  <IconButtonTooltip>Undo Changes</IconButtonTooltip>
+                  <IconButtonTooltip>{t('Undo Changes')}</IconButtonTooltip>
                 </IconButtonContainer>
                 <IconButtonContainer
                   disabled={!hasUnsavedChanges || isRecording}
@@ -118,7 +121,7 @@ export const MacroEditControls: React.FC<{
                     color="var(--color_label)"
                     icon={faSave}
                   />
-                  <IconButtonTooltip>Save Changes</IconButtonTooltip>
+                   <IconButtonTooltip>{t('Save Changes')}</IconButtonTooltip>
                 </IconButtonContainer>
               </MacroControlGroupContainer>
               <MacroControlGroupDivider />
@@ -137,7 +140,7 @@ export const MacroEditControls: React.FC<{
                 color="var(--color_label)"
                 icon={faTrash}
               />
-              <IconButtonTooltip>Delete Macro</IconButtonTooltip>
+              <IconButtonTooltip>{t('Delete Macro')}</IconButtonTooltip>
             </IconButtonContainer>
           </MacroControlGroupContainer>
           <MacroControlGroupDivider />
@@ -155,7 +158,7 @@ export const MacroEditControls: React.FC<{
               icon={isFullscreen ? faCompress : faExpand}
             />
             <IconButtonTooltip>
-              {isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+            {isFullscreen ? t('Exit Fullscreen') : t('Fullscreen')}
             </IconButtonTooltip>
           </IconButtonContainer>
         }
@@ -171,8 +174,8 @@ export const MacroEditControls: React.FC<{
               <FontAwesomeIcon size={'sm'} icon={faMagicWandSparkles} />
               <IconButtonTooltip>
                 {!optimizeRecording
-                  ? 'Use Smart Optimization'
-                  : 'Skip Smart Optimization'}
+                  ? t('Use Smart Optimization')
+                  : t('Skip Smart Optimization')}
               </IconButtonTooltip>
             </IconToggleContainer>
             <IconToggleContainer
@@ -187,10 +190,10 @@ export const MacroEditControls: React.FC<{
               />
               <IconButtonTooltip>
                 {!isDelaySupported
-                  ? 'Upgrade firmware to use delays'
+                  ? t('Upgrade firmware to use delays')
                   : !recordDelays
-                  ? 'Record Delays'
-                  : 'Skip Recording Delays'}
+                  ? t('Record Delays')
+                  : t('Skip Recording Delays')}
               </IconButtonTooltip>
             </IconToggleContainer>
           </MacroControlGroupContainer>
