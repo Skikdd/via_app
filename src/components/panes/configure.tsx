@@ -47,6 +47,12 @@ const MenuContainer = styled.div`
   padding: 15px 10px 20px 10px;
 `;
 
+const ICP = styled.div`
+  position: relative;
+
+`;
+
+
 const Rows = [
   Keycode,
   Macros,
@@ -177,6 +183,8 @@ const Loader: React.FC<{
       ) : (
         <LoadingText isSearching={!selectedDefinition} />
       )}
+
+    
     </LoaderPane>
   );
 };
@@ -273,6 +281,7 @@ const ConfigureGrid = () => {
 
         {SelectedPane && <SelectedPane />}
       </Grid>
+      
     </>
   );
 };

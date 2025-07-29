@@ -178,6 +178,7 @@ export const Home: React.FC<HomeProps> = (props) => {
         <p>
           Looks like there was a problem getting USB detection working. Right
           now, we only support{' '}
+          
           <UsbErrorWebHIDLink
             href="https://caniuse.com/?search=webhid"
             target="_blank"
@@ -187,8 +188,18 @@ export const Home: React.FC<HomeProps> = (props) => {
           , so make sure yours is compatible before trying again.
         </p>
       </UsbError>
+      <div style={{position: 'absolute', bottom: '10px', width: '100%'}}>
+        {/* <center><a href="https://via.toqmk.com/" target="_blank">本站已更新域名为https://via.toqmk.com/</a></center> */}
+        <center><a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2024110005号-2</a></center>
+      </div>
     </ErrorHome>
   ) : (
-    <>{props.children}</>
+    <>
+      {props.children}
+      <div style={{position: 'fixed', bottom: '10px', width: '100%', zIndex: 1000}}>
+        {/* <center><a href="https://via.toqmk.com/" target="_blank">本站已更新域名为https://via.toqmk.com/</a></center> */}
+        <center><a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2024110005号-2</a></center>
+      </div>
+    </>
   );
 };

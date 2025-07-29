@@ -304,4 +304,8 @@ export default {
   S2_DEC: 0x5f0d,
   FN_MO13: 0x5f10,
   FN_MO23: 0x5f11,
+  WIN_LOCK: 0x700b,
+  QK_CLEAR_EEPROM: 0x7C03,
+  QK_MAGIC_NKRO_ON : 0x7011,
+  QK_MAGIC_NKRO_OFF : 0x7012
 };

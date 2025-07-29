@@ -10,6 +10,8 @@ import {
   KeycodeType,
 } from '@the-via/reader';
 
+import i18next from 'i18next';
+
 export interface IKeycode {
   name: string;
   code: string;
@@ -359,31 +361,31 @@ function buildLayerMenu(): IKeycodeMenu {
     {
       name: 'Fn1\n(Fn3)',
       code: 'FN_MO13',
-      title: 'Hold = Layer 1, Hold with Fn2 = Layer 3',
+      title: i18next.t('Hold = Layer 1, Hold with Fn2 = Layer 3'),
       shortName: 'Fn1(3)',
     },
     {
       name: 'Fn2\n(Fn3)',
       code: 'FN_MO23',
-      title: 'Hold = Layer 2, Hold with Fn1 = Layer 3',
+      title: i18next.t('Hold = Layer 2, Hold with Fn1 = Layer 3'),
       shortName: 'Fn2(3)',
     },
     {
       name: 'Space Fn1',
       code: 'LT(1,KC_SPC)',
-      title: 'Hold = Layer 1, Tap = Space',
+      title: i18next.t('Hold = Layer 1, Tap = Space'),
       shortName: 'Spc Fn1',
     },
     {
       name: 'Space Fn2',
       code: 'LT(2,KC_SPC)',
-      title: 'Hold = Layer 2, Tap = Space',
+      title: i18next.t('Hold = Layer 2, Tap = Space'),
       shortName: 'Spc Fn2',
     },
     {
       name: 'Space Fn3',
       code: 'LT(3,KC_SPC)',
-      title: 'Hold = Layer 3, Tap = Space',
+      title: i18next.t('Hold = Layer 3, Tap = Space'),
       shortName: 'Spc Fn3',
     },
   ];
@@ -398,43 +400,42 @@ function buildLayerMenu(): IKeycodeMenu {
         code: 'MO(layer)',
         type: 'layer',
         layer: 0,
-        title: 'Momentary turn layer on',
+        title: i18next.t('Momentary turn') + 'layer',
       },
       {
         name: 'TG',
         code: 'TG(layer)',
         type: 'layer',
         layer: 0,
-        title: 'Toggle layer on/off',
+        title: i18next.t('Toggle \'')+' layer '+i18next.t('on/off'),
       },
       {
         name: 'TT',
         code: 'TT(layer)',
         type: 'layer',
         layer: 0,
-        title:
-          "Normally acts like MO unless it's tapped multple times which toggles layer on",
+        title: i18next.t("Normally acts like MO unless it's tapped multple times which toggles")+ " layer " +i18next.t("on_"),
       },
       {
         name: 'OSL',
         code: 'OSL(layer)',
         type: 'layer',
         layer: 0,
-        title: 'Switch to layer for one keypress',
+        title: i18next.t('Switch to')+' layer '+ i18next.t('for one keypress'),
       },
       {
         name: 'TO',
         code: 'TO(layer)',
         type: 'layer',
         layer: 0,
-        title: 'Turn on layer when pressed',
+        title: i18next.t('Turn on') +'layer'+ i18next.t('when pressed'),
       },
       {
         name: 'DF',
         code: 'DF(layer)',
         type: 'layer',
         layer: 0,
-        title: 'Sets the default layer',
+        title: i18next.t('Sets the default') + ' layer',
       },
     ],
   };
@@ -480,6 +481,7 @@ function generateMacros(numMacros: number = 16): IKeycode[] {
 
 
 export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
+  
   return [
     {
       id: 'basic',
@@ -961,6 +963,16 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
         {name: 'RGB Mode G', code: 'RGB_M_G', title: 'Gradient'},
       ],
     },
+    {
+      id: 'Commonly_Used',
+      label: 'Commonly_Used',
+      width: 'label',
+      keycodes: [
+        {name: 'WinLock', code: 'WIN_LOCK', title: i18next.t('Windows Lock')},
+        {name: 'Clean EEPROM', code: 'QK_CLEAR_EEPROM', title: i18next.t('CLEAR_EEPROM')},
+        {name:  'FN',code:'MO(1)', title: i18next.t('MO(1),同量产键盘的FN')}
+      ],
+    },
     /*
      These custom keycodes always exist and should be filtered out if necessary
      Name and Title should be replaced with the correct ones from the keyboard json
@@ -995,7 +1007,7 @@ export const categoriesForKeycodeModule = (
   keycodeModule: BuiltInKeycodeModule | 'default',
 ) =>
   ({
-    default: ['basic', 'media', 'macro', 'layers', 'special'],
+    default: ['basic', 'media', 'macro', 'layers', 'special','Commonly_Used'],
     [BuiltInKeycodeModule.WTLighting]: ['wt_lighting'],
     [BuiltInKeycodeModule.QMKLighting]: ['qmk_lighting'],
   }[keycodeModule]);

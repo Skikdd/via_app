@@ -478,4 +478,7 @@ export default {
   DYN_MACRO_PLAY2: 0x7c57,
   FN_MO13: 0x7c77,
   FN_MO23: 0x7c78,
+  WIN_LOCK:0x700b,
+  QK_MAGIC_NKRO_ON : 0x7011,
+  QK_MAGIC_NKRO_OFF : 0x7012
 };

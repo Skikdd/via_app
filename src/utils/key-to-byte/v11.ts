@@ -478,4 +478,5 @@ export default {
   DYN_MACRO_PLAY2: 0x7c57,
   FN_MO13: 0x7700,
   FN_MO23: 0x7701,
+  WIN_LOCK:0x700b
 };
