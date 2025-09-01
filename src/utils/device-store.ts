@@ -29,12 +29,12 @@ const defaultStoreData = {
   },
   definitions: {},
   settings: {
-    showDesignTab: false,
+    showDesignTab: true,
     disableFastRemap: false,
     renderMode: '2D' as const,
     themeMode: 'dark' as const,
     designDefinitionVersion: 'v3' as const,
-    themeName: 'OLIVIA_DARK',
+    themeName: 'CARBON_BLACK_B',
     macroEditor: {
       smartOptimizeEnabled: true,
       recordDelaysEnabled: false,

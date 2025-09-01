@@ -10,14 +10,22 @@ import {
 import styled from 'styled-components';
 
 
+// const Container = styled.div`
+//   position: absolute;
+//   left: 15px;
+//   font-weight: 400;
+//   top: 10px;
+// `;
+
 const Container = styled.div`
-  position: absolute;
-  left: 15px;
+  position: relative;
+  left: 0px;
   font-weight: 400;
-  top: 10px;
+  top: -220px;
 `;
+
 const Label = styled.label`
-  font-size: 20px;
+  font-size: 40px;
   text-transform: uppercase;
   color: var(--color_label-highlighted);
   margin-right: 6px;
@@ -33,7 +41,7 @@ const LayerButton = styled.button<{$selected?: boolean}>`
       ? 'var(--color_inside-accent)'
       : 'var(--color_label-highlighted)'};
   cursor: pointer;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 400;
   &:hover {
     border: none;
