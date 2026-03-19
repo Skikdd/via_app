@@ -94,6 +94,7 @@ const VIACustomControl = (props: VIACustomControlProps) => {
     case 'range': {
       return (
         <AccentRange
+        showLabel={true}
           min={options[0]}
           max={options[1]}
           defaultValue={getRangeValue(props.value, options[1])}

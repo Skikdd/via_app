@@ -25,7 +25,7 @@ const Container = styled.div`
 `;
 
 const Label = styled.label`
-  font-size: 40px;
+  font-size: 25px;
   text-transform: uppercase;
   color: var(--color_label-highlighted);
   margin-right: 6px;
@@ -41,7 +41,7 @@ const LayerButton = styled.button<{$selected?: boolean}>`
       ? 'var(--color_inside-accent)'
       : 'var(--color_label-highlighted)'};
   cursor: pointer;
-  font-size: 40px;
+  font-size: 25px;
   font-weight: 400;
   &:hover {
     border: none;

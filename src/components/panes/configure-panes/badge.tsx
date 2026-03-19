@@ -20,7 +20,7 @@ import {useTranslation} from 'react-i18next';
 
 const Container = styled.div`
   position: absolute;
-  right: 15px;
+  left: 100px;
   top: 0px;
   font-size: 18px;
   pointer-events: none;

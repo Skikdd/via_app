@@ -970,7 +970,18 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
       keycodes: [
         {name: 'WinLock', code: 'WIN_LOCK', title: i18next.t('Windows Lock')},
         {name: 'Clean EEPROM', code: 'QK_CLEAR_EEPROM', title: i18next.t('CLEAR_EEPROM')},
-        {name:  'FN',code:'MO(1)', title: i18next.t('MO(1),同量产键盘的FN')}
+        {name:  'MO(1)',code:'MO(1)', title: i18next.t('MO(1),按下这按键,同时再按其他按键，将会触发它在1层的键值,同量产键盘的FN,如果不对就用MO(2)')},
+        {name:  'MO(2)',code:'MO(2)', title: i18next.t('MO(2),按下这按键,同时再按其他按键，将会触发它在2层的键值,睿鼎荣方案的Windows模式FN键,同量产键盘的FN')},
+        {name: '声音 -', code: 'KC_VOLD', title: '电脑声音 -'},
+        {name: '声音 +', code: 'KC_VOLU', title: '电脑声音 +'},
+        {name: '静音',   code: 'KC_MUTE', title: '电脑静音'  }, 
+        {name: '屏幕亮度 -',code: 'KC_BRID',shortName: 'Scr -',title: '屏幕亮度 - , 笔记本和Mac可使用',},
+        {name: '屏幕亮度 +',code: 'KC_BRIU',shortName: 'Scr +',title: '屏幕亮度 + , 笔记本和Mac可使用',},
+        {name: 'Mac系统截图键',code: 'LSG(kc_3)',shortName: 'Mac截图',title: 'Mac系统的截图键,本质是左Shift+左Command键+数字3键'},
+        {name: 'Mac系统区域截图键',code: 'LSG(kc_4)',shortName: 'Mac区域截图',title: 'Mac系统的区域截图键,本质是左Shift+左Command键+数字4键'},
+
+
+        
       ],
     },
     /*
