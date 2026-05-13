@@ -1,4 +1,4 @@
-import {FC, useState, useEffect, useMemo} from 'react';
+import React, {FC, useState, useEffect, useMemo} from 'react';
 import styled from 'styled-components';
 import {Button} from '../../inputs/button';
 import {KeycodeModal} from '../../inputs/custom-keycode-modal';
@@ -12,6 +12,7 @@ import {
   IKeycode,
   IKeycodeMenu,
   categoriesForKeycodeModule,
+  flattenKeycodes,
 } from '../../../utils/key';
 import {ErrorMessage} from '../../styled';
 import {
@@ -43,6 +44,7 @@ import {
 } from 'src/store/settingsSlice'; 
 import {getNextKey} from 'src/utils/keyboard-rendering';
 import {useTranslation} from 'react-i18next';
+
 const KeycodeList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 64px);
@@ -116,6 +118,10 @@ const KeycodeDesc = styled.div`
   }
 `;
 
+const SubmenuItem = styled(SubmenuRow)<{$depth: number}>`
+  padding-left: ${props => 20 + props.$depth * 20}px;
+`;
+
 const generateKeycodeCategories = (basicKeyToByte: Record<string, number>, numMacros: number = 16) =>
   getKeycodes(numMacros).concat(getOtherMenu(basicKeyToByte));
 
@@ -131,7 +137,7 @@ export const Pane: FC = () => {
       dispatch(updateSelectedKey(null));
     },
     [],
-  ); // componentWillUnmount equiv
+  );
 
   if (selectedKey !== null && keys[selectedKey].ei !== undefined) {
     return <EncoderPane.Pane />;
@@ -157,13 +163,12 @@ export const KeycodePane: FC = () => {
     [basicKeyToByte, macroCount],
   );
 
-  // TODO: improve typing so we can get rid of this
   if (!selectedDefinition || !selectedDevice || !matrixKeycodes) {
     return null;
   }
 
   const [selectedCategory, setSelectedCategory] = useState(
-    KeycodeCategories[0].id,
+    KeycodeCategories[0]?.id || '',
   );
   const [mouseOverDesc, setMouseOverDesc] = useState<string | null>(null);
   const [showKeyTextInputModal, setShowKeyTextInputModal] = useState(false);
@@ -190,6 +195,7 @@ export const KeycodePane: FC = () => {
         ),
       );
   };
+  
   const getEnabledMenusV3 = (definition: VIADefinitionV3): IKeycodeMenu[] => {
     const keycodes = ['default' as const, ...(definition.keycodes || [])];
     const allowedKeycodes = keycodes.flatMap((keycodeName) =>
@@ -198,9 +204,33 @@ export const KeycodePane: FC = () => {
     if ((selectedDefinition.customKeycodes || []).length !== 0) {
       allowedKeycodes.push('custom');
     }
-    return KeycodeCategories.filter((category) =>
-      allowedKeycodes.includes(category.id),
-    );
+    
+    // 递归过滤，保留顶层和子菜单
+    const filterMenus = (menus: IKeycodeMenu[]): IKeycodeMenu[] => {
+      const result: IKeycodeMenu[] = [];
+      for (const menu of menus) {
+        // 如果当前菜单在允许列表中，或者它的子菜单有允许的项
+        let shouldInclude = allowedKeycodes.includes(menu.id);
+        
+        let filteredChildren: IKeycodeMenu[] = [];
+        if (menu.children) {
+          filteredChildren = filterMenus(menu.children);
+          if (filteredChildren.length > 0) {
+            shouldInclude = true;
+          }
+        }
+        
+        if (shouldInclude) {
+          result.push({
+            ...menu,
+            children: filteredChildren.length > 0 ? filteredChildren : menu.children,
+          });
+        }
+      }
+      return result;
+    };
+    
+    return filterMenus(KeycodeCategories);
   };
 
   const renderMacroError = () => {
@@ -213,19 +243,31 @@ export const KeycodePane: FC = () => {
     );
   };
 
+  // 递归渲染菜单
+  const renderMenuItems = (menus: IKeycodeMenu[], depth: number = 0) => {
+    const items: JSX.Element[] = [];
+    for (const menu of menus) {
+      items.push(
+        <SubmenuItem
+          key={menu.id}
+          $depth={depth}
+          $selected={menu.id === selectedCategory}
+          onClick={() => setSelectedCategory(menu.id)}
+        >
+          {t(menu.label)}
+        </SubmenuItem>
+      );
+      if (menu.children) {
+        items.push(...renderMenuItems(menu.children, depth + 1));
+      }
+    }
+    return items;
+  };
+
   const renderCategories = () => {
-    const {t} = useTranslation();
     return (
       <MenuContainer>
-        {getEnabledMenus().map(({id, label}) => (
-          <SubmenuRow
-            $selected={id === selectedCategory}
-            onClick={() => setSelectedCategory(id)}
-            key={id}
-          >
-            {t(label)}
-          </SubmenuRow>
-        ))}
+        {renderMenuItems(getEnabledMenus())}
       </MenuContainer>
     );
   };
@@ -303,13 +345,33 @@ export const KeycodePane: FC = () => {
     );
   };
 
-  const renderSelectedCategory = (
-    keycodes: IKeycode[],
-    selectedCategory: string,
-  ) => {
-    const keycodeListItems = keycodes.map((keycode, i) =>
+  // 递归获取选中菜单的所有 keycodes
+  const getKeycodesForCategory = (categoryId: string): IKeycode[] => {
+    const findInMenus = (menus: IKeycodeMenu[]): IKeycode[] => {
+      for (const menu of menus) {
+        if (menu.id === categoryId) {
+          if (menu.children) {
+            return flattenKeycodes(menu.children);
+          }
+          return menu.keycodes || [];
+        }
+        if (menu.children) {
+          const found = findInMenus(menu.children);
+          if (found.length > 0) return found;
+        }
+      }
+      return [];
+    };
+    return findInMenus(KeycodeCategories);
+  };
+
+  const selectedCategoryKeycodes = getKeycodesForCategory(selectedCategory);
+
+  const renderSelectedCategoryContent = () => {
+    const keycodeListItems = selectedCategoryKeycodes.map((keycode, i) =>
       renderKeycode(keycode, i),
     );
+    
     switch (selectedCategory) {
       case 'macro': {
         return !macros.isFeatureSupported ? (
@@ -353,16 +415,12 @@ export const KeycodePane: FC = () => {
     }
   };
 
-  const selectedCategoryKeycodes = KeycodeCategories.find(
-    ({id}) => id === selectedCategory,
-  )?.keycodes as IKeycode[];
-
   return (
     <>
       <SubmenuOverflowCell>{renderCategories()}</SubmenuOverflowCell>
       <OverflowCell>
         <KeycodeContainer>
-          {renderSelectedCategory(selectedCategoryKeycodes, selectedCategory)}
+          {renderSelectedCategoryContent()}
         </KeycodeContainer>
         <KeycodeDesc>{mouseOverDesc}</KeycodeDesc>
         {showKeyTextInputModal && renderKeyInputModal()}

@@ -29,6 +29,7 @@ export interface IKeycodeMenu {
   keycodes: IKeycode[];
   width?: 'label';
   detailed?: string;
+  children?: IKeycodeMenu[]; // 添加子菜单
 }
 
 // Tests if label is an alpha
@@ -205,10 +206,21 @@ function getCodeForLayerByte(
   }
 }
 
-export const keycodesList = getKeycodes().reduce<IKeycode[]>(
-  (p, n) => p.concat(n.keycodes),
-  [],
-);
+// 需要递归提取所有 keycodes，包括 children 中的
+export function flattenKeycodes(menus: IKeycodeMenu[]): IKeycode[] {
+  return menus.flatMap(menu => {
+    const keycodes = menu.keycodes || [];
+    const childKeycodes = menu.children ? flattenKeycodes(menu.children) : [];
+    return [...keycodes, ...childKeycodes];
+  });
+}
+
+// 修改 keycodesList 的定义，确保它能正确展开嵌套结构
+export const keycodesList = flattenKeycodes(getKeycodes());
+// export const keycodesList = getKeycodes().reduce<IKeycode[]>(
+//   (p, n) => p.concat(n.keycodes),
+//   [],
+// );
 
 export const getByteToKey = (basicKeyToByte: Record<string, number>) =>
   Object.keys(basicKeyToByte).reduce((p, n) => {
@@ -484,39 +496,21 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
   
   return [
     {
-      id: 'basic',
-      label: 'Basic',
+    id: 'basic',
+    label: 'Basic',
+    children: [
+     {
+      id: 'basic_special',
+      label: '特殊键 Special',
       keycodes: [
         {name: '', code: 'KC_NO', title: 'Nothing'},
         {name: '▽', code: 'KC_TRNS', title: 'Pass-through'},
-        // TODO: remove "shortName" when multiline keycap labels are working
-        {name: 'Esc', code: 'KC_ESC', keys: 'esc'},
-        {name: 'A', code: 'KC_A', keys: 'a'},
-        {name: 'B', code: 'KC_B', keys: 'b'},
-        {name: 'C', code: 'KC_C', keys: 'c'},
-        {name: 'D', code: 'KC_D', keys: 'd'},
-        {name: 'E', code: 'KC_E', keys: 'e'},
-        {name: 'F', code: 'KC_F', keys: 'f'},
-        {name: 'G', code: 'KC_G', keys: 'g'},
-        {name: 'H', code: 'KC_H', keys: 'h'},
-        {name: 'I', code: 'KC_I', keys: 'i'},
-        {name: 'J', code: 'KC_J', keys: 'j'},
-        {name: 'K', code: 'KC_K', keys: 'k'},
-        {name: 'L', code: 'KC_L', keys: 'l'},
-        {name: 'M', code: 'KC_M', keys: 'm'},
-        {name: 'N', code: 'KC_N', keys: 'n'},
-        {name: 'O', code: 'KC_O', keys: 'o'},
-        {name: 'P', code: 'KC_P', keys: 'p'},
-        {name: 'Q', code: 'KC_Q', keys: 'q'},
-        {name: 'R', code: 'KC_R', keys: 'r'},
-        {name: 'S', code: 'KC_S', keys: 's'},
-        {name: 'T', code: 'KC_T', keys: 't'},
-        {name: 'U', code: 'KC_U', keys: 'u'},
-        {name: 'V', code: 'KC_V', keys: 'v'},
-        {name: 'W', code: 'KC_W', keys: 'w'},
-        {name: 'X', code: 'KC_X', keys: 'x'},
-        {name: 'Y', code: 'KC_Y', keys: 'y'},
-        {name: 'Z', code: 'KC_Z', keys: 'z'},
+      ]
+    },
+    {
+      id: 'basic_numbers',
+      label: '数字区 Numbers',
+      keycodes: [
         {name: '!\n1', code: 'KC_1', keys: '1'},
         {name: '@\n2', code: 'KC_2', keys: '2'},
         {name: '#\n3', code: 'KC_3', keys: '3'},
@@ -527,6 +521,48 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
         {name: '*\n8', code: 'KC_8', keys: '8'},
         {name: '(\n9', code: 'KC_9', keys: '9'},
         {name: ')\n0', code: 'KC_0', keys: '0'},
+      ]
+    },
+    {
+      id: 'basic_alphabet',
+      label: '字母区 Alphabet',
+      keycodes: [
+        // 第一行
+        {name: 'Q', code: 'KC_Q', keys: 'q'},
+        {name: 'W', code: 'KC_W', keys: 'w'},
+        {name: 'E', code: 'KC_E', keys: 'e'},
+        {name: 'R', code: 'KC_R', keys: 'r'},
+        {name: 'T', code: 'KC_T', keys: 't'},
+        {name: 'Y', code: 'KC_Y', keys: 'y'},
+        {name: 'U', code: 'KC_U', keys: 'u'},
+        {name: 'I', code: 'KC_I', keys: 'i'},
+        {name: 'O', code: 'KC_O', keys: 'o'},
+        {name: 'P', code: 'KC_P', keys: 'p'},
+        // 第二行
+        {name: 'A', code: 'KC_A', keys: 'a'},
+        {name: 'S', code: 'KC_S', keys: 's'},
+        {name: 'D', code: 'KC_D', keys: 'd'},
+        {name: 'F', code: 'KC_F', keys: 'f'},
+        {name: 'G', code: 'KC_G', keys: 'g'},
+        {name: 'H', code: 'KC_H', keys: 'h'},
+        {name: 'J', code: 'KC_J', keys: 'j'},
+        {name: 'K', code: 'KC_K', keys: 'k'},
+        {name: 'L', code: 'KC_L', keys: 'l'},
+        // 第三行
+        {name: 'Z', code: 'KC_Z', keys: 'z'},
+        {name: 'X', code: 'KC_X', keys: 'x'},
+        {name: 'C', code: 'KC_C', keys: 'c'},
+        {name: 'V', code: 'KC_V', keys: 'v'},
+        {name: 'B', code: 'KC_B', keys: 'b'},
+        {name: 'N', code: 'KC_N', keys: 'n'},
+        {name: 'M', code: 'KC_M', keys: 'm'}
+      ]
+    },
+
+    {
+      id: 'basic_symbols',
+      label: '符号区 Symbols',
+      keycodes: [
         {name: '_\n-', code: 'KC_MINS', keys: '-'},
         {name: '+\n=', code: 'KC_EQL', keys: '='},
         {name: '~\n`', code: 'KC_GRV', keys: '`'},
@@ -538,8 +574,13 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
         {name: '<\n,', code: 'KC_COMM', keys: ','},
         {name: '>\n.', code: 'KC_DOT', keys: '.'},
         {name: '?\n/', code: 'KC_SLSH', keys: '/'},
-        {name: '=', code: 'KC_PEQL'},
-        {name: ',', code: 'KC_PCMM'},
+      ]
+    },
+    {
+      id: 'basic_function_keys',
+      label: '功能键 Function Keys',
+      keycodes: [
+        {name: 'Esc', code: 'KC_ESC', keys: 'esc'},
         {name: 'F1', code: 'KC_F1'},
         {name: 'F2', code: 'KC_F2'},
         {name: 'F3', code: 'KC_F3'},
@@ -556,27 +597,28 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
         {name: 'Scroll Lock', code: 'KC_SLCK', shortName: 'Scroll'},
         {name: 'Pause', code: 'KC_PAUS'},
         {name: 'Tab', code: 'KC_TAB', keys: 'tab', width: 1500},
-        {
-          name: 'Backspace',
-          code: 'KC_BSPC',
-          keys: 'backspace',
-          width: 2000,
-          shortName: 'Bksp',
-        },
+        {name: 'Caps Lock', code: 'KC_CAPS', keys: 'caps_lock', width: 1750},
+      ]
+    },
+    {
+      id: 'basic_editing',
+      label: '编辑键 Editing Keys',
+      keycodes: [
+        {name: 'Backspace', code: 'KC_BSPC', keys: 'backspace', width: 2000, shortName: 'Bksp'},
         {name: 'Insert', code: 'KC_INS', keys: 'insert', shortName: 'Ins'},
         {name: 'Del', code: 'KC_DEL', keys: 'delete'},
         {name: 'Home', code: 'KC_HOME', keys: 'home'},
         {name: 'End', code: 'KC_END', keys: 'end'},
         {name: 'Page Up', code: 'KC_PGUP', keys: 'pageup', shortName: 'PgUp'},
-        {
-          name: 'Page Down',
-          code: 'KC_PGDN',
-          keys: 'pagedown',
-          shortName: 'PgDn',
-        },
-        {name: 'Num\nLock', code: 'KC_NLCK', keys: 'num', shortName: 'N.Lck'},
-        {name: 'Caps Lock', code: 'KC_CAPS', keys: 'caps_lock', width: 1750},
+        {name: 'Page Down', code: 'KC_PGDN', keys: 'pagedown', shortName: 'PgDn'},
         {name: 'Enter', code: 'KC_ENT', keys: 'enter', width: 2250},
+      ]
+    },
+    {
+      id: 'basic_numpad',
+      label: '数字小键盘 Numpad',
+      keycodes: [
+        {name: 'Num\nLock', code: 'KC_NLCK', keys: 'num', shortName: 'N.Lck'},
         {name: '1', code: 'KC_P1', keys: 'num_1', title: 'Numpad 1'},
         {name: '2', code: 'KC_P2', keys: 'num_2', title: 'Numpad 2'},
         {name: '3', code: 'KC_P3', keys: 'num_3', title: 'Numpad 3'},
@@ -586,58 +628,45 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
         {name: '7', code: 'KC_P7', keys: 'num_7', title: 'Numpad 7'},
         {name: '8', code: 'KC_P8', keys: 'num_8', title: 'Numpad 8'},
         {name: '9', code: 'KC_P9', keys: 'num_9', title: 'Numpad 9'},
-        {
-          name: '0',
-          code: 'KC_P0',
-          width: 2000,
-          keys: 'num_0',
-          title: 'Numpad 0',
-        },
+        {name: '0', code: 'KC_P0', width: 2000, keys: 'num_0', title: 'Numpad 0'},
         {name: '÷', code: 'KC_PSLS', keys: 'num_divide', title: 'Numpad ÷'},
         {name: '×', code: 'KC_PAST', keys: 'num_multiply', title: 'Numpad ×'},
         {name: '-', code: 'KC_PMNS', keys: 'num_subtract', title: 'Numpad -'},
         {name: '+', code: 'KC_PPLS', keys: 'num_add', title: 'Numpad +'},
         {name: '.', code: 'KC_PDOT', keys: 'num_decimal', title: 'Numpad .'},
-        {
-          name: 'Num\nEnter',
-          code: 'KC_PENT',
-          shortName: 'N.Ent',
-          title: 'Numpad Enter',
-        },
-        {
-          name: 'Left Shift',
-          code: 'KC_LSFT',
-          keys: 'shift',
-          width: 2250,
-          shortName: 'LShft',
-        },
+        {name: 'Num\nEnter', code: 'KC_PENT', shortName: 'N.Ent', title: 'Numpad Enter'},
+        {name: '=', code: 'KC_PEQL'},
+        {name: ',', code: 'KC_PCMM'},
+      ]
+    },
+    {
+      id: 'basic_modifiers',
+      label: '修饰键 Modifiers',
+      keycodes: [
+        {name: 'Left Shift', code: 'KC_LSFT', keys: 'shift', width: 2250, shortName: 'LShft'},
         {name: 'Right Shift', code: 'KC_RSFT', width: 2750, shortName: 'RShft'},
         {name: 'Left Ctrl', code: 'KC_LCTL', keys: 'ctrl', width: 1250},
         {name: 'Right Ctrl', code: 'KC_RCTL', width: 1250, shortName: 'RCtl'},
-        {
-          name: 'Left Win',
-          code: 'KC_LGUI',
-          keys: 'cmd',
-          width: 1250,
-          shortName: 'LWin',
-        },
+        {name: 'Left Win', code: 'KC_LGUI', keys: 'cmd', width: 1250, shortName: 'LWin'},
         {name: 'Right Win', code: 'KC_RGUI', width: 1250, shortName: 'RWin'},
-        {
-          name: 'Left Alt',
-          code: 'KC_LALT',
-          keys: 'alt',
-          width: 1250,
-          shortName: 'LAlt',
-        },
+        {name: 'Left Alt', code: 'KC_LALT', keys: 'alt', width: 1250, shortName: 'LAlt'},
         {name: 'Right Alt', code: 'KC_RALT', width: 1250, shortName: 'RAlt'},
         {name: 'Space', code: 'KC_SPC', keys: 'space', width: 6250},
         {name: 'Menu', code: 'KC_APP', width: 1250, shortName: 'RApp'},
+      ]
+    },
+    {
+      id: 'basic_arrows',
+      label: '方向键 Arrow Keys',
+      keycodes: [
         {name: 'Left', code: 'KC_LEFT', keys: 'left', shortName: '←'},
         {name: 'Down', code: 'KC_DOWN', keys: 'down', shortName: '↓'},
         {name: 'Up', code: 'KC_UP', keys: 'up', shortName: '↑'},
         {name: 'Right', code: 'KC_RGHT', keys: 'right', shortName: '→'},
-      ],
-    },
+      ]
+    }
+  ]
+},
     {
       id: 'wt_lighting',
       label: 'Lighting',
@@ -1019,14 +1048,46 @@ export const categoriesForKeycodeModule = (
 ) =>
   ({
     default: ['basic', 'media', 'macro', 'layers', 'special','Commonly_Used'],
+
+    
     [BuiltInKeycodeModule.WTLighting]: ['wt_lighting'],
     [BuiltInKeycodeModule.QMKLighting]: ['qmk_lighting'],
   }[keycodeModule]);
 
+// export const getKeycodesForKeyboard = (
+//   definition: VIADefinitionV3 | VIADefinitionV2,
+// ) => {
+//   // v2
+//   let includeList: string[] = [];
+//   if ('lighting' in definition) {
+//     const {keycodes} = getLightingDefinition(definition.lighting);
+//     includeList = categoriesForKeycodeModule('default').concat(
+//       keycodes === KeycodeType.None
+//         ? []
+//         : keycodes === KeycodeType.QMK
+//         ? categoriesForKeycodeModule(BuiltInKeycodeModule.QMKLighting)
+//         : categoriesForKeycodeModule(BuiltInKeycodeModule.WTLighting),
+//     );
+//   } else {
+//     const {keycodes} = definition;
+//     includeList = keycodes.flatMap(categoriesForKeycodeModule);
+//   }
+//   return getKeycodes()
+//     .flatMap((keycodeMenu) =>
+//       includeList.includes(keycodeMenu.id) ? keycodeMenu.keycodes : [],
+//     )
+//     .sort((a, b) => {
+//       if (a.code <= b.code) {
+//         return -1;
+//       } else {
+//         return 1;
+//       }
+//     });
+// };
+
 export const getKeycodesForKeyboard = (
   definition: VIADefinitionV3 | VIADefinitionV2,
 ) => {
-  // v2
   let includeList: string[] = [];
   if ('lighting' in definition) {
     const {keycodes} = getLightingDefinition(definition.lighting);
@@ -1041,15 +1102,37 @@ export const getKeycodesForKeyboard = (
     const {keycodes} = definition;
     includeList = keycodes.flatMap(categoriesForKeycodeModule);
   }
-  return getKeycodes()
-    .flatMap((keycodeMenu) =>
-      includeList.includes(keycodeMenu.id) ? keycodeMenu.keycodes : [],
-    )
-    .sort((a, b) => {
-      if (a.code <= b.code) {
-        return -1;
-      } else {
-        return 1;
+  
+  // 调试：看看 includeList 包含什么
+  console.log('IncludeList:', includeList);
+  
+  const allMenus = getKeycodes();
+  const keycodes: IKeycode[] = [];
+  
+  function extractKeycodes(menus: IKeycodeMenu[], parentIncluded: boolean = false) {
+    menus.forEach(menu => {
+      // 如果当前菜单的 id 在 includeList 中，或者父菜单已被包含
+      const isIncluded = parentIncluded || includeList.includes(menu.id);
+      
+      if (menu.children) {
+        // 如果有子菜单，递归处理，传递是否包含当前菜单
+        extractKeycodes(menu.children, isIncluded);
+      } else if (isIncluded && menu.keycodes) {
+        // 如果是叶子节点且被包含，添加其 keycodes
+        keycodes.push(...menu.keycodes);
       }
     });
+  }
+  
+  extractKeycodes(allMenus);
+  
+  console.log('Found keycodes count:', keycodes.length);
+  
+  return keycodes.sort((a, b) => {
+    if (a.code <= b.code) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
 };

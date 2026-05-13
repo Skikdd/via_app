@@ -155,9 +155,32 @@ export const Row = styled.div<{$selected: boolean}>`
   }
 `;
 
-export const SubmenuRow = styled(Row)`
+// export const SubmenuRow = styled(Row)`
+//   background: ${(props) => (props.$selected ? 'var(--bg_icon)' : 'inherit')};
+//   padding: 4px 8px;
+//   font-weight: 400;
+//   min-width: min-content;
+//   border-color: transparent;
+//   margin-bottom: 11px;
+//   color: ${(props) =>
+//     props.$selected ? 'var(--color_label-highlighted)' : 'var(--color_label)'};
+//   border-radius: 12px;
+// `;
+// export const SubmenuRow = styled.div<{$selected?: boolean; $depth?: number}>`
+//   padding: 8px 12px;
+//   padding-left: ${props => 20 + (props.$depth || 0) * 20}px;
+//   cursor: pointer;
+//   background: ${props => props.$selected ? 'var(--color_accent)' : 'transparent'};
+//   color: ${props => props.$selected ? 'white' : 'var(--color_label)'};
+//   &:hover {
+//     background: var(--color_accent_hover);
+//   }
+// `;
+
+export const SubmenuRow = styled(Row)<{$selected?: boolean; $depth?: number}>`
   background: ${(props) => (props.$selected ? 'var(--bg_icon)' : 'inherit')};
   padding: 4px 8px;
+  padding-left: ${props => 20 + (props.$depth || 0) * 20}px;
   font-weight: 400;
   min-width: min-content;
   border-color: transparent;
@@ -165,4 +188,8 @@ export const SubmenuRow = styled(Row)`
   color: ${(props) =>
     props.$selected ? 'var(--color_label-highlighted)' : 'var(--color_label)'};
   border-radius: 12px;
+  cursor: pointer;
+  &:hover {
+    background: var(--color_accent_hover);
+  }
 `;

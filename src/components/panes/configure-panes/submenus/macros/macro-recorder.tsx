@@ -15,7 +15,8 @@ import {
   sequenceToExpression,
   trimLastWait,
 } from 'src/utils/macro-api/macro-api.common';
-import {getKeycodes, IKeycode} from 'src/utils/key';
+// import {getKeycodes, IKeycode} from 'src/utils/key';
+import {getKeycodes, IKeycode, flattenKeycodes} from 'src/utils/key';
 import {
   getSequenceItemComponent,
   getSequenceLabel,
@@ -114,8 +115,11 @@ const componentJoin = (arr: (JSX.Element | null)[], separator: JSX.Element) => {
   }, [] as (JSX.Element | null)[]);
 };
 
-const KeycodeMap = getKeycodes()
-  .flatMap((menu) => menu.keycodes)
+// const KeycodeMap = getKeycodes()
+//   .flatMap((menu) => menu.keycodes)
+//   .reduce((p, n) => ({...p, [n.code]: n}), {} as Record<string, IKeycode>);
+
+const KeycodeMap = flattenKeycodes(getKeycodes())
   .reduce((p, n) => ({...p, [n.code]: n}), {} as Record<string, IKeycode>);
 
 const optimizeKeycodeSequence = (sequence: RawKeycodeSequence) => {
