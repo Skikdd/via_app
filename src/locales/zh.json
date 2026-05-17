@@ -1,5 +1,8 @@
 {
   "Authorize device": "选择键盘",
+  "Authorize device tips": "请确保键盘处于USB模式,只有少数键盘支持无线进入VIA改键",
+  "Open Mission Control (macOS)": "打开 Mission Control (macOS)",
+  "Open Launchpad (macOS)": "打开 Launchpad (macOS)",
   "Configure": "配置",
   "Key Tester": "键盘测试",
   "Settings": "设置",

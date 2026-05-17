@@ -26,7 +26,7 @@ export interface IKeycode {
 export interface IKeycodeMenu {
   id: string;
   label: string;
-  keycodes: IKeycode[];
+  keycodes?: IKeycode[];
   width?: 'label';
   detailed?: string;
   children?: IKeycodeMenu[]; // 添加子菜单
@@ -457,7 +457,7 @@ function buildLayerMenu(): IKeycodeMenu {
     ...menu,
     keycodes: [
       ...hardCodedKeycodes,
-      ...menu.keycodes.flatMap((keycode) => {
+      ...(menu.keycodes || []).flatMap((keycode) => {
         let res: IKeycode[] = [];
         for (let idx = 0; idx < 10; idx++) {
           const newTitle = (keycode.title || '').replace(
@@ -505,6 +505,36 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
       keycodes: [
         {name: '', code: 'KC_NO', title: 'Nothing'},
         {name: '▽', code: 'KC_TRNS', title: 'Pass-through'},
+        {
+          name: 'Mission Control',
+          code: 'KC_MCTL',
+          shortName: 'Mctl',
+          title: i18next.t('Open Mission Control (macOS)'),
+        },
+        {
+          name: 'Launch\nPad',
+          code: 'KC_LPAD',
+          shortName: 'Lpad',
+          title: i18next.t('Open Launchpad (macOS)'),
+        },
+      ]
+    },
+    {
+      id: 'basic_function_keys',
+      label: 'F区按键 Function Keys',
+      keycodes: [
+        {name: 'F1', code: 'KC_F1'},
+        {name: 'F2', code: 'KC_F2'},
+        {name: 'F3', code: 'KC_F3'},
+        {name: 'F4', code: 'KC_F4'},
+        {name: 'F5', code: 'KC_F5'},
+        {name: 'F6', code: 'KC_F6'},
+        {name: 'F7', code: 'KC_F7'},
+        {name: 'F8', code: 'KC_F8'},
+        {name: 'F9', code: 'KC_F9'},
+        {name: 'F10', code: 'KC_F10'},
+        {name: 'F11', code: 'KC_F11'},
+        {name: 'F12', code: 'KC_F12'}
       ]
     },
     {
@@ -527,35 +557,32 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
       id: 'basic_alphabet',
       label: '字母区 Alphabet',
       keycodes: [
-        // 第一行
-        {name: 'Q', code: 'KC_Q', keys: 'q'},
-        {name: 'W', code: 'KC_W', keys: 'w'},
-        {name: 'E', code: 'KC_E', keys: 'e'},
-        {name: 'R', code: 'KC_R', keys: 'r'},
-        {name: 'T', code: 'KC_T', keys: 't'},
-        {name: 'Y', code: 'KC_Y', keys: 'y'},
-        {name: 'U', code: 'KC_U', keys: 'u'},
-        {name: 'I', code: 'KC_I', keys: 'i'},
-        {name: 'O', code: 'KC_O', keys: 'o'},
-        {name: 'P', code: 'KC_P', keys: 'p'},
-        // 第二行
         {name: 'A', code: 'KC_A', keys: 'a'},
-        {name: 'S', code: 'KC_S', keys: 's'},
+        {name: 'B', code: 'KC_B', keys: 'b'},
+        {name: 'C', code: 'KC_C', keys: 'c'},
         {name: 'D', code: 'KC_D', keys: 'd'},
+        {name: 'E', code: 'KC_E', keys: 'e'},
         {name: 'F', code: 'KC_F', keys: 'f'},
         {name: 'G', code: 'KC_G', keys: 'g'},
         {name: 'H', code: 'KC_H', keys: 'h'},
+        {name: 'I', code: 'KC_I', keys: 'i'},
         {name: 'J', code: 'KC_J', keys: 'j'},
         {name: 'K', code: 'KC_K', keys: 'k'},
         {name: 'L', code: 'KC_L', keys: 'l'},
-        // 第三行
-        {name: 'Z', code: 'KC_Z', keys: 'z'},
-        {name: 'X', code: 'KC_X', keys: 'x'},
-        {name: 'C', code: 'KC_C', keys: 'c'},
-        {name: 'V', code: 'KC_V', keys: 'v'},
-        {name: 'B', code: 'KC_B', keys: 'b'},
+        {name: 'M', code: 'KC_M', keys: 'm'},
         {name: 'N', code: 'KC_N', keys: 'n'},
-        {name: 'M', code: 'KC_M', keys: 'm'}
+        {name: 'O', code: 'KC_O', keys: 'o'},
+        {name: 'P', code: 'KC_P', keys: 'p'},
+        {name: 'Q', code: 'KC_Q', keys: 'q'},
+        {name: 'R', code: 'KC_R', keys: 'r'},
+        {name: 'S', code: 'KC_S', keys: 's'},
+        {name: 'T', code: 'KC_T', keys: 't'},
+        {name: 'U', code: 'KC_U', keys: 'u'},
+        {name: 'V', code: 'KC_V', keys: 'v'},
+        {name: 'W', code: 'KC_W', keys: 'w'},
+        {name: 'X', code: 'KC_X', keys: 'x'},
+        {name: 'Y', code: 'KC_Y', keys: 'y'},
+        {name: 'Z', code: 'KC_Z', keys: 'z'},
       ]
     },
 
@@ -563,55 +590,19 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
       id: 'basic_symbols',
       label: '符号区 Symbols',
       keycodes: [
+        {name: '~\n`', code: 'KC_GRV',  keys: '`'},
         {name: '_\n-', code: 'KC_MINS', keys: '-'},
-        {name: '+\n=', code: 'KC_EQL', keys: '='},
-        {name: '~\n`', code: 'KC_GRV', keys: '`'},
+        {name: '+\n=', code: 'KC_EQL',  keys: '='},
         {name: '{\n[', code: 'KC_LBRC', keys: '['},
         {name: '}\n]', code: 'KC_RBRC', keys: ']'},
-        {name: '|\n\\', code: 'KC_BSLS', keys: '\\', width: 1500},
+        {name: '|\n\\',code: 'KC_BSLS', keys: '\\', width: 1500},
         {name: ':\n;', code: 'KC_SCLN', keys: ';'},
-        {name: '"\n\'', code: 'KC_QUOT', keys: "'"},
+        {name: '"\n\'',code: 'KC_QUOT', keys: "'"},
         {name: '<\n,', code: 'KC_COMM', keys: ','},
-        {name: '>\n.', code: 'KC_DOT', keys: '.'},
+        {name: '>\n.', code: 'KC_DOT',  keys: '.'},
         {name: '?\n/', code: 'KC_SLSH', keys: '/'},
-      ]
-    },
-    {
-      id: 'basic_function_keys',
-      label: '功能键 Function Keys',
-      keycodes: [
-        {name: 'Esc', code: 'KC_ESC', keys: 'esc'},
-        {name: 'F1', code: 'KC_F1'},
-        {name: 'F2', code: 'KC_F2'},
-        {name: 'F3', code: 'KC_F3'},
-        {name: 'F4', code: 'KC_F4'},
-        {name: 'F5', code: 'KC_F5'},
-        {name: 'F6', code: 'KC_F6'},
-        {name: 'F7', code: 'KC_F7'},
-        {name: 'F8', code: 'KC_F8'},
-        {name: 'F9', code: 'KC_F9'},
-        {name: 'F10', code: 'KC_F10'},
-        {name: 'F11', code: 'KC_F11'},
-        {name: 'F12', code: 'KC_F12'},
-        {name: 'Print Screen', code: 'KC_PSCR', shortName: 'Print'},
-        {name: 'Scroll Lock', code: 'KC_SLCK', shortName: 'Scroll'},
-        {name: 'Pause', code: 'KC_PAUS'},
-        {name: 'Tab', code: 'KC_TAB', keys: 'tab', width: 1500},
-        {name: 'Caps Lock', code: 'KC_CAPS', keys: 'caps_lock', width: 1750},
-      ]
-    },
-    {
-      id: 'basic_editing',
-      label: '编辑键 Editing Keys',
-      keycodes: [
-        {name: 'Backspace', code: 'KC_BSPC', keys: 'backspace', width: 2000, shortName: 'Bksp'},
-        {name: 'Insert', code: 'KC_INS', keys: 'insert', shortName: 'Ins'},
-        {name: 'Del', code: 'KC_DEL', keys: 'delete'},
-        {name: 'Home', code: 'KC_HOME', keys: 'home'},
-        {name: 'End', code: 'KC_END', keys: 'end'},
-        {name: 'Page Up', code: 'KC_PGUP', keys: 'pageup', shortName: 'PgUp'},
-        {name: 'Page Down', code: 'KC_PGDN', keys: 'pagedown', shortName: 'PgDn'},
-        {name: 'Enter', code: 'KC_ENT', keys: 'enter', width: 2250},
+        {name: 'NUHS', code: 'KC_NUHS', title: 'Non-US # and ~'},
+        {name: 'NUBS', code: 'KC_NUBS', title: 'Non-US \\ and |'},
       ]
     },
     {
@@ -619,50 +610,64 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
       label: '数字小键盘 Numpad',
       keycodes: [
         {name: 'Num\nLock', code: 'KC_NLCK', keys: 'num', shortName: 'N.Lck'},
-        {name: '1', code: 'KC_P1', keys: 'num_1', title: 'Numpad 1'},
-        {name: '2', code: 'KC_P2', keys: 'num_2', title: 'Numpad 2'},
-        {name: '3', code: 'KC_P3', keys: 'num_3', title: 'Numpad 3'},
-        {name: '4', code: 'KC_P4', keys: 'num_4', title: 'Numpad 4'},
-        {name: '5', code: 'KC_P5', keys: 'num_5', title: 'Numpad 5'},
-        {name: '6', code: 'KC_P6', keys: 'num_6', title: 'Numpad 6'},
-        {name: '7', code: 'KC_P7', keys: 'num_7', title: 'Numpad 7'},
-        {name: '8', code: 'KC_P8', keys: 'num_8', title: 'Numpad 8'},
-        {name: '9', code: 'KC_P9', keys: 'num_9', title: 'Numpad 9'},
-        {name: '0', code: 'KC_P0', width: 2000, keys: 'num_0', title: 'Numpad 0'},
-        {name: '÷', code: 'KC_PSLS', keys: 'num_divide', title: 'Numpad ÷'},
-        {name: '×', code: 'KC_PAST', keys: 'num_multiply', title: 'Numpad ×'},
-        {name: '-', code: 'KC_PMNS', keys: 'num_subtract', title: 'Numpad -'},
-        {name: '+', code: 'KC_PPLS', keys: 'num_add', title: 'Numpad +'},
-        {name: '.', code: 'KC_PDOT', keys: 'num_decimal', title: 'Numpad .'},
-        {name: 'Num\nEnter', code: 'KC_PENT', shortName: 'N.Ent', title: 'Numpad Enter'},
-        {name: '=', code: 'KC_PEQL'},
-        {name: ',', code: 'KC_PCMM'},
+        {name: 'Num\n 1 ', code: 'KC_P1', keys: 'num_1', title: 'Numpad 1'},
+        {name: 'Num\n 2 ', code: 'KC_P2', keys: 'num_2', title: 'Numpad 2'},
+        {name: 'Num\n 3 ', code: 'KC_P3', keys: 'num_3', title: 'Numpad 3'},
+        {name: 'Num\n 4 ', code: 'KC_P4', keys: 'num_4', title: 'Numpad 4'},
+        {name: 'Num\n 5 ', code: 'KC_P5', keys: 'num_5', title: 'Numpad 5'},
+        {name: 'Num\n 6 ', code: 'KC_P6', keys: 'num_6', title: 'Numpad 6'},
+        {name: 'Num\n 7 ', code: 'KC_P7', keys: 'num_7', title: 'Numpad 7'},
+        {name: 'Num\n 8 ', code: 'KC_P8', keys: 'num_8', title: 'Numpad 8'},
+        {name: 'Num\n 9 ', code: 'KC_P9', keys: 'num_9', title: 'Numpad 9'},
+        {name: 'Num\n 0 ', code: 'KC_P0', width: 2000, keys: 'num_0', title: 'Numpad 0'},
+        {name: 'Num\n ÷ ', code: 'KC_PSLS', keys: 'num_divide', title: 'Numpad ÷'},
+        {name: 'Num\n × ', code: 'KC_PAST', keys: 'num_multiply', title: 'Numpad ×'},
+        {name: 'Num\n - ', code: 'KC_PMNS', keys: 'num_subtract', title: 'Numpad -'},
+        {name: 'Num\n + ', code: 'KC_PPLS', keys: 'num_add', title: 'Numpad +'},
+        {name: 'Num\n . ', code: 'KC_PDOT', keys: 'num_decimal', title: 'Numpad .'},
+        {name: 'Num\n Enter ', code: 'KC_PENT', shortName: 'N.Ent', title: 'Numpad Enter'},
+        {name: 'Num\n = ', code: 'KC_PEQL'},
+        {name: 'Num\n , ', code: 'KC_PCMM'},
       ]
     },
     {
       id: 'basic_modifiers',
-      label: '修饰键 Modifiers',
+      label: '功能键 Modifiers',
       keycodes: [
-        {name: 'Left Shift', code: 'KC_LSFT', keys: 'shift', width: 2250, shortName: 'LShft'},
-        {name: 'Right Shift', code: 'KC_RSFT', width: 2750, shortName: 'RShft'},
-        {name: 'Left Ctrl', code: 'KC_LCTL', keys: 'ctrl', width: 1250},
-        {name: 'Right Ctrl', code: 'KC_RCTL', width: 1250, shortName: 'RCtl'},
-        {name: 'Left Win', code: 'KC_LGUI', keys: 'cmd', width: 1250, shortName: 'LWin'},
-        {name: 'Right Win', code: 'KC_RGUI', width: 1250, shortName: 'RWin'},
-        {name: 'Left Alt', code: 'KC_LALT', keys: 'alt', width: 1250, shortName: 'LAlt'},
-        {name: 'Right Alt', code: 'KC_RALT', width: 1250, shortName: 'RAlt'},
+        {name: 'Esc', code: 'KC_ESC', keys: 'esc'},
+        {name: 'Print Screen', code: 'KC_PSCR', shortName: 'Print'},
+        {name: 'Scroll Lock', code: 'KC_SLCK', shortName: 'Scroll'},
+        {name: 'Pause', code: 'KC_PAUS'},
+        {name: 'Back\nspace', code: 'KC_BSPC', keys: 'backspace', width: 2000, shortName: 'Bksp'},
+        {name: 'Tab', code: 'KC_TAB', keys: 'tab', width: 1500},
+        {name: 'Caps Lock', code: 'KC_CAPS', keys: 'caps_lock', width: 1750},
+        {name: 'Enter', code: 'KC_ENT', keys: 'enter', width: 2250},
+        {name: 'Insert', code: 'KC_INS', keys: 'insert', shortName: 'Ins'},
+        {name: 'Del', code: 'KC_DEL', keys: 'delete'},
+        {name: 'Home', code: 'KC_HOME', keys: 'home'},
+        {name: 'End', code: 'KC_END', keys: 'end'},
+        {name: 'Page Up', code: 'KC_PGUP', keys: 'pageup', shortName: 'PgUp'},
+        {name: 'Page Down', code: 'KC_PGDN', keys: 'pagedown', shortName: 'PgDn'},
+        {name: 'Left\nShift', code: 'KC_LSFT', keys: 'shift', width: 2250, shortName: 'LShft'},
+        {name: 'Right\nShift', code: 'KC_RSFT', width: 2750, shortName: 'RShft'},
+        {name: 'Left\nCtrl', code: 'KC_LCTL', keys: 'ctrl', width: 1250},
+        {name: 'Left\nWin', code: 'KC_LGUI', keys: 'cmd', width: 1250, shortName: 'LWin'},
+        {name: 'Left\nAlt', code: 'KC_LALT', keys: 'alt', width: 1250, shortName: 'LAlt'},
         {name: 'Space', code: 'KC_SPC', keys: 'space', width: 6250},
+        {name: 'Right\nAlt', code: 'KC_RALT', width: 1250, shortName: 'RAlt'},
+        {name: 'Right\nWin', code: 'KC_RGUI', width: 1250, shortName: 'RWin'},
         {name: 'Menu', code: 'KC_APP', width: 1250, shortName: 'RApp'},
+        {name: 'Right\nCtrl', code: 'KC_RCTL', width: 1250, shortName: 'RCtl'}
       ]
     },
     {
       id: 'basic_arrows',
       label: '方向键 Arrow Keys',
       keycodes: [
-        {name: 'Left', code: 'KC_LEFT', keys: 'left', shortName: '←'},
-        {name: 'Down', code: 'KC_DOWN', keys: 'down', shortName: '↓'},
-        {name: 'Up', code: 'KC_UP', keys: 'up', shortName: '↑'},
-        {name: 'Right', code: 'KC_RGHT', keys: 'right', shortName: '→'},
+        {name: 'Left\n←', code: 'KC_LEFT', keys: 'left', shortName: '←'},
+        {name: 'Down\n↓', code: 'KC_DOWN', keys: 'down', shortName: '↓'},
+        {name: 'Up\n↑', code: 'KC_UP', keys: 'up', shortName: '↑'},
+        {name: 'Right\n→', code: 'KC_RGHT', keys: 'right', shortName: '→'},
       ]
     }
   ]
@@ -866,6 +871,61 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
           shortName: 'NKRO',
           title: 'Toggle NKRO',
         },
+        // Add frequently used magic keys for GUI
+        {
+          name: 'Swap Ctrl GUI',
+          code: 'MAGIC_SWAP_CTL_GUI',
+          shortName: 'CG Swap',
+          title: 'Swap Ctrl and GUI',
+        },
+        {
+          name: 'Unswap Ctrl GUI',
+          code: 'MAGIC_UNSWAP_CTL_GUI',
+          shortName: 'CG Unswap',
+          title: 'Unswap Ctrl and GUI',
+        },
+        {
+          name: 'Toggle Ctrl GUI',
+          code: 'MAGIC_TOGGLE_CTL_GUI',
+          shortName: 'CG Togg',
+          title: 'Toggle Ctrl and GUI swapped/unswapped',
+        },
+        {
+          name: 'Swap Alt GUI',
+          code: 'MAGIC_SWAP_ALT_GUI',
+          shortName: 'AG Swap',
+          title: 'Swap Alt and GUI',
+        },
+        {
+          name: 'Unswap Alt GUI',
+          code: 'MAGIC_UNSWAP_ALT_GUI',
+          shortName: 'AG Unswap',
+          title: 'Unswap Alt and GUI',
+        },
+        {
+          name: 'Toggle Alt GUI',
+          code: 'MAGIC_TOGGLE_ALT_GUI',
+          shortName: 'AG Togg',
+          title: 'Toggle Alt and GUI swapped/unswapped',
+        },
+        {
+          name: 'Enable GUI',
+          code: 'MAGIC_GUI_ON',
+          shortName: 'GUI On',
+          title: 'Enable GUI keys',
+        },
+        {
+          name: 'Disable GUI',
+          code: 'MAGIC_GUI_OFF',
+          shortName: 'GUI Off',
+          title: 'Disable GUI keys',
+        },
+        {
+          name: 'Toggle GUI',
+          code: 'MAGIC_TOGGLE_GUI',
+          shortName: 'GUI Togg',
+          title: 'Toggle GUI keys enabled/disabled',
+        },
         // I don't even think the locking stuff is enabled...
         {name: 'Locking Num Lock', code: 'KC_LNUM'},
         {name: 'Locking Caps Lock', code: 'KC_LCAP'},
@@ -1008,8 +1068,18 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
         {name: '屏幕亮度 +',code: 'KC_BRIU',shortName: 'Scr +',title: '屏幕亮度 + , 笔记本和Mac可使用',},
         {name: 'Mac系统截图键',code: 'LSG(kc_3)',shortName: 'Mac截图',title: 'Mac系统的截图键,本质是左Shift+左Command键+数字3键'},
         {name: 'Mac系统区域截图键',code: 'LSG(kc_4)',shortName: 'Mac区域截图',title: 'Mac系统的区域截图键,本质是左Shift+左Command键+数字4键'},
-
-
+        {
+          name: 'Mission Control',
+          code: 'KC_MCTL',
+          shortName: 'Mctl',
+          title: i18next.t('Open Mission Control (macOS)'),
+        },
+        {
+          name: 'Launch\nPad',
+          code: 'KC_LPAD',
+          shortName: 'Lpad',
+          title: i18next.t('Open Launchpad (macOS)'),
+        },
         
       ],
     },
@@ -1047,9 +1117,7 @@ export const categoriesForKeycodeModule = (
   keycodeModule: BuiltInKeycodeModule | 'default',
 ) =>
   ({
-    default: ['basic', 'media', 'macro', 'layers', 'special','Commonly_Used'],
-
-    
+     default: ['basic', 'media', 'macro', 'layers', 'special','Commonly_Used'],
     [BuiltInKeycodeModule.WTLighting]: ['wt_lighting'],
     [BuiltInKeycodeModule.QMKLighting]: ['qmk_lighting'],
   }[keycodeModule]);

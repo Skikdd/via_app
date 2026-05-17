@@ -176,10 +176,28 @@ const Loader: React.FC<{
     <LoaderPane>
       {<ChippyLoader theme={theme} progress={loadProgress || null} />}
       {(showButton || noConnectedDevices) && !noSupportedIds && !isElectron ? (
+        <div style={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center'  // 这个让整个容器居中
+        }}>
         <AccentButtonLarge onClick={() => dispatch(reloadConnectedDevices())}>
           {t('Authorize device')}
           <FontAwesomeIcon style={{marginLeft: '10px'}} icon={faPlus} />
         </AccentButtonLarge>
+          <div style={{ textAlign: 'center' }}>
+          <span style={{
+            color: 'var(--color_accent)',
+            fontSize: 20,
+            marginTop: '81px',
+            display: 'inline-block',
+            whiteSpace: 'nowrap'
+          }}>
+            {t('Authorize device tips')}
+          </span>
+        </div>
+
+              </div>
       ) : (
         <LoadingText isSearching={!selectedDefinition} />
       )}

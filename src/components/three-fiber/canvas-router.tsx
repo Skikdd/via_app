@@ -39,6 +39,7 @@ import {reloadConnectedDevices} from 'src/store/devicesThunks';
 import {faSpinner, faUnlock} from '@fortawesome/free-solid-svg-icons';
 import {LoaderCubey} from './loader-cubey';
 import {OVERRIDE_HID_CHECK} from 'src/utils/override';
+import {useTranslation} from 'react-i18next';
 useGLTF.preload(cubeySrc);
 useGLTF.preload(glbSrc);
 
@@ -102,7 +103,7 @@ export const CanvasRouter = () => {
   const configureKeyboardIsSelectable = useAppSelector(
     getConfigureKeyboardIsSelectable,
   );
-
+  const {t} = useTranslation();
   const hideTerrainBG = showLoader;
   useEffect(() => {
     // Block rendering due to font legend being required to render keyboardss
@@ -155,16 +156,33 @@ export const CanvasRouter = () => {
           >
             {showAuthorizeButton ? (
               !selectedDefinition ? (
-                <AccentButtonLarge
-                  onClick={() => dispatch(reloadConnectedDevices())}
-                  style={{width: 'max-content'}}
-                >
-                  Authorize device
-                  <FontAwesomeIcon
-                    style={{marginLeft: '10px'}}
-                    icon={faUnlock}
-                  />
-                </AccentButtonLarge>
+              <div style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center'  // 这个让整个容器居中
+              }}>
+              <AccentButtonLarge
+                onClick={() => dispatch(reloadConnectedDevices())}
+                style={{ width: 'max-content',      marginTop: '81px', }}
+              >
+              {t('Authorize device')}
+              <FontAwesomeIcon
+                style={{ marginLeft: '10px' }}
+                icon={faUnlock}
+              />
+              </AccentButtonLarge>
+              <div style={{ textAlign: 'center' }}>
+                <span style={{
+                  color: 'var(--color_accent)',
+                  fontSize: 20,
+                  marginTop: '81px',
+                  display: 'inline-block',
+                  whiteSpace: 'nowrap'
+                }}>
+                  {t('Authorize device tips')}
+                </span>
+              </div>
+              </div>
               ) : (
                 <>
                   <div
@@ -175,6 +193,7 @@ export const CanvasRouter = () => {
                     }}
                   >
                     <FontAwesomeIcon spinPulse icon={faSpinner} />
+                    
                   </div>
                 </>
               )

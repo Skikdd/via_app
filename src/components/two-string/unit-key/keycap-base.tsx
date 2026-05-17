@@ -26,6 +26,17 @@ export const TooltipContainer = styled.div<{$rotate: number}>`
   height: 100%;
   bottom: 0;
 `;
+// export const TooltipContainer = styled.div<{ $rotate?: number }>`
+//   position: fixed;  // 改为 fixed，而不是 absolute
+//   bottom: auto;
+//   left: 50%;
+//   top: 10%;
+//   transform: translateX(-50%);
+//   white-space: nowrap;
+//   z-index: 10000;
+//   pointer-events: none;
+//   // 移除原来的 transform: translate(-50%, -100%) rotate(...)
+// `;
 
 export const TestOverlay = styled.div`
   transition: all 0.2s ease-out;

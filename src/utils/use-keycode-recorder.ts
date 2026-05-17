@@ -21,7 +21,7 @@ export const useKeycodeRecorder = (
       evt.preventDefault();
       if (enableRecording && !evt.repeat) {
         setKeycodeSequence((keycodeSequence) => {
-          const keycode = keycodes.find((k) => k.code === mapEvtToKeycode(evt));
+          const keycode = keycodes.find((k) => k && k.code === mapEvtToKeycode(evt));
           const currTime = Date.now();
           const keycodeLabel = keycode?.code;
           if (keycodeSequence.length && recordDelays) {
