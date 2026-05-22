@@ -21,6 +21,8 @@ const quantumRangesKeys = [
   '_QK_ONE_SHOT_MOD_MAX',
   '_QK_LAYER_TAP_TOGGLE',
   '_QK_LAYER_TAP_TOGGLE_MAX',
+  '_QK_PERSISTENT_DEF_LAYER',
+  '_QK_PERSISTENT_DEF_LAYER_MAX',
   '_QK_KB',
   '_QK_KB_MAX',
   '_QK_MACRO',
@@ -75,6 +77,7 @@ const topLevelMacroToValue = {
   OSL: '_QK_ONE_SHOT_LAYER', // OSL(layer)
   OSM: '_QK_ONE_SHOT_MOD', //OSM(mod)
   TT: '_QK_LAYER_TAP_TOGGLE', // TT(layer)
+  PDF: '_QK_PERSISTENT_DEF_LAYER', // PDF(layer)
   CUSTOM: '_QK_KB', // CUSTOM(n)
   MACRO: '_QK_MACRO', // MACRO(n)
 };
@@ -209,6 +212,7 @@ export const advancedKeycodeToString = (
     case '_QK_TOGGLE_LAYER':
     case '_QK_ONE_SHOT_LAYER':
     case '_QK_LAYER_TAP_TOGGLE':
+    case '_QK_PERSISTENT_DEF_LAYER':
     case '_QK_TO':
       humanReadable += remainder + ')';
       break;

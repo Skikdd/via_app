@@ -116,6 +116,12 @@ function getByteForLayerCode(
           basicKeyToByte._QK_DEF_LAYER_MAX,
         );
       }
+      case 'PDF': {
+        return Math.min(
+          basicKeyToByte._QK_PERSISTENT_DEF_LAYER + numLayer,
+          basicKeyToByte._QK_PERSISTENT_DEF_LAYER_MAX,
+        );
+      }
       case 'TG': {
         return Math.min(
           basicKeyToByte._QK_TOGGLE_LAYER + numLayer,
@@ -173,6 +179,12 @@ function getCodeForLayerByte(
   ) {
     const layer = byte - basicKeyToByte._QK_DEF_LAYER;
     return `DF(${layer})`;
+  } else if (
+    basicKeyToByte._QK_PERSISTENT_DEF_LAYER <= byte &&
+    basicKeyToByte._QK_PERSISTENT_DEF_LAYER_MAX >= byte
+  ) {
+    const layer = byte - basicKeyToByte._QK_PERSISTENT_DEF_LAYER;
+    return `PDF(${layer})`;
   } else if (
     basicKeyToByte._QK_TOGGLE_LAYER <= byte &&
     basicKeyToByte._QK_TOGGLE_LAYER_MAX >= byte
@@ -240,6 +252,7 @@ function isLayerKey(byte: number, basicKeyToByte: Record<string, number>) {
     [basicKeyToByte._QK_TO, basicKeyToByte._QK_TO_MAX],
     [basicKeyToByte._QK_MOMENTARY, basicKeyToByte._QK_MOMENTARY_MAX],
     [basicKeyToByte._QK_DEF_LAYER, basicKeyToByte._QK_DEF_LAYER_MAX],
+    [basicKeyToByte._QK_PERSISTENT_DEF_LAYER, basicKeyToByte._QK_PERSISTENT_DEF_LAYER_MAX],
     [basicKeyToByte._QK_TOGGLE_LAYER, basicKeyToByte._QK_TOGGLE_LAYER_MAX],
     [basicKeyToByte._QK_ONE_SHOT_LAYER, basicKeyToByte._QK_ONE_SHOT_LAYER_MAX],
     [
@@ -445,6 +458,13 @@ function buildLayerMenu(): IKeycodeMenu {
       {
         name: 'DF',
         code: 'DF(layer)',
+        type: 'layer',
+        layer: 0,
+        title: i18next.t('Sets the default') + ' layer',
+      },
+      {
+        name: 'PDF',
+        code: 'PDF(layer)',
         type: 'layer',
         layer: 0,
         title: i18next.t('Sets the default') + ' layer',
