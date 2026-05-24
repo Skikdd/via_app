@@ -460,14 +460,14 @@ function buildLayerMenu(): IKeycodeMenu {
         code: 'DF(layer)',
         type: 'layer',
         layer: 0,
-        title: i18next.t('Sets the default') + ' layer',
+        title: i18next.t('Sets the default') + ' layer ' + i18next.t('Data lost on power-off(not written to EEPROM)'),
       },
       {
         name: 'PDF',
         code: 'PDF(layer)',
         type: 'layer',
         layer: 0,
-        title: i18next.t('Sets the default') + ' layer',
+        title: i18next.t('Sets the default') + ' layer  ' + i18next.t('persistently (saved in EEPROM)'),
       },
     ],
   };

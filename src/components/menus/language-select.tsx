@@ -85,6 +85,10 @@ const LanguageSelectors: React.FC<{
   const langs = [
     {code: 'en', lang: 'English'},
     {code: 'zh', lang: '中文'},
+    {code: 'ko', lang: '한국어'},
+    {code: 'ja', lang: '日本語'},
+    {code: 'es', lang: 'Español'},
+    {code: 'de', lang: 'Deutsch'},
   ];
   const {i18n} = useTranslation();
   const changeLanguage = (lng: string) => {

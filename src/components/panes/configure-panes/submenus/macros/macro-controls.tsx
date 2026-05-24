@@ -10,13 +10,13 @@ import {
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {useTranslation} from 'react-i18next';
 import {
   IconButtonContainer,
   IconToggleContainer,
 } from 'src/components/inputs/icon-button';
 import {IconButtonTooltip} from 'src/components/inputs/tooltip';
 import styled from 'styled-components';
+import {useTranslation} from 'react-i18next';
 
 
 const MacroEditControlsContainer = styled.div`

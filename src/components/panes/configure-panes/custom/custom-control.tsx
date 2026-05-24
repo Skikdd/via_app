@@ -29,21 +29,24 @@ type ControlMeta = [
 type AdvancedControlProps = Props & {meta: ControlMeta};
 
 export const VIACustomItem = React.memo(
-  (props: VIACustomControlProps & {_id: string}) => (
-    <ControlRow id={props._id}>
-      <Label>{props.label}</Label>
-      <Detail>
-        {'type' in props ? (
-          <VIACustomControl
-            {...props}
-            value={props.value && Array.from(props.value)}
-          />
-        ) : (
-          props.content
-        )}
-      </Detail>
-    </ControlRow>
-  ),
+  (props: VIACustomControlProps & {_id: string}) => {
+    const {t} = useTranslation();
+    return (
+      <ControlRow id={props._id}>
+        <Label>{t(props.label)}</Label>
+        <Detail>
+          {'type' in props ? (
+            <VIACustomControl
+              {...props}
+              value={props.value && Array.from(props.value)}
+            />
+          ) : (
+            props.content
+          )}
+        </Detail>
+      </ControlRow>
+    );
+  },
 );
 
 type ControlGetSet = {
@@ -141,7 +144,7 @@ const VIACustomControl = (props: VIACustomControlProps) => {
             typeof option === 'string' ? [option, idx] : option;
           return {
             value: value || idx,
-            label,
+            label: t(label),
           };
         },
       );

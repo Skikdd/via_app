@@ -1,6 +1,5 @@
-import {useTranslation} from 'react-i18next';
 import styled from 'styled-components';
-
+import {useTranslation} from 'react-i18next';
 const LoadingText = styled.div`
   font-size: 30px;
   color: var(--color_label-highlighted);

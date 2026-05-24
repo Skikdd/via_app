@@ -198,7 +198,7 @@ export const ScriptMode: React.FC<{
         </DescriptionLabel>
         <Detail>
           <AccentButton disabled={macro === currentValue} onClick={saveMacro}>
-            Save
+            {t('Save')}
           </AccentButton>
         </Detail>
       </AutoHeightRow>

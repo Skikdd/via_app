@@ -261,7 +261,7 @@ export const DesignTab: FC = () => {
         evt.stopPropagation();
       }}
     >
-      <MessageDialog
+      {/* <MessageDialog
         isOpen={!hideDesignWarning}
         onClose={() => {
           sessionStorage.setItem('hideDesignWarning', '1');
@@ -273,7 +273,7 @@ export const DesignTab: FC = () => {
         This feature is intended for development purposes. If your keyboard is
         not recognized automatically by VIA, please contact your keyboard's
         manufacturer or vendor.
-      </MessageDialog>
+      </MessageDialog> */}
       <SinglePaneFlexCell ref={flexRef}>
         {!definition && (
           <UploadIcon
