@@ -122,9 +122,6 @@ const componentJoin = (arr: (JSX.Element | null)[], separator: JSX.Element) => {
 const KeycodeMap = flattenKeycodes(getKeycodes())
   .reduce((p, n) => ({...p, [n.code]: n}), {} as Record<string, IKeycode>);
 
-  
-  
-
 const optimizeKeycodeSequence = (sequence: RawKeycodeSequence) => {
   return pipeline(
     sequence,
