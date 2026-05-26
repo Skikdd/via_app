@@ -228,7 +228,6 @@ export const KeycodePane: FC = () => {
         ),
       );
   };
- 
   
 const getEnabledMenusV3 = (definition: VIADefinitionV3): IKeycodeMenu[] => {
   const keycodes = ['default' as const, ...(definition.keycodes || [])];
@@ -451,10 +450,10 @@ const renderMenuItems = (menus: IKeycodeMenu[], depth: number = 0) => {
         key={code}
         disabled={!keycodeInMaster(code, basicKeyToByte) && code != 'text'}
         onClick={() => handleClick(code, index)}
-        onMouseOver={() => setMouseOverDesc(title ? `${code}: ${title}` : code)}
+        onMouseOver={() => setMouseOverDesc(title ? `${code}: ${t(title)}` : code)}
         onMouseOut={() => setMouseOverDesc(null)}
       >
-        <KeycodeContent>{name}</KeycodeContent>
+        <KeycodeContent>{t(name)}</KeycodeContent>
       </Keycode>
     );
   };

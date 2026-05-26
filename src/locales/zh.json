@@ -4,6 +4,7 @@
   "persistently (saved in EEPROM)": "永久（保存在EEPROM中）",
   "Data lost on power-off(not written to EEPROM)": "断电数据丢失（未写入EEPROM）",
   "Open Mission Control (macOS)": "打开 Mission Control (macOS)",
+  "BLE" : "蓝牙",
   "Set to 2.4G working mode" : "切换为2.4G模式",
   "Set to Bluetooth Channel 1 working mode" : "切换为蓝牙模式1通道",
   "Set to Bluetooth Channel 2 working mode" : "切换为蓝牙模式2通道",
