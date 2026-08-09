@@ -56,7 +56,7 @@ const UsbError = styled.div`
   height: 100%;
   justify-content: center;
   margin: 0 auto;
-  max-width: 650px;
+  max-width: 750px;
   text-align: center;
 `;
 
@@ -69,6 +69,14 @@ const UsbErrorHeading = styled.h1`
 `;
 
 const UsbErrorWebHIDLink = styled.a`
+  text-decoration: underline;
+  color: var(--color_label-highlighted);
+    height: auto;
+    wdith: auto;
+      font-size: 2rem;
+`;
+
+const ChromeDownloadLink = styled.a`
   text-decoration: underline;
   color: var(--color_label-highlighted);
 `;
@@ -176,17 +184,23 @@ export const Home: React.FC<HomeProps> = (props) => {
         <UsbErrorIcon>❌</UsbErrorIcon>
         <UsbErrorHeading>{t('USB Detection Error')}</UsbErrorHeading>
         <p>
-          Looks like there was a problem getting USB detection working. Right
-          now, we only support{' '}
+         {t('Looks like there was a problem getting USB detection working. Rightnow, we only support')}{' '}
           
           <UsbErrorWebHIDLink
             href="https://caniuse.com/?search=webhid"
             target="_blank"
           >
-            browsers that have WebHID enabled
+            <p>{t('browsers that have WebHID enabled')}</p>
           </UsbErrorWebHIDLink>
-          , so make sure yours is compatible before trying again.
+          {t('so make sure yours is compatible before trying again.')}
         </p>
+      {/* <ChromeDownloadLink>
+       <a href="https://dl.google.com/chrome/mac/stable/accept_tos%3Dhttps%253A%252F%252Fwww.google.com%252Fintl%252Fen_ph%252Fchrome%252Fterms%252F%26_and_accept_tos%3Dhttps%253A%252F%252Fpolicies.google.com%252Fterms/googlechrome.pkg" target="_blank">
+         <p>{t('Download Mac Version Chrome')}</p>
+       </a>        <a href="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BD8738E82-C9CA-D2FB-FB9A-145210431199%7D%26lang%3Dzh-CN%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3D-arch_x64-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup64.exe" target="_blank">
+         <p>{t('Download Windows Version Chrome')}</p>
+       </a>
+      </ChromeDownloadLink> */}
       </UsbError>
       <div style={{position: 'absolute', bottom: '10px', width: '100%'}}>
         {/* <center><a href="https://via.toqmk.com/" target="_blank">本站已更新域名为https://via.toqmk.com/</a></center> */}
