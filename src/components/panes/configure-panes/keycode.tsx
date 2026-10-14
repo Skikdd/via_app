@@ -58,6 +58,16 @@ const MenuContainer = styled.div`
   padding: 15px 20px 20px 10px;
 `;
 
+const KeycodeGroups = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const KeycodeGroupHeading = styled.h3`
+  margin: 5px 0 5px 35px;
+  color: var(--color_accent);
+`;
+
 const Keycode = styled(Button)<{disabled: boolean}>`
   width: 50px;
   height: 50px;
@@ -233,14 +243,13 @@ export const KeycodePane: FC = () => {
   };
 
   const renderCategories = () => {
-    const {t} = useTranslation();
     return (
       <MenuContainer>
         {getEnabledMenus().map(({id, label}) => (
           <SubmenuRow
+            key={id}
             $selected={id === selectedCategory}
             onClick={() => setSelectedCategory(id)}
-            key={id}
           >
             {t(label)}
           </SubmenuRow>
@@ -295,19 +304,21 @@ export const KeycodePane: FC = () => {
   };
 
   const renderKeycode = (keycode: IKeycode, index: number) => {
-    const {code} = keycode;
+    const {code, name} = keycode;
     const lutEntry = keycodeLUT && code ? keycodeLUT[code] : undefined;
-    const name = lutEntry ? lutEntry.name : keycode.name;
+    const displayName = lutEntry ? lutEntry.name : name;
     const title = lutEntry?.title ?? keycode.title;
     return (
       <Keycode
         key={code}
         disabled={!keycodeInMaster(code, basicKeyToByte) && code != 'text'}
         onClick={() => handleClick(code, index)}
-        onMouseOver={() => setMouseOverDesc(title ? `${code}: ${title}` : code)}
+        onMouseOver={() =>
+          setMouseOverDesc(title ? `${code}: ${t(title)}` : code)
+        }
         onMouseOut={() => setMouseOverDesc(null)}
       >
-        <KeycodeContent>{name}</KeycodeContent>
+        <KeycodeContent>{t(displayName)}</KeycodeContent>
       </Keycode>
     );
   };
@@ -320,16 +331,13 @@ export const KeycodePane: FC = () => {
         onMouseOver={() => setMouseOverDesc(t('Enter any QMK Keycode'))}
         onMouseOut={() => setMouseOverDesc(null)}
       >
-        Any
+        {t('Any')}
       </CustomKeycode>
     );
   };
 
-  const renderSelectedCategory = (
-    keycodes: IKeycode[],
-    selectedCategory: string,
-  ) => {
-    const keycodeListItems = keycodes.map((keycode, i) =>
+  const renderSelectedCategory = (menu: IKeycodeMenu | undefined) => {
+    const keycodeListItems = (menu?.keycodes ?? []).map((keycode, i) =>
       renderKeycode(keycode, i),
     );
     switch (selectedCategory) {
@@ -370,21 +378,37 @@ export const KeycodePane: FC = () => {
         );
       }
       default: {
+        if (menu?.children?.length) {
+          return (
+            <KeycodeGroups>
+              {menu.children.map((child) => (
+                <div key={child.id}>
+                  <KeycodeGroupHeading>{t(child.label)}</KeycodeGroupHeading>
+                  <KeycodeList>
+                    {(child.keycodes ?? []).map((keycode, i) =>
+                      renderKeycode(keycode, i),
+                    )}
+                  </KeycodeList>
+                </div>
+              ))}
+            </KeycodeGroups>
+          );
+        }
         return <KeycodeList>{keycodeListItems}</KeycodeList>;
       }
     }
   };
 
-  const selectedCategoryKeycodes = KeycodeCategories.find(
+  const selectedMenu = getEnabledMenus().find(
     ({id}) => id === selectedCategory,
-  )?.keycodes as IKeycode[];
+  );
 
   return (
     <>
       <SubmenuOverflowCell>{renderCategories()}</SubmenuOverflowCell>
       <OverflowCell>
         <KeycodeContainer>
-          {renderSelectedCategory(selectedCategoryKeycodes, selectedCategory)}
+          {renderSelectedCategory(selectedMenu)}
         </KeycodeContainer>
         <KeycodeDesc>{mouseOverDesc}</KeycodeDesc>
         {showKeyTextInputModal && renderKeyInputModal()}

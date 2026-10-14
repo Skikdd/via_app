@@ -13,6 +13,8 @@ const quantumRangesKeys = [
   '_QK_MOMENTARY_MAX',
   '_QK_DEF_LAYER',
   '_QK_DEF_LAYER_MAX',
+  '_QK_PERSISTENT_DEF_LAYER',
+  '_QK_PERSISTENT_DEF_LAYER_MAX',
   '_QK_TOGGLE_LAYER',
   '_QK_TOGGLE_LAYER_MAX',
   '_QK_ONE_SHOT_LAYER',
@@ -71,6 +73,7 @@ const topLevelMacroToValue = {
   TO: '_QK_TO', // TO(layer)
   MO: '_QK_MOMENTARY', // MO(layer)
   DF: '_QK_DEF_LAYER', //DF(layer)
+  PDF: '_QK_PERSISTENT_DEF_LAYER', // PDF(layer)
   TG: '_QK_TOGGLE_LAYER', //  TG(layer)
   OSL: '_QK_ONE_SHOT_LAYER', // OSL(layer)
   OSM: '_QK_ONE_SHOT_MOD', //OSM(mod)
@@ -206,6 +209,7 @@ export const advancedKeycodeToString = (
       break;
     case '_QK_MOMENTARY':
     case '_QK_DEF_LAYER':
+    case '_QK_PERSISTENT_DEF_LAYER':
     case '_QK_TOGGLE_LAYER':
     case '_QK_ONE_SHOT_LAYER':
     case '_QK_LAYER_TAP_TOGGLE':
@@ -293,6 +297,7 @@ const parseTopLevelMacro = (
   switch (topLevelKey) {
     case 'MO':
     case 'DF':
+    case 'PDF':
     case 'TG':
     case 'OSL':
     case 'TT':

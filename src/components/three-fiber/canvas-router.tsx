@@ -33,6 +33,7 @@ import {OVERRIDE_HID_CHECK} from 'src/utils/override';
 import {useSize} from 'src/utils/use-size';
 import {Object3D, SpotLight as ThreeSpotLight} from 'three';
 import {useLocation} from 'wouter';
+import {useTranslation} from 'react-i18next';
 import {AccentButtonLarge} from '../inputs/accent-button';
 import {ConfigureKeyboard} from '../n-links/keyboard/configure';
 import {Design} from '../n-links/keyboard/design';
@@ -78,6 +79,7 @@ const LazyRouter = React.lazy(async () => {
 });
 
 export const NonSuspenseCanvasRouter = () => {
+  const {t} = useTranslation();
   const [path] = useLocation();
   const body = useRef(document.body);
   const containerRef = useRef(null);
@@ -165,16 +167,35 @@ export const NonSuspenseCanvasRouter = () => {
           >
             {showAuthorizeButton ? (
               !selectedDefinition ? (
-                <AccentButtonLarge
-                  onClick={() => dispatch(reloadConnectedDevices())}
-                  style={{width: 'max-content'}}
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                  }}
                 >
-                  Authorize device
-                  <FontAwesomeIcon
-                    style={{marginLeft: '10px'}}
-                    icon={faUnlock}
-                  />
-                </AccentButtonLarge>
+                  <AccentButtonLarge
+                    onClick={() => dispatch(reloadConnectedDevices())}
+                    style={{width: 'max-content'}}
+                  >
+                    {t('Authorize device')}
+                    <FontAwesomeIcon
+                      style={{marginLeft: '10px'}}
+                      icon={faUnlock}
+                    />
+                  </AccentButtonLarge>
+                  <div
+                    style={{
+                      color: 'var(--color_accent)',
+                      fontSize: 20,
+                      marginTop: 16,
+                      textAlign: 'center',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {t('Authorize device tips')}
+                  </div>
+                </div>
               ) : (
                 <>
                   <div

@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useMemo, useState} from 'react';
-import {getKeycodes} from './key';
+import {flattenKeycodes, getKeycodes} from './key';
 import {mapEvtToKeycode} from './key-event';
 import {RawKeycodeSequence, RawKeycodeSequenceAction} from './macro-api/types';
 
@@ -12,7 +12,7 @@ export const useKeycodeRecorder = (
   const keycodeSequenceState = useState<RawKeycodeSequence>([]);
   const [, setKeycodeSequence] = keycodeSequenceState;
   const keycodes = useMemo(
-    () => getKeycodes().flatMap((menu) => menu.keycodes),
+    () => flattenKeycodes(getKeycodes()),
     [],
   );
   // If pressed key is our target key then set to true

@@ -11,15 +11,19 @@ import {useTranslation} from 'react-i18next';
 
 const Container = styled.div`
   position: absolute;
-  left: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 400;
   top: 10px;
 `;
 const Label = styled.label`
-  font-size: 20px;
+  font-size: 24px;
   text-transform: uppercase;
   color: var(--color_label-highlighted);
-  margin-right: 6px;
+  margin-right: 10px;
 `;
 const LayerButton = styled.button<{$selected?: boolean}>`
   outline: none;
@@ -32,7 +36,7 @@ const LayerButton = styled.button<{$selected?: boolean}>`
       ? 'var(--color_inside-accent)'
       : 'var(--color_label-highlighted)'};
   cursor: pointer;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 400;
   &:hover {
     border: none;

@@ -9,6 +9,7 @@ import {
   getLightingDefinition,
   KeycodeType,
 } from '@the-via/reader';
+import i18next from 'i18next';
 
 export interface IKeycode {
   name: string;
@@ -27,6 +28,7 @@ export interface IKeycodeMenu {
   keycodes: IKeycode[];
   width?: 'label';
   detailed?: string;
+  children?: IKeycodeMenu[];
 }
 
 const qmkBacklightKeycodes: IKeycode[] = [
@@ -76,17 +78,61 @@ const qmkRGBLightKeycodes: IKeycode[] = [
 ];
 
 const qmkRGBMatrixKeycodes: IKeycode[] = [
-  {name: 'RM Toggle', code: 'RM_TOGG'},
-  {name: 'RM Mode +', code: 'RM_NEXT'},
-  {name: 'RM Mode -', code: 'RM_PREV'},
-  {name: 'RM Hue +', code: 'RM_HUEU'},
-  {name: 'RM Hue -', code: 'RM_HUED'},
-  {name: 'RM Sat +', code: 'RM_SATU'},
-  {name: 'RM Sat -', code: 'RM_SATD'},
-  {name: 'RM Bright +', code: 'RM_VALU'},
-  {name: 'RM Bright -', code: 'RM_VALD'},
-  {name: 'RM Speed +', code: 'RM_SPDU'},
-  {name: 'RM Speed -', code: 'RM_SPDD'},
+  {
+    name: 'RM Toggle',
+    code: 'RM_TOGG',
+    title: 'Toggle RGB Matrix lighting on or off',
+  },
+  {
+    name: 'RM Mode +',
+    code: 'RM_NEXT',
+    title: 'Cycle to the next RGB Matrix effect',
+  },
+  {
+    name: 'RM Mode -',
+    code: 'RM_PREV',
+    title: 'Cycle to the previous RGB Matrix effect',
+  },
+  {
+    name: 'RM Hue +',
+    code: 'RM_HUEU',
+    title: 'Increase RGB Matrix hue',
+  },
+  {
+    name: 'RM Hue -',
+    code: 'RM_HUED',
+    title: 'Decrease RGB Matrix hue',
+  },
+  {
+    name: 'RM Sat +',
+    code: 'RM_SATU',
+    title: 'Increase RGB Matrix saturation',
+  },
+  {
+    name: 'RM Sat -',
+    code: 'RM_SATD',
+    title: 'Decrease RGB Matrix saturation',
+  },
+  {
+    name: 'RM Bright +',
+    code: 'RM_VALU',
+    title: 'Increase RGB Matrix brightness',
+  },
+  {
+    name: 'RM Bright -',
+    code: 'RM_VALD',
+    title: 'Decrease RGB Matrix brightness',
+  },
+  {
+    name: 'RM Speed +',
+    code: 'RM_SPDU',
+    title: 'Increase RGB Matrix effect speed',
+  },
+  {
+    name: 'RM Speed -',
+    code: 'RM_SPDD',
+    title: 'Decrease RGB Matrix effect speed',
+  },
 ];
 
 // Tests if label is an alpha (including Unicode letters)
@@ -172,6 +218,12 @@ function getByteForLayerCode(
           basicKeyToByte._QK_DEF_LAYER_MAX,
         );
       }
+      case 'PDF': {
+        return Math.min(
+          basicKeyToByte._QK_PERSISTENT_DEF_LAYER + numLayer,
+          basicKeyToByte._QK_PERSISTENT_DEF_LAYER_MAX,
+        );
+      }
       case 'TG': {
         return Math.min(
           basicKeyToByte._QK_TOGGLE_LAYER + numLayer,
@@ -230,6 +282,12 @@ function getCodeForLayerByte(
     const layer = byte - basicKeyToByte._QK_DEF_LAYER;
     return `DF(${layer})`;
   } else if (
+    basicKeyToByte._QK_PERSISTENT_DEF_LAYER <= byte &&
+    basicKeyToByte._QK_PERSISTENT_DEF_LAYER_MAX >= byte
+  ) {
+    const layer = byte - basicKeyToByte._QK_PERSISTENT_DEF_LAYER;
+    return `PDF(${layer})`;
+  } else if (
     basicKeyToByte._QK_TOGGLE_LAYER <= byte &&
     basicKeyToByte._QK_TOGGLE_LAYER_MAX >= byte
   ) {
@@ -262,10 +320,14 @@ function getCodeForLayerByte(
   }
 }
 
-export const keycodesList = getKeycodes().reduce<IKeycode[]>(
-  (p, n) => p.concat(n.keycodes),
-  [],
-);
+export function flattenKeycodes(menus: IKeycodeMenu[]): IKeycode[] {
+  return menus.flatMap((menu) => [
+    ...menu.keycodes,
+    ...(menu.children ? flattenKeycodes(menu.children) : []),
+  ]);
+}
+
+export const keycodesList = flattenKeycodes(getKeycodes());
 
 export const getByteToKey = (basicKeyToByte: Record<string, number>) =>
   Object.keys(basicKeyToByte).reduce(
@@ -288,6 +350,10 @@ function isLayerKey(byte: number, basicKeyToByte: Record<string, number>) {
     [basicKeyToByte._QK_TO, basicKeyToByte._QK_TO_MAX],
     [basicKeyToByte._QK_MOMENTARY, basicKeyToByte._QK_MOMENTARY_MAX],
     [basicKeyToByte._QK_DEF_LAYER, basicKeyToByte._QK_DEF_LAYER_MAX],
+    [
+      basicKeyToByte._QK_PERSISTENT_DEF_LAYER,
+      basicKeyToByte._QK_PERSISTENT_DEF_LAYER_MAX,
+    ],
     [basicKeyToByte._QK_TOGGLE_LAYER, basicKeyToByte._QK_TOGGLE_LAYER_MAX],
     [basicKeyToByte._QK_ONE_SHOT_LAYER, basicKeyToByte._QK_ONE_SHOT_LAYER_MAX],
     [
@@ -468,14 +534,14 @@ function buildLayerMenu(): IKeycodeMenu {
         code: 'MO(layer)',
         type: 'layer',
         layer: 0,
-        title: 'Momentary turn layer on',
+        title: i18next.t('Momentary turn') + 'layer',
       },
       {
         name: 'TG',
         code: 'TG(layer)',
         type: 'layer',
         layer: 0,
-        title: 'Toggle layer on/off',
+        title: i18next.t("Toggle '") + ' layer ' + i18next.t('on/off'),
       },
       {
         name: 'TT',
@@ -483,28 +549,53 @@ function buildLayerMenu(): IKeycodeMenu {
         type: 'layer',
         layer: 0,
         title:
-          "Normally acts like MO unless it's tapped multple times which toggles layer on",
+          i18next.t(
+            "Normally acts like MO unless it's tapped multple times which toggles",
+          ) +
+          ' layer ' +
+          i18next.t('on_'),
       },
       {
         name: 'OSL',
         code: 'OSL(layer)',
         type: 'layer',
         layer: 0,
-        title: 'Switch to layer for one keypress',
+        title:
+          i18next.t('Switch to') +
+          ' layer ' +
+          i18next.t('for one keypress'),
       },
       {
         name: 'TO',
         code: 'TO(layer)',
         type: 'layer',
         layer: 0,
-        title: 'Turn on layer when pressed',
+        title:
+          i18next.t('Turn on') +
+          'layer' +
+          i18next.t('when pressed'),
       },
       {
         name: 'DF',
         code: 'DF(layer)',
         type: 'layer',
         layer: 0,
-        title: 'Sets the default layer',
+        title:
+          i18next.t('Sets the default') +
+          ' layer ' +
+          i18next.t(
+            'Data lost on power-off(not written to EEPROM)',
+          ),
+      },
+      {
+        name: 'PDF',
+        code: 'PDF(layer)',
+        type: 'layer',
+        layer: 0,
+        title:
+          i18next.t('Sets the default') +
+          ' layer  ' +
+          i18next.t('persistently (saved in EEPROM)'),
       },
     ],
   };
@@ -545,14 +636,143 @@ function generateMacros(numMacros: number = 16): IKeycode[] {
   return res;
 }
 
+function buildBasicSubmenus(keycodes: IKeycode[]): IKeycodeMenu[] {
+  const groups: {
+    id: string;
+    label: string;
+    matches: (code: string) => boolean;
+  }[] = [
+    {
+      id: 'special',
+      label: 'Special Keys',
+      matches: (code) =>
+        ['KC_NO', 'KC_TRNS', 'KC_MCTL', 'KC_LPAD'].includes(code),
+    },
+    {
+      id: 'function_keys',
+      label: 'Function Keys',
+      matches: (code) => /^KC_F\d+$/.test(code),
+    },
+    {
+      id: 'numbers',
+      label: 'Numbers',
+      matches: (code) => /^KC_[0-9]$/.test(code),
+    },
+    {
+      id: 'alphabet',
+      label: 'Alphabet',
+      matches: (code) => /^KC_[A-Z]$/.test(code),
+    },
+    {
+      id: 'symbols',
+      label: 'Symbols',
+      matches: (code) =>
+        [
+          'KC_MINS',
+          'KC_EQL',
+          'KC_GRV',
+          'KC_LBRC',
+          'KC_RBRC',
+          'KC_BSLS',
+          'KC_SCLN',
+          'KC_QUOT',
+          'KC_COMM',
+          'KC_DOT',
+          'KC_SLSH',
+          'KC_NUHS',
+          'KC_NUBS',
+        ].includes(code),
+    },
+    {
+      id: 'numpad',
+      label: 'Numpad',
+      matches: (code) =>
+        code === 'KC_NLCK' ||
+        /^KC_P(?:[0-9]|SLS|AST|MNS|PLS|DOT|ENT|EQL|CMM)$/.test(code),
+    },
+    {
+      id: 'modifiers',
+      label: 'Modifiers',
+      matches: (code) =>
+        [
+          'KC_ESC',
+          'KC_PSCR',
+          'KC_SLCK',
+          'KC_PAUS',
+          'KC_BSPC',
+          'KC_TAB',
+          'KC_CAPS',
+          'KC_ENT',
+          'KC_INS',
+          'KC_DEL',
+          'KC_HOME',
+          'KC_END',
+          'KC_PGUP',
+          'KC_PGDN',
+          'KC_LSFT',
+          'KC_RSFT',
+          'KC_LCTL',
+          'KC_RCTL',
+          'KC_LGUI',
+          'KC_RGUI',
+          'KC_LALT',
+          'KC_RALT',
+          'KC_APP',
+          'KC_SPC',
+        ].includes(code),
+    },
+    {
+      id: 'arrows',
+      label: 'Arrow Keys',
+      matches: (code) =>
+        ['KC_LEFT', 'KC_DOWN', 'KC_UP', 'KC_RGHT'].includes(code),
+    },
+  ];
+  const assigned = new Set<IKeycode>();
+  const submenus = groups
+    .map(({id, label, matches}) => {
+      const groupedKeycodes = keycodes.filter((keycode) =>
+        matches(keycode.code),
+      );
+      groupedKeycodes.forEach((keycode) => assigned.add(keycode));
+      return {
+        id: `basic_${id}`,
+        label,
+        keycodes: groupedKeycodes,
+      };
+    })
+    .filter(({keycodes: groupedKeycodes}) => groupedKeycodes.length > 0);
+  const otherKeycodes = keycodes.filter((keycode) => !assigned.has(keycode));
+  if (otherKeycodes.length > 0) {
+    submenus.push({
+      id: 'basic_other',
+      label: 'Other',
+      keycodes: otherKeycodes,
+    });
+  }
+  return submenus;
+}
+
 export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
-  return [
+  const categories: IKeycodeMenu[] = [
     {
       id: 'basic',
       label: 'Basic',
       keycodes: [
         {name: '', code: 'KC_NO', title: 'Nothing'},
         {name: '▽', code: 'KC_TRNS', title: 'Pass-through'},
+        {
+          name: 'Mission Control',
+          code: 'KC_MCTL',
+          shortName: 'Mctl',
+          title: 'Open Mission Control (macOS)',
+        },
+        {
+          name: 'Launch Pad',
+          code: 'KC_LPAD',
+          shortName: 'Lpad',
+          title: 'Open Launchpad (macOS)',
+        },
         // TODO: remove "shortName" when multiline keycap labels are working
         {name: 'Esc', code: 'KC_ESC', keys: 'esc'},
         {name: 'A', code: 'KC_A', keys: 'a'},
@@ -1106,6 +1326,12 @@ export function getKeycodes(numMacros = 16): IKeycodeMenu[] {
       ],
     },
   ];
+  const basicMenu = categories.find(({id}) => id === 'basic');
+  if (basicMenu) {
+    basicMenu.children = buildBasicSubmenus(basicMenu.keycodes);
+    basicMenu.keycodes = [];
+  }
+  return categories;
 }
 
 export const categoriesForKeycodeModule = (
@@ -1214,7 +1440,7 @@ export const getKeycodesForKeyboard = (
       includeList.includes(keycodeMenu.id)
         ? keycodeMenu.id === 'qmk_lighting'
           ? getQMKLightingKeycodes(definition, protocol)
-          : keycodeMenu.keycodes
+          : flattenKeycodes([keycodeMenu])
         : [],
     )
     .sort((a, b) => {

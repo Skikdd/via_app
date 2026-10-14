@@ -202,10 +202,30 @@ const Loader: React.FC<{
       {<ChippyLoader theme={theme} progress={loadProgress || null} />}
 
       {(showButton || noConnectedDevices) && !noSupportedIds && !isElectron ? (
-        <AccentButtonLarge onClick={() => dispatch(reloadConnectedDevices())}>
-          {t('Authorize device')}
-          <FontAwesomeIcon style={{marginLeft: '10px'}} icon={faPlus} />
-        </AccentButtonLarge>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <AccentButtonLarge
+            onClick={() => dispatch(reloadConnectedDevices())}
+          >
+            {t('Authorize device')}
+            <FontAwesomeIcon style={{marginLeft: '10px'}} icon={faPlus} />
+          </AccentButtonLarge>
+          <span
+            style={{
+              color: 'var(--color_accent)',
+              fontSize: 20,
+              marginTop: 81,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {t('Authorize device tips')}
+          </span>
+        </div>
       ) : (
         <LoadingText isSearching={!selectedDefinition} />
       )}

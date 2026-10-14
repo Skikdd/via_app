@@ -28,14 +28,14 @@ const defaultStoreData = {
   },
   definitions: {},
   settings: {
-    showDesignTab: false,
+    showDesignTab: true,
     showConsoleTab: false,
     disableFastRemap: false,
-    ShowSliderValuesMode: 'Slider Only' as const,
+    ShowSliderValuesMode: 'Slider & Show Value' as const,
     renderMode: '2D' as const,
     themeMode: 'dark' as const,
     designDefinitionVersion: 'v3' as const,
-    themeName: 'OLIVIA_DARK',
+    themeName: 'CARBON_BLACK_B',
     hostKeyboardLayout: 'keymap_us',
     macroEditor: {
       smartOptimizeEnabled: true,
